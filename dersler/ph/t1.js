@@ -1,7 +1,7 @@
 /* Ders Rotası 6 · Hazırlayan: Mehmet Karadeniz, 2026-2027 */
 tema("ph",{
 id:"t1",no:"1. Ünite · 20 ders saati · 1. yazılı kapsamı",ad:"Gençlik Yıllarında Peygamberimiz",ozet:"Gençlik ahlakı, Hilfülfudul, Kâbe hakemliği, Hira ve ilk vahiy",pdf:"pdf/peyg-unite1.pdf",pdfAd:"PH6_Unite1_Genclik_Yillarinda_Peygamberimiz.pdf",pdfSayfa:4,
-   ornek:{pdf:"pdf/peyg-ornek-yazili.pdf",ad:"PH6_1_Donem_1_Yazili_Ornek_Sorular.pdf",sayfa:7,soru:23},
+   ornek:{pdf:"pdf/peyg-ornek-yazili.pdf",ad:"PH6_1_Donem_1_Yazili_Ornek_Sorular.pdf",sayfa:8,soru:31},
    ic:'<svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><path d="M4 40 L20 14 L28 26 L34 18 L46 40 Z" fill="var(--teal)"/><path d="M21 22 q4 -3 7 1 q-2 4 -7 2 z" fill="var(--ink)"/><circle cx="38" cy="9" r="5" fill="var(--amber)"/></svg>',
 /* ---------- KONU ANLATIMI (her öğe bir bölüm; uzun bölümler <!--PAGE--> ile sayfalara ayrılır) ---------- */
 konu:[
