@@ -7,7 +7,7 @@
      doldur; dersin etkileşimli parçaları varsa parcalar:true yap.
    - Her güncellemede SURUM'u değiştir (tarayıcı önbelleğini temizler).
    ===================================================================== */
-const SURUM = "2026-11-03a";
+const SURUM = "2026-11-04a";
 
 const DERSLER = [
 {id:"fen",ad:"Fen Bilimleri",kisa:"Fen",renk:"var(--amber)",acik:"Güneş sistemi, tutulmalar, kuvvet ve hareket.",
@@ -16,8 +16,8 @@ const DERSLER = [
  temalar:[]},
 {id:"mat",ad:"Matematik",kisa:"∑",renk:"var(--d-mat)",detAd:"Matematik Dedektifi",acik:"Çarpan ve katlar, bölünebilme, asal sayılar, EKOK-OBEB ve deneysel olasılık.",
  parcalar:true, temalar:["t1","t2"]},
-{id:"sos",ad:"Sosyal Bilgiler",kisa:"SB",renk:"var(--d-sos)",acik:"Birey, toplum, kültür ve miras.",
- temalar:[]},
+{id:"sos",ad:"Sosyal Bilgiler",kisa:"SB",renk:"var(--d-sos)",detAd:"Sosyal Dedektif",acik:"Gruplar ve roller, millî değerler, konum, doğal-beşerî çevre ve Türk dünyası.",
+ parcalar:true, temalar:["t1","t2"]},
 {id:"ing",ad:"İngilizce",kisa:"En",renk:"var(--d-ing)",acik:"Kelime, dinleme ve konuşma kalıpları.",
  temalar:[]},
 {id:"din",ad:"Din Kültürü ve Ahlak Bilgisi",kisa:"DK",renk:"var(--d-din)",acik:"İnanç, ibadet, ahlak ve değerler.",
