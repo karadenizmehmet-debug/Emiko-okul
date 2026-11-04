@@ -10,3 +10,7 @@ Her tema; sayfa sayfa konu anlatımı, etkileşimli canlandırmalar, kara tahta 
 Yeni tema/ders ekleme rehberi: [CLAUDE.md](CLAUDE.md)
 
 Hazırlayan: Mehmet Karadeniz, 2026-2027
+
+## Lisans
+
+© Mehmet Karadeniz, 2026-2027. Tüm hakları saklıdır. Ayrıntı için [LICENSE](LICENSE) dosyasına bak.
