@@ -1,0 +1,536 @@
+{
+ "ders": "sos",
+ "ad": "Sosyal Bilgiler",
+ "renk": "#8a6a2f",
+ "acik": "#f3ead7",
+ "temalar": [
+  {
+   "id": "t1",
+   "no": "1. Tema",
+   "ad": "Birlikte Yaşamak",
+   "ozet": "Gruplar ve roller, kültürel bağlar, millî değerler, toplumsal sorunlar, müzakere",
+   "kartlar": [
+    {
+     "b": "Grup ve rol (SB.6.1.1)",
+     "m": [
+      "**Grup:** ortak amaç ya da ilgi etrafında bir araya gelen, birbiriyle etkileşen insan topluluğu.",
+      "**Rol:** grubun bizden beklediği davranışlar. Herkesin aynı anda **birçok rolü** vardır.",
+      "Her rol bir **hak** ve bir **sorumluluk** getirir.",
+      "**Rol çatışması:** iki rolün sorumluluğu aynı anda çakışması. Öncelik belirlenir, konuşularak çözülür."
+     ]
+    },
+    {
+     "b": "Roller zamanla değişir",
+     "m": [
+      "Gruplar değişince roller de değişir: yaş ilerler → gruplar değişir → roller değişir.",
+      "Değişim sebepleri: **yaşın ilerlemesi**, **ailedeki değişimler**, **taşınma ve göç**, **ilgi ve yetenekler**.",
+      "Aynı grubun içinde de rol değişebilir (yedek oyuncu → kaptan).",
+      "Toplum değiştikçe aile rolleri de değişir: ev işleri ve çocuk bakımı artık daha çok paylaşılır."
+     ]
+    },
+    {
+     "b": "Kültürel bağlar (SB.6.1.2)",
+     "m": [
+      "**Kültür:** bir toplumun dil, inanç, gelenek, sanat, mutfak ve yaşayış biçiminin tamamı.",
+      "Bağlar: **ortak dil**, **inanç ve bayramlar**, **gelenek ve görenekler**, **ortak tarih ve sanat**.",
+      "**Kültürel çeşitlilik bir zenginliktir.** Farklılıklara saygı, birlikte yaşamanın şartıdır.",
+      "Gelenekler eskimedi: imece, vakıf, askıda ekmek bugün de yaşıyor."
+     ]
+    },
+    {
+     "b": "Millî değerlerimiz",
+     "m": [
+      "**Millî değer:** bütün bireyler tarafından benimsenen, korunan, gelecek nesillere aktarılan ortak manevi varlık.",
+      "Vatan, bayrak, **İstiklal Marşı** (Mehmet Âkif Ersoy, kabul: **12 Mart 1921**), Türkçe, bağımsızlık, şehit ve gaziler.",
+      "Birlik örnekleri: **Çanakkale 1915**, **Millî Mücadele**, **15 Temmuz 2016**, **6 Şubat 2023** depremleri."
+     ]
+    },
+    {
+     "b": "Toplumsal sorunlar (SB.6.1.3)",
+     "m": [
+      "Toplumun büyük kesimini etkileyen, **birlikte çalışmayı** gerektiren sorunlar.",
+      "Örnekler: çevre kirliliği, trafik kazaları, israf, akran zorbalığı, dijital bağımlılık, afetlere hazırlıksızlık.",
+      "Sorunlar zincirdir: **sebep → sorun → sonuç** (bayat ekmek çöpe → ekmek israfı → emek ve para boşa).",
+      "Çözüm **bireyden başlar**, kurumlar destekler."
+     ]
+    },
+    {
+     "b": "Müzakere",
+     "m": [
+      "**Müzakere:** farklı görüşlerin sorunu konuşarak, karşılıklı fikir alışverişiyle çözmesi. Sonunda tarafların buluşması **uzlaşmadır**.",
+      "6 adım: **Tanımla → Araştır → Dinle → Öner → Uzlaş → Uygula.**",
+      "İyi müzakereci: etkin dinler, empati kurar, **ben dili** kullanır, gerekçe sunar.",
+      "Amaç **kazanmak değil**, birlikte çözmektir. Okul meclisi demokratik müzakere ortamıdır."
+     ]
+    }
+   ],
+   "tablolar": [
+    {
+     "b": "Rollerin hak ve sorumlulukları",
+     "h": [
+      "Rol",
+      "Hak",
+      "Sorumluluk"
+     ],
+     "s": [
+      [
+       "Öğrenci",
+       "Eğitim almak, oyun oynamak",
+       "Ödevini yapmak, okul eşyasını korumak"
+      ],
+      [
+       "Sınıf başkanı",
+       "Sınıfın görüşünü iletmek",
+       "Arkadaşlarını adil temsil etmek"
+      ],
+      [
+       "Takım kaptanı",
+       "Hakemle konuşmak",
+       "Takımı birleştirmek, centilmen olmak"
+      ],
+      [
+       "Kardeş",
+       "Sevgi ve korunma görmek",
+       "Paylaşmak, kardeşine yardım etmek"
+      ]
+     ]
+    },
+    {
+     "b": "Yardımlaşma ve dayanışma gelenekleri",
+     "h": [
+      "Gelenek ya da kurum",
+      "Ne yapar?"
+     ],
+     "s": [
+      [
+       "**İmece**",
+       "Köylülerin bir işi (hasat, ev yapımı) hep birlikte, karşılıksız yapması"
+      ],
+      [
+       "**Vakıf**",
+       "Bir malın gelirinin cami, okul, çeşme, aşevi gibi hayır işlerine ayrılması"
+      ],
+      [
+       "**Ahilik**",
+       "Esnafın dürüst ticareti, işini iyi yapmayı, çırak yetiştirmeyi öğreten teşkilat"
+      ],
+      [
+       "**Sadaka taşı**",
+       "Verenin alanı, alanın vereni görmediği, kimsenin incinmediği yardım"
+      ],
+      [
+       "**Askıda ekmek**",
+       "Fırında ihtiyacı olan için önceden ekmek parası bırakmak"
+      ]
+     ]
+    },
+    {
+     "b": "Millî bayram ve günler",
+     "h": [
+      "Tarih",
+      "Bayram ya da gün"
+     ],
+     "s": [
+      [
+       "23 Nisan",
+       "Ulusal Egemenlik ve Çocuk Bayramı"
+      ],
+      [
+       "19 Mayıs",
+       "Atatürk'ü Anma, Gençlik ve Spor Bayramı"
+      ],
+      [
+       "15 Temmuz",
+       "Demokrasi ve Millî Birlik Günü"
+      ],
+      [
+       "30 Ağustos",
+       "Zafer Bayramı"
+      ],
+      [
+       "29 Ekim",
+       "Cumhuriyet Bayramı"
+      ]
+     ]
+    },
+    {
+     "b": "Hangi sorunda kimler çözüme katkı verir?",
+     "h": [
+      "Sorun",
+      "Katkı sağlayanlar"
+     ],
+     "s": [
+      [
+       "Çevre kirliliği",
+       "Bireyler, belediye, çevre dernekleri (TEMA gibi)"
+      ],
+      [
+       "Afetler",
+       "AFAD, Türk Kızılay, gönüllüler, aileler"
+      ],
+      [
+       "Bağımlılıklar",
+       "Aile, okul, Yeşilay, sağlık kuruluşları"
+      ],
+      [
+       "Akran zorbalığı",
+       "Öğrenciler, öğretmenler, rehber öğretmen, veliler"
+      ]
+     ]
+    }
+   ],
+   "ipuclari": [
+    "**Grup** = insanlar topluluğu. **Rol** = o grupta beklenen davranış. Sorular bu ikisini karıştırtır.",
+    "Eşleştirmede: karşılıksız ortak iş = **imece**, gelirin hayra ayrılması = **vakıf**, esnaf ahlakı = **ahilik**.",
+    "Rol çatışması sorusunda cevap: **önceliği belirle ve ilgili kişilerle konuş**.",
+    "Müzakerenin sırası sınavda sorulur: önce tanımla, en son uygula ve değerlendir.",
+    "Sorun sorusunda **sebep-sonuç** zincirini yaz."
+   ],
+   "tuzaklar": [
+    "“Bir insanın yalnızca bir rolü olur.” **Yanlış:** aynı anda çok rolü vardır.",
+    "“Gelenekler eskidi, işe yaramaz.” **Yanlış:** imece, vakıf, askıda ekmek yaşıyor.",
+    "“Toplumsal sorunları sadece devlet çözer.” **Yanlış:** çözüm bireyden başlar.",
+    "“Müzakerede amaç haklı çıkmaktır.” **Yanlış:** amaç ortak çözümdür."
+   ],
+   "ezber": "Müzakere: **Tanımla, Araştır, Dinle, Öner, Uzlaş, Uygula.** Bayramlar: **23 Nisan, 19 Mayıs, 15 Temmuz, 30 Ağustos, 29 Ekim.**",
+   "sayfa": 2,
+   "sorular": [
+    [
+     "Ortak amaç ya da ilgi etrafında bir araya gelen insan topluluğu?",
+     "Grup"
+    ],
+    [
+     "Grubun bizden beklediği davranışlar?",
+     "Rol"
+    ],
+    [
+     "İki rolün sorumluluğunun aynı anda çakışması?",
+     "Rol çatışması"
+    ],
+    [
+     "Rollerin zamanla değişme sebeplerinden ikisi?",
+     "Yaşın ilerlemesi, taşınma ve göç (ailedeki değişimler, ilgi ve yetenekler de olur)"
+    ],
+    [
+     "Köylülerin bir işi karşılıksız birlikte yapması?",
+     "İmece"
+    ],
+    [
+     "Bir malın gelirini hayır işlerine ayırmak?",
+     "Vakıf"
+    ],
+    [
+     "Esnafa dürüstlüğü ve çırak yetiştirmeyi öğreten teşkilat?",
+     "Ahilik"
+    ],
+    [
+     "Sadaka taşı geleneğinin bugünkü örneği?",
+     "Askıda ekmek"
+    ],
+    [
+     "İstiklal Marşı'nı kim yazdı, ne zaman kabul edildi?",
+     "Mehmet Âkif Ersoy, 12 Mart 1921"
+    ],
+    [
+     "Zafer Bayramı hangi tarihte?",
+     "30 Ağustos"
+    ],
+    [
+     "15 Temmuz hangi gün olarak anılır?",
+     "Demokrasi ve Millî Birlik Günü"
+    ],
+    [
+     "Afetlerde yardıma koşan kurumlardan ikisi?",
+     "AFAD, Türk Kızılay"
+    ],
+    [
+     "Müzakerenin ilk adımı?",
+     "Sorunu suçlamadan tanımlamak"
+    ],
+    [
+     "Müzakerenin sonunda tarafların buluşması?",
+     "Uzlaşma"
+    ],
+    [
+     "“Sen hep…” yerine hangi dil kullanılır?",
+     "Ben dili"
+    ]
+   ]
+  },
+  {
+   "id": "t2",
+   "no": "2. Tema",
+   "ad": "Evimiz Dünya",
+   "ozet": "Paralel ve meridyen, Türkiye'nin konumu, kıtalar, doğal ve beşerî çevre, Türk dünyası",
+   "kartlar": [
+    {
+     "b": "Koordinat sistemi (SB.6.2.1)",
+     "m": [
+      "Dünya üzerindeki hayali çizgilerin ağına **koordinat sistemi** denir.",
+      "**Enlem:** bir yerin Ekvator'a uzaklığı. **Boylam:** başlangıç meridyenine uzaklığı.",
+      "Enlem ve boylam birlikte bir yerin **adresidir**. Paralel ile meridyenin kesiştiği nokta tek bir yeri gösterir.",
+      "**Ekvator** 0° paralel (K ve G yarım küre). **Greenwich** 0° meridyen (D ve B yarım küre)."
+     ]
+    },
+    {
+     "b": "Türkiye'nin mutlak konumu",
+     "m": [
+      "**36°-42° Kuzey** paralelleri, **26°-45° Doğu** meridyenleri arası.",
+      "**Mutlak konum:** koordinatla verilir, **değişmez**.",
+      "Kuzey Yarım Küre, **orta kuşak** (dört mevsim), Doğu Yarım Küre.",
+      "26° ile 45° arasında **19 meridyen** var. 19 × 4 = **76 dakika** yerel saat farkı. Güneş Kars'ta Çanakkale'den erken doğar."
+     ]
+    },
+    {
+     "b": "Türkiye'nin göreceli konumu",
+     "m": [
+      "**Göreceli konum:** çevresine (kıta, deniz, komşu) göre konum. Zamanla önemi değişebilir.",
+      "**Asya ile Avrupa'yı bağlar:** Anadolu Asya'da, Trakya Avrupa'da.",
+      "**Üç yanı deniz:** Karadeniz, Ege, Akdeniz. Marmara içimizde. **Boğazlar** Karadeniz'i Akdeniz'e bağlar.",
+      "**8 kara komşu:** Yunanistan, Bulgaristan, Gürcistan, Ermenistan, Azerbaycan (Nahçıvan), İran, Irak, Suriye."
+     ]
+    },
+    {
+     "b": "Kıtalar ve okyanuslar",
+     "m": [
+      "Yüzeyin yaklaşık **dörtte üçü su**, dörtte biri kara.",
+      "**7 kıta:** Asya, Afrika, Kuzey Amerika, Güney Amerika, Antarktika, Avrupa, Okyanusya.",
+      "**5 okyanus:** Büyük (Pasifik), Atlas, Hint, Güney, Kuzey Buz Denizi.",
+      "En büyük ve en derin: **Büyük Okyanus**. En küçük: **Kuzey Buz Denizi**."
+     ]
+    },
+    {
+     "b": "Doğal ve beşerî çevre (SB.6.2.2)",
+     "m": [
+      "**Doğal çevre:** insan eli değmeden oluşan: yer şekilleri, iklim, akarsu, bitki örtüsü, toprak.",
+      "**Beşerî çevre:** insanın oluşturduğu: yerleşme, yol, köprü, baraj, tarla, fabrika.",
+      "Etki **karşılıklıdır**: Karadeniz'in bol yağışı eğimli çatılı ahşap evler; insan ise baraj, tünel, sera, teras yapar.",
+      "**GAP:** Fırat ve Dicle barajları → Harran Ovası sulandı → pamuk üretimi ve fabrikalar arttı."
+     ]
+    },
+    {
+     "b": "Türk dünyası (SB.6.2.3)",
+     "m": [
+      "Dil, tarih, gelenek ve inançları benzer Türk soylu topluluklar: Azerbaycan, Kazakistan, Kırgızistan, Özbekistan, Türkmenistan, KKTC.",
+      "Ortak değerler: ortak kelimeler (su, ana, at, göz), **Nevruz (21 Mart)**, **Dede Korkut** ve **Manas Destanı**, Yunus Emre, Nasreddin Hoca, Hoca Ahmet Yesevi.",
+      "Ortak sporlar: güreş, atlı okçuluk, **kökbörü**.",
+      "İş birliği: **Türkiye Bursları**, festivaller, kurumlar. Akşehir'de Uluslararası Nasreddin Hoca Şenliği."
+     ]
+    }
+   ],
+   "tablolar": [
+    {
+     "b": "Paralel ve meridyen",
+     "h": [
+      "",
+      "Paralel",
+      "Meridyen"
+     ],
+     "s": [
+      [
+       "Başlangıcı",
+       "Ekvator (0°)",
+       "Greenwich (0°)"
+      ],
+      [
+       "Uzandığı yön",
+       "Doğu-batı",
+       "Kuzey-güney"
+      ],
+      [
+       "Değer aralığı",
+       "0°-90° kuzey ve güney",
+       "0°-180° doğu ve batı"
+      ],
+      [
+       "Boyları",
+       "Kutuplara doğru **küçülür**",
+       "Hepsi **eşit**"
+      ],
+      [
+       "Bir yerin değeri",
+       "Enlem",
+       "Boylam"
+      ]
+     ]
+    },
+    {
+     "b": "Kıtalar (büyükten küçüğe)",
+     "h": [
+      "Kıta",
+      "Alan",
+      "Akılda kalsın"
+     ],
+     "s": [
+      [
+       "Asya",
+       "44 milyon km²",
+       "En büyük ve en kalabalık; Türkiye'nin çoğu burada"
+      ],
+      [
+       "Afrika",
+       "30 milyon km²",
+       "Ekvator ortasından geçer; Sahra"
+      ],
+      [
+       "Kuzey Amerika",
+       "24 milyon km²",
+       "Kanada, ABD, Meksika"
+      ],
+      [
+       "Güney Amerika",
+       "18 milyon km²",
+       "Amazon yağmur ormanları"
+      ],
+      [
+       "Antarktika",
+       "14 milyon km²",
+       "Güney Kutbu, buzla kaplı, sürekli nüfus yok"
+      ],
+      [
+       "Avrupa",
+       "10 milyon km²",
+       "Trakya bu kıtada"
+      ],
+      [
+       "Okyanusya",
+       "8,5 milyon km²",
+       "En küçük kıta; Avustralya ve adalar"
+      ]
+     ]
+    },
+    {
+     "b": "Türkiye'nin mutlak konumunun sonuçları",
+     "h": [
+      "Bilgi",
+      "Sonucu"
+     ],
+     "s": [
+      [
+       "Kuzey Yarım Küre'deyiz",
+       "Güneş ışınları öğle vakti güneyden gelir; güneye bakan odalar daha aydınlıktır"
+      ],
+      [
+       "Orta kuşaktayız",
+       "Dört mevsim belirgin yaşanır"
+      ],
+      [
+       "Doğu-batı arası 19 meridyen",
+       "En doğu ile en batı arası 76 dakika yerel saat farkı; Güneş Kars'ta Çanakkale'den erken doğar"
+      ],
+      [
+       "Doğu Yarım Küre'deyiz",
+       "Greenwich'e göre güneş bizde daha erken doğar"
+      ]
+     ]
+    },
+    {
+     "b": "Doğal çevre ve insan: karşılıklı etki",
+     "h": [
+      "Doğal çevrenin insana etkisi",
+      "İnsanın doğal çevreye etkisi"
+     ],
+     "s": [
+      [
+       "Bol yağışlı Karadeniz'de eğimli çatılar, ahşap evler",
+       "Barajlarla akarsuların önü kesilir, sulama ve elektrik sağlanır"
+      ],
+      [
+       "Ormansız İç Anadolu'da kerpiç ve taş evler",
+       "Dağlar tünellerle delinir, boğazlar köprülerle geçilir"
+      ],
+      [
+       "Düz ovalar kalabalık, yüksek dağlar seyrek nüfuslu",
+       "Yamaçlar teraslanır, seralarla mevsim dışı sebze yetişir"
+      ],
+      [
+       "Deprem riski bina yapım kurallarını belirler",
+       "Ormanların kesilmesi erozyona, atıklar kirliliğe yol açar"
+      ]
+     ]
+    }
+   ],
+   "ipuclari": [
+    "Yer bulma sorusunda **önce enlemi (paralel), sonra boylamı (meridyen)** oku.",
+    "**Yerel saat farkı = boylam farkı × 4 dakika.** Doğudaki yerde güneş **önce** doğar.",
+    "Cevapta koordinat varsa **mutlak**, komşu, deniz, kıta varsa **göreceli** konumdur.",
+    "**Doğal** = insan eli değmeden. **Beşerî** = insan yapımı.",
+    "Kıtaları alana göre sıralarken: A-A-K-G-A-A-O (Asya, Afrika, Kuzey, Güney, Antarktika, Avrupa, Okyanusya)."
+   ],
+   "tuzaklar": [
+    "“Mutlak ve göreceli konum aynı şeydir.” **Yanlış.**",
+    "“Meridyenlerin boyu kutuplara doğru küçülür.” **Yanlış:** küçülen paralellerdir.",
+    "“İnsanın doğaya müdahalesi her zaman iyidir.” **Yanlış:** yangın, bilinçsiz kesim, kirlilik dengeyi bozar.",
+    "“Antarktika'da sürekli yaşayan nüfus vardır.” **Yanlış:** yoktur."
+   ],
+   "ezber": "**Paralel = doğu-batı, kutuplara küçülür. Meridyen = kuzey-güney, hepsi eşit.** Türkiye: **36°-42° K, 26°-45° D.**",
+   "sayfa": 2,
+   "sorular": [
+    [
+     "Ekvator kaç derece paraleldir?",
+     "0°"
+    ],
+    [
+     "Başlangıç meridyeni hangi yerden geçer?",
+     "Greenwich (Londra yakını)"
+    ],
+    [
+     "Paraleller hangi yönde uzanır?",
+     "Doğu-batı"
+    ],
+    [
+     "Hangi çizgilerin boyları birbirine eşittir?",
+     "Meridyenlerin"
+    ],
+    [
+     "Bir yerin Ekvator'a uzaklığı?",
+     "Enlem"
+    ],
+    [
+     "Türkiye'nin paralel aralığı?",
+     "36°-42° kuzey"
+    ],
+    [
+     "Türkiye'nin meridyen aralığı?",
+     "26°-45° doğu"
+    ],
+    [
+     "Koordinatla verilen konum?",
+     "Mutlak konum"
+    ],
+    [
+     "Türkiye'nin kara komşusu sayısı?",
+     "8"
+    ],
+    [
+     "En doğu ile en batı arası yerel saat farkı?",
+     "76 dakika"
+    ],
+    [
+     "En büyük kıta?",
+     "Asya"
+    ],
+    [
+     "En küçük okyanus?",
+     "Kuzey Buz Denizi"
+    ],
+    [
+     "İnsan eli değmeden oluşan çevre?",
+     "Doğal çevre"
+    ],
+    [
+     "GAP hangi akarsular üzerinde kuruldu?",
+     "Fırat ve Dicle"
+    ],
+    [
+     "Nevruz hangi tarihte kutlanır?",
+     "21 Mart"
+    ],
+    [
+     "Kökbörü nedir?",
+     "At sırtında oynanan geleneksel oyun"
+    ]
+   ]
+  }
+ ]
+}

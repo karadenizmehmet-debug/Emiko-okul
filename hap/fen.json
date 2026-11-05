@@ -1,0 +1,119 @@
+{
+"ders":"fen","ad":"Fen Bilimleri","renk":"#c8661a","acik":"#fbe9d8",
+"temalar":[
+{
+"id":"t1","no":"1. Tema","ad":"Güneş Sistemi ve Tutulmalar","ozet":"Gezegenler, gök taşları, Güneş ve Ay tutulmaları, model kurma",
+"kartlar":[
+{"b":"Güneş Sistemi","m":[
+ "**Güneş** + **8 gezegen** + uydular + asteroitler + gök taşları.",
+ "Gezegenler kendi yollarında, yani **yörüngelerinde** Güneş'in etrafında döner.",
+ "Merkür turunu yaklaşık **88 günde**, Neptün yaklaşık **165 Dünya yılında** tamamlar.",
+ "Güneş'in doğup batması, **Dünya'nın kendi etrafında dönmesinden** kaynaklanır."]},
+{"b":"Karasal ve gazsal gezegenler","m":[
+ "**Karasal (iç):** Merkür, Venüs, Dünya, Mars. Kayalık, katı yüzeyli, küçük, **halkasız**.",
+ "**Gazsal (dış):** Jüpiter, Satürn, Uranüs, Neptün. Gazdan oluşur, **katı yüzey yok**, çok büyük, hepsinin **halkası ve uydusu** var.",
+ "**Uydusuz:** Merkür ve Venüs. **En sıcak:** Venüs (kalın atmosfer). **Kızıl:** Mars (demir oksit).",
+ "Büyüklük: Jüpiter > Satürn > Uranüs > Neptün > Dünya > Venüs > Mars > Merkür."]},
+{"b":"Gök taşı yolculuğu","m":[
+ "**Asteroit kuşağı** (Mars ile Jüpiter arası) → **gök taşı** → **meteor** → **meteorit** → **meteor çukuru**.",
+ "**Meteor:** atmosferde sürtünmeyle yanan, ışık izi bırakan gök taşı.",
+ "**Meteorit:** yanmadan yeryüzüne ulaşan parça.",
+ "Gerçek olay: 2015, **Bingöl Sarıçiçek** meteoriti."]},
+{"b":"Tutulmayı güvenle izle","m":[
+ "Güneş tutulmasına **yalnızca özel tutulma gözlüğüyle** ya da **iğne deliği** yöntemiyle bak.",
+ "Güneş gözlüğü, röntgen filmi ve CD **koruma sağlamaz**, gözde kalıcı hasar yapar.",
+ "Ay tutulması çıplak gözle **güvenle** izlenir.",
+ "**Kanlı Ay:** Dünya atmosferinde kırılan kırmızı ışık Ay'a ulaşır."]},
+{"b":"Bilimsel model","m":[
+ "**Model:** bir şeyin küçültülmüş, basitleştirilmiş temsili.",
+ "Yeni bilgi geldikçe model **yenilenir**.",
+ "Modelin **sınırı:** büyüklük ve uzaklıklar gerçek ölçekte değildir (Güneş, Dünya'dan yaklaşık 109 kat büyük).",
+ "Model malzemesi: el feneri (Güneş), top (Dünya), misket (Ay)."]},
+{"b":"Bilim insanlarımız","m":[
+ "**Biruni** (973-1048): Dünya ve gezegenlerin Güneş etrafında dolandığını vurgulayan çalışmalar yaptı.",
+ "**Fergani** (800'lü yıllar): tutulmaların ne zaman olacağını hesaplayan bir yöntem buldu.",
+ "**Uluğ Bey:** tutulmalarla ilgili hesaplamalar yaptı."]}
+],
+"tablolar":[
+{"b":"Güneş tutulması mı, Ay tutulması mı?","h":["Özellik","Güneş tutulması","Ay tutulması"],"s":[
+ ["Sıralama","Güneş – **Ay** – Dünya","Güneş – **Dünya** – Ay"],
+ ["Gölge","Ay'ın gölgesi Dünya'ya","Dünya'nın gölgesi Ay'a"],
+ ["Ay'ın evresi","Yeni ay","Dolunay"],
+ ["Ne zaman?","Gündüz","Gece"],
+ ["Nereden görülür?","Dünya'nın dar bir bölgesinden","Gecenin yaşandığı her yerden"],
+ ["Süre","Tam evre birkaç dakika","Saatlerce sürebilir"]]}
+],
+"ipuclari":[
+ "**Ortadaki gölgeyi düşürür:** ortada Ay varsa Güneş, ortada Dünya varsa Ay tutulur.",
+ "Güneş tutulması = **gündüz + yeni ay**. Ay tutulması = **gece + dolunay**.",
+ "Tabloda “halka var” ise gazsal gezegendir. “Uydu yok” ise Merkür ya da Venüs'tür.",
+ "**Güneş'e yakınlık** sırası ile **büyüklük** sırasını karıştırma, ikisi farklıdır.",
+ "Tutulmanın benzerliği: üç cisim aynı doğrultuya gelir, ışık düz yayılır, gölge oluşur, önceden hesaplanabilir."],
+"tuzaklar":[
+ "“Güneş, Dünya'nın etrafında döner.” **Yanlış.**",
+ "“En yakın gezegen en sıcaktır.” **Yanlış:** en sıcak Venüs'tür.",
+ "“Kayan yıldız bir yıldızdır.” **Yanlış:** o bir meteordur.",
+ "“Her ay tutulma olur.” **Yanlış:** Ay'ın yörüngesi eğiktir, üçü her ay tam hizaya gelmez.",
+ "“Güneş gözlüğüyle bakmak zararsızdır.” **Yanlış.**"],
+"ezber":"Güneş'e yakınlık sırası: **Minik Veli Dün Mavi Jiple Su Ulaştırdı Nineye** = Merkür, Venüs, Dünya, Mars, Jüpiter, Satürn, Uranüs, Neptün."
+},
+{
+"id":"t2","no":"2. Tema","ad":"Kuvvetin Etkisinde Hareket","ozet":"Kuvvetin özellikleri, bileşke kuvvet, denge, yol, yer değiştirme, sürat ve hız",
+"kartlar":[
+{"b":"Kuvvetin kimlik kartı","m":[
+ "**Kuvvet:** cisme uygulanan itme ya da çekme. **Dinamometre** ile ölçülür, birimi **Newton (N)**.",
+ "Dört özellik: **uygulama noktası**, **doğrultu**, **yön**, **büyüklük**.",
+ "Okla gösterim: okun başı = uygulama noktası, uzunluğu = büyüklük, ucu = yön.",
+ "Kapıyı menteşeye yakın itmek zordur: aynı kuvvet, farklı uygulama noktası, farklı sonuç."]},
+{"b":"Doğrultu ve yön","m":[
+ "**Doğrultu:** hangi çizgi üzerinde? Yatay, düşey, doğu-batı.",
+ "**Yön:** o çizginin hangi tarafına? Sağa, sola, yukarı, aşağı, doğuya.",
+ "**Her doğrultunun birbirine zıt iki yönü vardır.**",
+ "Tren rayı: doğrultu aynı, yönler zıt. Asansör: doğrultu düşey, yön değişir."]},
+{"b":"Bileşke kuvvet","m":[
+ "Aynı doğrultudaki kuvvetlerin birlikte yaptığı etkiyi tek başına yapan kuvvet.",
+ "**Aynı yönlü:** topla. 20 N + 30 N = **50 N**.",
+ "**Zıt yönlü:** büyükten küçüğü çıkar, yön büyük olanın yönüdür. 40 N − 25 N = **15 N**.",
+ "**Eşit ve zıt:** bileşke **0**. Halat kıpırdamaz."]},
+{"b":"Dengeleyici kuvvet","m":[
+ "Bileşkeyi **sıfır** yapmak için eklenen kuvvet.",
+ "Bileşkeyle **aynı büyüklükte**, **aynı doğrultuda**, **zıt yönlüdür**.",
+ "Bileşke 15 N sola ise dengeleyici 15 N **sağa**."]},
+{"b":"Alınan yol ve yer değiştirme","m":[
+ "**Alınan yol:** izlenen yolun toplam uzunluğu, **yönü yok**.",
+ "**Yer değiştirme:** başlangıç ile bitiş arasındaki düz çizgi, **yönü var**, okla gösterilir.",
+ "Yer değiştirme alınan yoldan **büyük olamaz**. Eşitlik: düz çizgide, geri dönmeden gitmek.",
+ "400 m'lik pistte 1 tur: yol **400 m**, yer değiştirme **0**."]},
+{"b":"Sürat ve hız","m":[
+ "**Sürat:** birim zamanda alınan **yol**, yönü yok.",
+ "**Hız:** birim zamanda yapılan **yer değiştirme**, yönü var.",
+ "Birimler: **km/h** ve **m/s**. 5 m/s = her saniyede 5 metre.",
+ "Sabit hızlı hareket **her zaman** sabit süratlidir; tersi doğru değildir."]}
+],
+"tablolar":[
+{"b":"Dengelenmiş ve dengelenmemiş kuvvetler","h":["Cismin durumu","Dengelenmiş (bileşke = 0)","Dengelenmemiş (bileşke ≠ 0)"],"s":[
+ ["Duruyorsa","Durmaya devam eder","Harekete başlar"],
+ ["Hareket ediyorsa","Aynı süratle, aynı yönde devam eder","Hızlanır, yavaşlar, durur ya da yön değiştirir"],
+ ["Örnek","Masadaki kitap, sabit süratle inen paraşütçü","Şut, fren yapan araba, kalkışa geçen otobüs"]]},
+{"b":"Sürat ve hız karşılaştırması","h":["","Sürat","Hız"],"s":[
+ ["Neyi kullanır?","Alınan yol","Yer değiştirme"],
+ ["Yönü var mı?","Yok","Var"],
+ ["Pistte 1 tur atan koşucu","Sıfırdan farklı","Tur sonunda 0"],
+ ["Virajda sabit gösterge","Değişmez","Yön değiştiği için değişir"]]}
+],
+"ipuclari":[
+ "Cevap bir **çizgi adıysa** (yatay, düşey) doğrultu, bir **gidiş tarafıysa** (sağa, yukarı) yöndür.",
+ "Bileşke sorusunda önce **yönlere** bak: aynıysa topla, zıtsa çıkar.",
+ "“Sabit süratle düz yolda gidiyor” = kuvvetler **dengelenmiştir**.",
+ "Yönü söylenmiyorsa **sürat**, söyleniyorsa **hız** de.",
+ "Programa göre bu bölümde grafik okuma ve birim dönüşümü yoktur."],
+"tuzaklar":[
+ "“Duran cisme kuvvet etki etmez.” **Yanlış:** kuvvetler dengelenmiştir.",
+ "“Kuvvetler dengelenince cisim hemen durur.” **Yanlış:** sabit süratle devam eder.",
+ "“Sağa ve sola kuvvetler farklı doğrultudadır.” **Yanlış:** ikisi de yataydır.",
+ "“Araç göstergesi hızı gösterir.” **Yanlış:** yön yok, sürati gösterir.",
+ "Yuvarlanan topu durduran, kuvvetlerin dengelenmesi değil **sürtünmedir**."],
+"ezber":"**Doğrultu = çizgi. Yön = okun ucu.** Her doğrultunun iki zıt yönü vardır."
+}
+]
+}

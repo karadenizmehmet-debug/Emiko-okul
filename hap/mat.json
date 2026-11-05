@@ -1,0 +1,126 @@
+{
+"ders":"mat","ad":"Matematik","renk":"#2563c9","acik":"#e3ecfb",
+"temalar":[
+{
+"id":"t1","no":"1. Tema","ad":"Sayılar ve Nicelikler","ozet":"Çarpan ve kat, bölünebilme, asal sayılar, EKOK ve OBEB",
+"kartlar":[
+{"b":"Çarpan ve kat","m":[
+ "**Çarpan (bölen):** sayıyı kalansız bölen doğal sayı. **Kat:** sayının doğal sayılarla çarpımı.",
+ "12 = 3 · 4 ise 3 ve 4, 12'nin çarpanıdır; 12 de 3'ün ve 4'ün katıdır.",
+ "Çarpanlar **sonludur**: en küçüğü 1, en büyüğü kendisi. Katlar **sonsuzdur**.",
+ "Çarpan bulma: 1'den başla, **çiftler hâlinde** ilerle, çarpanlar birbirine yetişince dur. 36'nın 9 çarpanı var."]},
+{"b":"Bilinmeyen rakamı bulma","m":[
+ "1. Şartı yaz (ör. 4A6 sayısı 3'e bölünüyor).",
+ "2. Kurala göre hesapla: 4 + A + 6 = 10 + A.",
+ "3. Katları dene: 12, 15, 18 → **A = 2, 5 ya da 8**.",
+ "**Kalan:** 5'e bölümden kalan = son basamağın kalanı. 3'e bölümden kalan = rakamlar toplamının kalanı."]},
+{"b":"Asal sayılar","m":[
+ "**Asal:** 1'den büyük, yalnızca 1'e ve kendisine bölünen sayı. Asal olmayanlar **bileşik**.",
+ "İlk asallar: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47.",
+ "**1** ne asal ne bileşik. **2** tek çift asal. Asallar **sonsuzdur**.",
+ "100'den küçük sayı 2, 3, 5, 7'ye bölünmüyorsa **asaldır**. **Eratosthenes kalburu** asalları bulur."]},
+{"b":"Asal çarpanlara ayırma","m":[
+ "Her bileşik sayı asalların çarpımıdır. İki yöntem: **çarpan ağacı** ve **bölen merdiveni**.",
+ "Merdiven: sayıyı en küçük asala böl, 1'e ulaşana kadar sürdür. 84 = 2 · 2 · 3 · 7 = 2² · 3 · 7.",
+ "“Asal çarpanları nelerdir?” → **tekrarsız** yaz: 2, 3, 7.",
+ "“Asal çarpanlarına ayırınız” → **çarpım** yaz: 2 · 2 · 3 · 7."]},
+{"b":"EKOK","m":[
+ "**Ortak katların en küçüğü.** Olaylar **yeniden birlikte** gerçekleşir.",
+ "Merdiven: sayılardan **en az birini** bölen asallarla, hepsi 1 olana dek böl; bölenleri çarp.",
+ "EKOK(12, 18) = 2 · 2 · 3 · 3 = **36**.",
+ "EKOK, sayıların **en büyüğünden küçük olamaz**."]},
+{"b":"OBEB","m":[
+ "**Ortak bölenlerin en büyüğü.** Bir çokluk **eşit parçalara** bölünür.",
+ "Merdiven: yalnızca sayıların **hepsini birden** bölen asallarla böl; bölenleri çarp.",
+ "OBEB(36, 48) = 2 · 2 · 3 = **12**.",
+ "OBEB, sayıların **en küçüğünden büyük olamaz**. **Aralarında asal:** ortak böleni yalnızca 1 (8 ve 15)."]}
+],
+"tablolar":[
+{"b":"Bölünebilme kuralları","h":["Bölen","Neye bakılır?","Örnek"],"s":[
+ ["2","Birler basamağı 0, 2, 4, 6, 8","348 ✓"],
+ ["5","Birler basamağı 0 ya da 5","735 ✓"],
+ ["10","Birler basamağı 0","470 ✓"],
+ ["4","**Son iki basamak** 4'ün katı (ya da 00)","1316 → 16 ✓"],
+ ["3","**Rakamlar toplamı** 3'ün katı","156 → 12 ✓"],
+ ["9","**Rakamlar toplamı** 9'un katı","468 → 18 ✓"],
+ ["6","Hem 2'ye hem 3'e bölünür","234 → çift, toplam 9 ✓"]]},
+{"b":"EKOK mu, OBEB mi?","h":["","OBEB","EKOK"],"s":[
+ ["Ne yapılıyor?","Eldeki çokluk **bölünüyor**, paylaştırılıyor","Olaylar **tekrarlanıyor**, birikiyor"],
+ ["Anahtar sözler","en büyük eşit parça, artmadan, kesmeden kare, en az kaç parça","en az kaç, yeniden birlikte, aynı anda tekrar"],
+ ["Sonuç","En küçük sayıdan büyük olamaz","En büyük sayıdan küçük olamaz"],
+ ["Merdiven","Yalnızca hepsini birden bölenler","En az birini bölen bütün asallar"]]}
+],
+"ipuclari":[
+ "**Kontrol:** iki sayı için EKOK · OBEB = sayıların çarpımı. 36 · 6 = 216 = 12 · 18.",
+ "En az parça isteniyorsa parçalar **en uzun** olmalıdır: **OBEB** bul, sonra uzunluğu OBEB'e böl.",
+ "Kalanlı soruda önce **kalanı çıkar**: 4'erli ve 6'şarlı sayınca 1 artıyorsa en az EKOK(4, 6) + 1 = **13**.",
+ "Sonu 1, 3, 7, 9 ile biten sayıyı asal sanma. Kuralla kontrol et.",
+ "6'ya bölünme: önce “çift mi?” sor, sonra rakamları topla. İkisi birlikte tutmalı."],
+"tuzaklar":[
+ "“4 için son basamağa bakılır.” **Yanlış:** 134'ün son iki basamağı 34, 4'ün katı değil.",
+ "“Sonu 1, 3, 7, 9 olan her sayı asaldır.” **Yanlış:** 21, 27, 51 bileşiktir.",
+ "“EKOK, iki sayının çarpımıdır.” **Yanlış:** EKOK(4, 6) = 12, çarpım 24.",
+ "“60 = 4 · 15, bitti.” **Yanlış:** 4 ve 15 asal değil. 60 = 2 · 2 · 3 · 5.",
+ "“Çarpanlar da sonsuza kadar gider.” **Yanlış:** sonsuz olan katlardır."],
+"ezber":"**Çarpan ağacı ya da bölen merdiveni, hangisiyle başlarsan başla asal çarpanlar hep aynıdır.**"
+},
+{
+"id":"t2","no":"6. Tema","ad":"Veriden Olasılığa","ozet":"Olasılık, deneysel olasılık, çok denemenin gücü, veriden tahmin",
+"kartlar":[
+{"b":"Temel kavramlar","m":[
+ "**Olasılık:** bir olayın gerçekleşme şansını sayıyla ifade etmek.",
+ "**Deney:** sonucu önceden kesin bilinmeyen girişim (para, zar, torba).",
+ "**Çıktı:** deneyin her bir olası sonucu. **Olay:** merak ettiğimiz sonuç ya da sonuçlar.",
+ "Olasılık değeri **0 ile 1** arasındadır. Kesir, ondalık ya da yüzde ile yazılır."]},
+{"b":"Deneysel olasılık","m":[
+ "Deneyi **defalarca** yapıp sonuçları kaydederek bulunur.",
+ "**İstenen sonucun sayısı ÷ toplam deneme sayısı**",
+ "Önce **sıklık (çetele) tablosu** yapılır, sonra her sıklık toplama bölünür.",
+ "Bütün sonuçların olasılıkları toplamı **1**. Kırmızı 5/8 ise mavi 1 − 5/8 = **3/8**."]},
+{"b":"Çok deneme, iyi tahmin","m":[
+ "Az deneme yanıltır. Deneme arttıkça oran **kararlı** hâle gelir.",
+ "Buffon 4040 atışta 2048 yazı, Pearson 24 000 atışta 12 012 yazı: oran yarıya yaklaştı.",
+ "Aynı deneyi iki kişi yapınca sonuçlar farklı çıkabilir. Sonuçlar birleşince deneme sayısı artar, tahmin iyileşir."]},
+{"b":"Veriden tahmin","m":[
+ "**Beklenen sayı = toplam × olasılık.**",
+ "Kantin: 200 öğrenciden 80'i tost aldı → 2/5. 250 öğrenci gelirse 250 · 2/5 = **100 tost**.",
+ "Fabrika: 50 oyuncakta 2 kusurlu → 1/25. 1000 üretimde 1000 ÷ 25 = **40 kusurlu**.",
+ "Tahmin kesin sonuç değildir ama hazırlığı kolaylaştırır."]},
+{"b":"Olasılıkta dört adım","m":[
+ "1. **Deneyi yap** (para, zar, torba, anket).",
+ "2. **Sonuçları kaydet** (çetele, sıklık tablosu).",
+ "3. **Oranı hesapla** (istenen ÷ toplam).",
+ "4. **Yorumla:** kesir, ondalık, yüzde; tahmin yap."]},
+{"b":"Örnek soru","m":[
+ "Zar 60 kez atıldı: 1→8, 2→11, 3→9, 4→12, 5→10, 6→10.",
+ "Çift gelme olasılığı: (11 + 12 + 10) ÷ 60 = 33/60 = 11/20 = **%55**.",
+ "Penaltı: 30 atışta 27 gol → 27/30 = **%90**. Bu bir tahmindir, kaçırabilir."]}
+],
+"tablolar":[
+{"b":"İmkânsızdan kesine","h":["Durum","Olasılık","Örnek"],"s":[
+ ["İmkânsız olay","**0**","Zar atınca 7 gelmesi"],
+ ["Olası ama düşük","0 ile 1/2 arası","10 toptan 1'i kırmızıysa kırmızı çekmek"],
+ ["Eşit şanslı","**1/2**","Hileli olmayan paranın yazı gelmesi"],
+ ["Olası ve yüksek","1/2 ile 1 arası","Ocakta Akşehir'de havanın 15 °C'den soğuk olması"],
+ ["Kesin olay","**1**","Zar atınca 7'den küçük sayı gelmesi"]]},
+{"b":"Aynı olasılık, üç gösterim","h":["Kesir","Ondalık","Yüzde","Püf noktası"],"s":[
+ ["3/5","0,6","%60","Paydayı 10 ya da 100 yap: 3/5 = 6/10 = 60/100"],
+ ["3/4","0,75","%75","Elif'in 20 atıştan 15 basketi: 15/20 = 3/4"],
+ ["5/8","0,625","%62,5","Kırmızı 10, mavi 6, toplam 16: 10/16"]]}
+],
+"ipuclari":[
+ "**Payda her zaman toplam deneme sayısıdır**, diğer sonucun sayısı değil.",
+ "Bir sonucun olasılığı biliniyorsa diğeri **1'den çıkarılarak** bulunur.",
+ "Sonucun **negatif** ya da **1'den büyük** çıkması bir hata işaretidir.",
+ "Tablodaki sıklıkları toplayıp toplam deneme sayısını önce kontrol et.",
+ "Film puanı gibi yorumlarda **veri sayısı** ne kadar çoksa tahmin o kadar güvenilirdir."],
+"tuzaklar":[
+ "“%90 olasılıklı olay kesin olur.” **Yanlış:** kesin olay %100'dür.",
+ "“5 kez yazı geldi, şimdi kesin tura gelir.” **Yanlış:** paranın hafızası yoktur (kumarbaz yanılgısı).",
+ "“Kırmızı sayısı ÷ mavi sayısı.” **Yanlış:** toplam denemeye bölünür (10 ÷ 16).",
+ "“Hiç 6 gelmedi, imkânsızdır.” **Yanlış:** deneme sayısı az olabilir.",
+ "Deneysel olasılığın tekrarda değişmesi bir hata değildir."],
+"ezber":"**Olasılık = istenen ÷ toplam deneme.** Değer hep **0 ile 1** arasındadır."
+}
+]
+}

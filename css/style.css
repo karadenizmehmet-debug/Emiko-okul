@@ -289,5 +289,6 @@ td.tally{font-family:var(--mono);letter-spacing:1px} td.tally s{text-decoration-
 .flip[aria-pressed="true"] .fr{display:none}.flip[aria-pressed="true"] .bk{display:block}
 .temas:has(> :only-child){grid-template-columns:minmax(0,1fr)}
 .pdfbar.ornek{border-left-color:var(--know)}
+.pdfbar.hap{border-left-color:#b8860b}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
