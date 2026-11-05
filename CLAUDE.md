@@ -47,14 +47,16 @@ q:{
 Kutu sınıfları: `box life` (günlük hayat), `box myth` (yanlış bilinen), `box know` (biliyor musun / bilim tarihi), `box teach` (öğretmen notu / deney). Ayrıca `rule`, `cards4 > mini`, `tbl > table`, `chain`, `hl`.
 
 ## Hap notlar şablonu (`hap/<ders>.json` içindeki tema)
+Hap not = **en can alıcı, olmazsa olmaz** bilgi. Kısa tut. Bir A4 sayfaya **2 tema** sığar (tek temalı ders tam sayfa olur); betik yazı ölçeğini otomatik ayarlar. Kara tahta tasarımı betikte sabittir.
 ```json
-{"id":"t3","no":"3. Tema","ad":"Tema Adı","ozet":"Tek satır özet","sayfa":1,
- "kartlar":[{"b":"Kart başlığı","m":["**Kalın** vurgulu madde.","..."]}],
- "tablolar":[{"b":"Tablo başlığı","h":["Sütun 1","Sütun 2"],"s":[["a","b"]]}],
- "sorular":[["Hızlı soru?","Cevap"]],
- "ipuclari":["..."], "tuzaklar":["Yanlış bilinen. **Yanlış:** doğrusu ..."], "ezber":"Tek cümlelik akılda tutma notu"}
+{"id":"t3","no":"3. Tema","ad":"Tema Adı","ikon":"gunes",
+ "hap":["En çok 6-7 kısa madde. **Anahtar kelime** renkli tebeşir olur."],
+ "tablo":{"b":"Başlık","h":["","Sütun 1","Sütun 2"],"s":[["a","b","c"]]},
+ "zincir":{"b":"Sıra / çizgi","m":["1. adım","2. adım"]},
+ "tuzak":[["Yanlış bilinen","Doğrusu"]],
+ "ipucu":"Sınav ipucu (tek cümle)", "ezber":"**Böyle hatırla** (tek cümle)"}
 ```
-`sayfa` hedef sayfa sayısıdır (varsayılan 1). Betik yazı ölçeğini sayfaları dolduracak şekilde otomatik ayarlar. 2 sayfalık temada `sorular` ve ek tablolarla sayfayı doldur. İçerik tema dosyasındaki (konu anlatımı) bilgiyle birebir uyumlu olmalı. Gereksinim: google-chrome ve pypdf.
+`tablo` ve `zincir` isteğe bağlıdır (biri ya da ikisi). `ikon`: gunes, kuvvet, carpan, zar, grup, dunya, hira (yenisi için `araclar/hap_pdf.py` içindeki `IKON` sözlüğüne SVG ekle). İçerik tema dosyasındaki konu anlatımıyla birebir uyumlu olmalı. Çalıştır: `python3 araclar/hap_pdf.py <ders>`. Gereksinim: google-chrome ve pypdf. Yazı tipleri `araclar/fontlar` altında (SIL OFL).
 
 ## Test
 `python3 -m http.server` ile kökten aç; ders → tema → tüm konu sayfaları → 7 istasyon konsol hatası vermemeli.

@@ -7,7 +7,7 @@
      doldur; dersin etkileşimli parçaları varsa parcalar:true yap.
    - Her güncellemede SURUM'u değiştir (tarayıcı önbelleğini temizler).
    ===================================================================== */
-const SURUM = "2026-11-05a";
+const SURUM = "2026-11-05b";
 
 const DERSLER = [
 {id:"fen",ad:"Fen Bilimleri",kisa:"Fen",renk:"var(--amber)",acik:"Güneş sistemi, tutulmalar, kuvvet ve hareket.",
