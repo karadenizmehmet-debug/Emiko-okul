@@ -21,6 +21,26 @@ TEBESIR = ["c1", "c2", "c3", "c4", "c5"]
 
 ARAP = re.compile(r"([\u0600-\u06FF\u0750-\u077F]+(?:[ \u00A0\u200c]+[\u0600-\u06FF\u0750-\u077F]+)*)")
 
+
+def ar_okunus(s):
+    sozluk = {
+        "هَذِهِ":"hezihi", "هَذَا":"heza", "مَنْ":"men", "مَا":"mâ",
+        "أَبٌ":"ebun", "أَبِي":"ebî", "أُمٌّ":"ümmün", "أُمِّي":"ümmî",
+        "أَخٌ":"ehun", "أَخِي":"ehî", "أُخْتٌ":"uhtün", "أُخْتِي":"uhtî",
+        "جَدٌّ":"ceddün", "جَدِّي":"ceddî", "جَدَّةٌ":"ceddetün", "جَدَّتِي":"ceddetî",
+        "عَمٌّ":"ammun", "عَمِّي":"ammî", "عَمَّةٌ":"ammetün", "عَمَّتِي":"ammetî",
+        "خَالٌ":"hâlün", "خَالِي":"hâlî", "خَالَةٌ":"hâletün", "خَالَتِي":"hâletî",
+        "أَقَارِبُ":"ekâribü", "أَقَارِبِي":"ekâribî", "أُسْرَةٌ":"üsretün",
+        "عَائِلَةٌ":"âiletün", "قَرِيبٌ":"karîbün", "اِبْنٌ":"ibnün", "بِنْتٌ":"bintün",
+        "حَفِيدٌ":"hafîdün", "مِهْنَةٌ":"mihnetün", "مِهَنٌ":"mihenün",
+        "مُعَلِّمٌ":"muallimün", "مُعَلِّمَةٌ":"muallimetün", "طَبِيبٌ":"tabîbün",
+        "طَبِيبَةٌ":"tabîbetün", "مُهَنْدِسٌ":"mühendisün", "مُهَنْدِسَةٌ":"mühendisetün",
+        "شُرْطِيٌّ":"şurtiyyün", "شُرْطِيَّةٌ":"şurtiyyetün", "طَبَّاخٌ":"tabbahun",
+        "نَجَّارٌ":"neccârun", "خَبَّازٌ":"hebbâzun", "خَيَّاطٌ":"hayyâtun",
+        "فَلَّاحٌ":"fellâhun", "سَائِقٌ":"sâikun", "بَائِعٌ":"bâiun"
+    }
+    return " ".join(sozluk.get(w, w) for w in s.split())
+
 def m(s, renkli=True):
     """HTML kaçışı + **kalın** -> renkli tebeşir vurgusu."""
     sayac = [0]
@@ -28,7 +48,7 @@ def m(s, renkli=True):
         c = TEBESIR[sayac[0] % 5]; sayac[0] += 1
         return f'<b class="{c}">{mo.group(1)}</b>'
     out = re.sub(r"\*\*(.+?)\*\*", r, html.escape(s, quote=False))
-    return ARAP.sub(r'<span class="ab">\1</span>', out)
+    return ARAP.sub(lambda mo: '<span class="ab">' + mo.group(1) + '</span> <span class="ar-pron">(' + ar_okunus(mo.group(1)) + ')</span>', out)
 
 IKON = {
  "gunes": '<circle cx="22" cy="30" r="14" fill="#f7d95e"/><circle cx="32" cy="27" r="13" fill="#1d3a2c"/><circle cx="46" cy="14" r="2.2" fill="#f5f2e7"/><circle cx="12" cy="10" r="1.6" fill="#f5f2e7"/>',
