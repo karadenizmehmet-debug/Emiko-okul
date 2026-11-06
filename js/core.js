@@ -70,12 +70,14 @@ const STATIONS=[
 {id:"match",name:"Eşleştirme",desc:"Kavramı tanımıyla buluştur. İki set.",ic:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="5" cy="7" r="2.5"/><circle cx="19" cy="17" r="2.5"/><path d="M7.5 7c6 0 3 10 9 10"/></svg>'},
 {id:"fill",name:"Boşluk Doldurma",desc:"Kelime havuzundan doğru kavramı seç, cümleyi tamamla.",ic:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 17h5M16 17h5"/><rect x="9" y="12" width="6" height="6" rx="1"/></svg>'},
 {id:"sira",name:"Sıralama",desc:"Adımları ve nesneleri doğru sıraya koy.",ic:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 6h10M4 12h13M4 18h16"/></svg>'},
-{id:"klasik",name:"Klasik Sorular",desc:"Kendi cümlelerinle yaz, örnek cevap ve kontrol listesiyle değerlendir.",ic:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 4l5 5L9 20H4v-5z"/></svg>'}
+{id:"klasik",name:"Klasik Sorular",desc:"Kendi cümlelerinle yaz, örnek cevap ve kontrol listesiyle değerlendir.",ic:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 4l5 5L9 20H4v-5z"/></svg>'},
+ {id:"visual",name:"Görsel Eşleştirme",desc:"Arapça kelimeyi oku, üç görsel arasından doğru mesleği seç.",ic:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="2"/><path d="m21 15-5-5L5 21"/></svg>'}
 ];
 
 /* ====================== GÖRÜNÜM ====================== */
 const view=$("#view");
 const curD=()=>DERSLER.find(d=>d.id===state.d);
+const stationsFor=(d,t)=>STATIONS.filter(s=>s.id!=="visual"||!!(d&&d.q&&d.q[t]&&d.q[t].visual));
 const sN=s=>(s.id==="det"&&curD()&&curD().detAd)||s.name;
 
 function render(){
@@ -100,7 +102,7 @@ function renderHome(){
   view.innerHTML=`<div class="home-head"><h2>Bugün hangi dersi çalışıyoruz?</h2><p>Bir ders seç, ardından temayı seçip konu anlatımına ya da pekiştirme istasyonuna geç.</p></div>
   <div class="dersler">${DERSLER.map(d=>{
     let st="Yakında";
-    if(d.hazir){const n=d.temas.length;let y=0;d.temas.forEach(t=>STATIONS.forEach(s=>{const b=store.sc&&store.sc[d.id+":"+t.id]&&store.sc[d.id+":"+t.id][s.id];if(b)y+=starsFor(b.s/b.n)}));st=`${n} tema hazır · ${y} / ${n*STATIONS.length*3} yıldız`}
+    if(d.hazir){const n=d.temas.length;let y=0;d.temas.forEach(t=>stationsFor(d,t.id).forEach(s=>{const b=store.sc&&store.sc[d.id+":"+t.id]&&store.sc[d.id+":"+t.id][s.id];if(b)y+=starsFor(b.s/b.n)}));const max=d.temas.reduce((a,t)=>a+stationsFor(d,t.id).length,0)*3;st=`${n} tema hazır · ${y} / ${max} yıldız`}
     return `<button class="dcard ${d.hazir?"live":""}" data-d="${d.id}" style="--dc:${d.renk}" ${d.hazir?"":"disabled"}><span class="dic">${d.kisa}</span><h3>${d.ad}</h3><p>${d.acik}</p><span class="st">${st}</span></button>`}).join("")}</div>`;
   $$(".dcard.live").forEach(b=>b.onclick=()=>{state.d=b.dataset.d;state.st=null;render();window.scrollTo({top:0})});
 }
@@ -161,13 +163,13 @@ document.addEventListener("keydown",e=>{
   if(e.key==="ArrowLeft"){const b=$("#pPrev");b&&!b.disabled&&b.click()}
 });
 
-function stationCount(id){const d=curD().q[state.t];if(id==="match")return d.match.reduce((a,s)=>a+s.p.length,0);if(id==="fill")return d.fill.items.length;if(id==="sira")return d.sira.length;return d[id].length}
+function stationCount(id){const d=curD().q[state.t];if(id==="visual")return d.visual.length;if(id==="match")return d.match.reduce((a,s)=>a+s.p.length,0);if(id==="fill")return d.fill.items.length;if(id==="sira")return d.sira.length;return d[id].length}
 function renderStations(){
-  const total=STATIONS.reduce((a,s)=>{const b=getBest(state.t,s.id);return a+(b?starsFor(b.s/b.n):0)},0);
-  view.innerHTML=`<div class="ist-head"><h2>Pekiştirme İstasyonu</h2><p>${curD().temas.find(t=>t.id===state.t).ozet} üzerine yedi farklı istasyon. Her istasyonda en iyi sonucun yıldız olarak kaydedilir.</p></div>
+  const stations=stationsFor(curD(),state.t);const total=stations.reduce((a,s)=>{const b=getBest(state.t,s.id);return a+(b?starsFor(b.s/b.n):0)},0);
+  view.innerHTML=`<div class="ist-head"><h2>Pekiştirme İstasyonu</h2><p>${curD().temas.find(t=>t.id===state.t).ozet} üzerine ${stations.length} farklı istasyon. Her istasyonda en iyi sonucun yıldız olarak kaydedilir.</p></div>
   <div class="score-strip"><span class="pill accp">Toplam yıldız: ${total} / ${STATIONS.length*3}</span></div>
-  <div class="stations">${STATIONS.map((s,i)=>{const b=getBest(state.t,s.id);const n=stationCount(s.id);
-    const meta=`<div class="meta"><span>${n} ${s.id==="match"?"eşleşme":s.id==="sira"?"görev":s.id==="det"?"vaka":"soru"}</span><span class="stars">${starStr(b?starsFor(b.s/b.n):0)}</span></div>`;
+  <div class="stations">${stations.map((s,i)=>{const b=getBest(state.t,s.id);const n=stationCount(s.id);
+    const meta=`<div class="meta"><span>${n} ${s.id==="match"?"eşleşme":s.id==="sira"?"görev":s.id==="det"?"vaka":s.id==="visual"?"görsel soru":"soru"}</span><span class="stars">${starStr(b?starsFor(b.s/b.n):0)}</span></div>`;
     return i===0?`<button class="scard feat" data-s="${s.id}"><span class="ic">${s.ic}</span><span class="tx"><h3>${sN(s)}</h3><p>${s.desc}</p>${meta}</span></button>`
     :`<button class="scard" data-s="${s.id}"><span class="ic">${s.ic}</span><h3>${sN(s)}</h3><p>${s.desc}</p>${meta}</button>`}).join("")}</div>`;
   $$(".scard").forEach(c=>c.onclick=()=>{state.st=c.dataset.s;render();window.scrollTo({top:0})});
@@ -184,6 +186,7 @@ function renderStation(id){
   else if(id==="fill")fillSt(el,d.fill);
   else if(id==="sira")siraSt(el,d.sira);
   else if(id==="klasik")klasikSt(el,d.klasik);
+   else if(id==="visual")visualSt(el,d.visual);
 }
 function summary(el,s,n,id,again,label){
   setBest(state.t,id,s,n);
