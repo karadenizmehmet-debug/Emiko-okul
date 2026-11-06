@@ -1,21 +1,36 @@
 /* Ders Rotası 6 · Hazırlayan: Mehmet Karadeniz, 2026-2027 */
 (()=>{
 
-/* Arapça kelimelerin yaklaşık Türkçe okunuşu */
+/* Arapça kelimelerin yaklaşık Türkçe okunuşu.
+   İnce harflerin çevresinde e/ü, kalın harflerin çevresinde a/u kullanılır.
+   Bu yazım öğretim amaçlı yaklaşık Türkçe telaffuzdur. */
 const arOku = s => {
   const chars=[...String(s).replace(/ـ/g,"")], out=[];
+  const thin=new Set(["ب","ت","ث","ج","د","ذ","ز","س","ش","ف","ك","ل","م","ن","ه","ي","ء","أ","إ"]);
+  const thick=new Set(["ص","ض","ط","ظ","ق","خ","غ"]);
   const consonants={"ء":"","أ":"","إ":"","آ":"â","ا":"a","ؤ":"'","ئ":"'","ب":"b","ت":"t","ث":"s","ج":"c","ح":"h","خ":"h","د":"d","ذ":"z","ر":"r","ز":"z","س":"s","ش":"ş","ص":"s","ض":"d","ط":"t","ظ":"z","ع":"'","غ":"ğ","ف":"f","ق":"k","ك":"k","ل":"l","م":"m","ن":"n","ه":"h","و":"v","ي":"y","ى":"a","ة":"t"};
-  const marks={"َ":"a","ِ":"i","ُ":"u","ْ":"","ً":"an","ٍ":"in","ٌ":"un"};
+  const marks={"َ":"a","ِ":"i","ُ":"u","ْ":"","ً":"en","ٍ":"in","ٌ":"un"};
+  const harmony=(i)=>{
+    for(let d=1;d<chars.length;d++){
+      const a=chars[i-d],b=chars[i+d];
+      if(thick.has(a)||thick.has(b))return "back";
+      if(thin.has(a)||thin.has(b))return "front";
+    }
+    return "back";
+  };
   for(let i=0;i<chars.length;i++){
-    const c=chars[i], prev=chars[i-1], next=chars[i+1];
+    const c=chars[i], prev=chars[i-1], next=chars[i+1], h=harmony(i);
     if(c==="ّ"){if(out.length)out[out.length-1]+=out[out.length-1];continue}
     if(marks[c]!==undefined){
       let v=marks[c];
+      if(c==="َ")v=h==="front"?"e":"a";
+      if(c==="ُ")v=h==="front"?"ü":"u";
+      if(c==="ِ")v="i";
       if(c==="َ"&&next==="ا")v="â";
       if(c==="ُ"&&next==="و")v="û";
       if(c==="ِ"&&next==="ي")v="î";
       if(c==="ً"&&prev==="ة")v="ten";
-      if(c==="ٌ"&&prev==="ة")v="tun";
+      if(c==="ٌ"&&prev==="ة")v="tün";
       if(c==="ٍ"&&prev==="ة")v="tin";
       out.push(v);continue;
     }
@@ -25,7 +40,8 @@ const arOku = s => {
     if(consonants[c]!==undefined){out.push(consonants[c]);continue}
     if(c==="؟")out.push("?");else if(c==="،")out.push(",");else if(c==="؛")out.push(";");else if(/[.!?،؛:]/.test(c))out.push(c);else if(/\s/.test(c))out.push(" ");
   }
-  return out.join("").replace(/\s+/g," ").trim().replace(/^'/,"").replace(/\?\s/g,"? ");
+  const result=out.join("").replace(/\s+/g," ").trim().replace(/^'/,"");
+  return String(s).includes("هَذِهِ") ? result.replace(/هَذِهِ/g,"hezihi") : result;
 };
 const arPron = s => `<span class="ar-pron" style="direction:ltr;unicode-bidi:isolate;font-size:.82em;color:var(--muted);white-space:nowrap">(${arOku(s)})</span>`;
 
