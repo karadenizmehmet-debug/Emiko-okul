@@ -29,7 +29,7 @@ const arOku = s => {
 };
 const arPron = s => `<span class="ar-pron" style="direction:ltr;unicode-bidi:isolate;font-size:.82em;color:var(--muted);white-space:nowrap">(${arOku(s)})</span>`;
 
-const A=s=>`<span class="ab" lang="ar" dir="rtl">${s}</span> ${arPron(s)};
+const A=s=>`<span class="ab" lang="ar" dir="rtl">${s}</span> ${arPron(s)}`;
 tema("ar",{
 id:"t1",no:"1. Tema · Günlük Hayat 1",ad:"Günlük Hayat 1",ozet:"Akrabalarım (geniş aile bireyleri) ve meslekler",pdf:"pdf/ar-tema1.pdf",pdfAd:"Arapca6_Tema1_Gunluk_Hayat1.pdf",pdfSayfa:4,
    ic:'<svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><circle cx="14" cy="13" r="6" fill="var(--amber)"/><circle cx="34" cy="13" r="6" fill="var(--teal)"/><circle cx="24" cy="25" r="5" fill="var(--ink)"/><path d="M4 42 q10-18 20 0 z" fill="var(--amber)" opacity=".85"/><path d="M24 42 q10-18 20 0 z" fill="var(--teal)" opacity=".85"/><path d="M15 42 q9-14 18 0 z" fill="var(--ink)"/></svg>',
