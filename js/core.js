@@ -78,7 +78,7 @@ const STATIONS=[
 /* ====================== GÖRÜNÜM ====================== */
 const view=$("#view");
 const curD=()=>DERSLER.find(d=>d.id===state.d);
-const stationsFor=(d,t)=>STATIONS.filter(s=>s.id!=="visual"||!!(d&&d.q&&d.q[t]&&d.q[t].visual));
+const stationsFor=(d,t)=>STATIONS.filter(s=>(s.id!=="visual"||!!(d&&d.q&&d.q[t]&&d.q[t].visual))&&(s.id!=="yazili"||!!(d&&d.q&&d.q[t]&&d.q[t].yazili)));
 const sN=s=>(s.id==="det"&&curD()&&curD().detAd)||s.name;
 
 function render(){
