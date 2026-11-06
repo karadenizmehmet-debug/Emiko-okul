@@ -14,10 +14,10 @@
   --body:"Lexend", "Segoe UI", system-ui, sans-serif;
   --mono:"JetBrains Mono", ui-monospace, Consolas, monospace;
   --acc:var(--amber); --acc-soft:var(--amber-soft);
-  --d-tr:#c0392b; --d-mat:#2563c9; --d-sos:#8a6a2f; --d-ing:#7a3fb0; --d-din:#1f8a5a; --d-ph:#0e7c86;
+  --d-tr:#c0392b; --d-mat:#2563c9; --d-sos:#8a6a2f; --d-ing:#7a3fb0; --d-din:#1f8a5a; --d-ph:#0e7c86; --d-ar:#b0306a;
 }
-@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --d-tr:#ff7a6b; --d-mat:#6ea3ff; --d-sos:#d6b16a; --d-ing:#c39bff; --d-din:#55d095; --d-ph:#4fc8d1; }}
-:root[data-theme="dark"]{ --d-tr:#ff7a6b; --d-mat:#6ea3ff; --d-sos:#d6b16a; --d-ing:#c39bff; --d-din:#55d095; --d-ph:#4fc8d1; }
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --d-tr:#ff7a6b; --d-mat:#6ea3ff; --d-sos:#d6b16a; --d-ing:#c39bff; --d-din:#55d095; --d-ph:#4fc8d1; --d-ar:#ff8fc0; }}
+:root[data-theme="dark"]{ --d-tr:#ff7a6b; --d-mat:#6ea3ff; --d-sos:#d6b16a; --d-ing:#c39bff; --d-din:#55d095; --d-ph:#4fc8d1; --d-ar:#ff8fc0; }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
   --paper:#0f1626; --grid:#18233a; --surface:#16203a; --surface2:#1c2846; --ink:#e6ecf7; --muted:#9aa9c6; --line:#2a3858;
   --amber:#f0994a; --amber-soft:#3a2716; --teal:#3cc4a4; --teal-soft:#12352f;
@@ -292,3 +292,33 @@ td.tally{font-family:var(--mono);letter-spacing:1px} td.tally s{text-decoration-
 .pdfbar.hap{border-left-color:#b8860b}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+
+/* ====================== ARAPÇA ====================== */
+@font-face{font-family:"NotoNaskhAr";font-weight:400;font-display:swap;src:url("../araclar/fontlar/noto-naskh-arabic-arabic-400-normal.woff2") format("woff2")}
+@font-face{font-family:"NotoNaskhAr";font-weight:700;font-display:swap;src:url("../araclar/fontlar/noto-naskh-arabic-arabic-700-normal.woff2") format("woff2")}
+.ab{font-family:"NotoNaskhAr","Noto Naskh Arabic","Geeza Pro","Traditional Arabic","Segoe UI",serif;direction:rtl;unicode-bidi:isolate;font-size:1.3em;line-height:1.8;font-weight:400;color:var(--ink)}
+b .ab,.ab b{font-weight:700}
+.abbig{font-family:"NotoNaskhAr","Noto Naskh Arabic","Geeza Pro","Traditional Arabic",serif;direction:rtl;font-size:2.2rem;line-height:1.7;font-weight:700;text-align:center;display:block}
+.rule .ab,.hl .ab{color:inherit}
+.arcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.arc{border:2px solid var(--line);background:var(--surface2);border-radius:14px;padding:10px 8px 12px;text-align:center;display:flex;flex-direction:column;gap:2px;align-items:center;min-height:128px;justify-content:center;transition:border-color .2s,transform .2s}
+.arc:hover{border-color:var(--acc)}
+.arc .abbig{font-size:1.9rem}
+.arc .tr{font-size:.95rem;font-weight:600;color:var(--acc)}
+.arc .alt{font-size:.8rem;color:var(--muted)}
+.arc .hint{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.arc.on{border-color:var(--acc);background:var(--acc-soft)}
+.arc.baba{border-color:color-mix(in srgb,var(--amber) 55%,transparent)}
+.arc.anne{border-color:color-mix(in srgb,var(--teal) 55%,transparent)}
+.arc .tag{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:1px 8px;background:var(--surface);border:1px solid var(--line);color:var(--muted)}
+.arc .ex{font-size:.88rem;line-height:1.5;border-top:1px dashed var(--line);margin-top:6px;padding-top:6px;width:100%}
+.arsel{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.arsel label{display:flex;flex-direction:column;gap:4px;font-size:.85rem;color:var(--muted)}
+.arsel select{font:inherit;padding:8px 10px;border-radius:10px;border:2px solid var(--line);background:var(--surface);color:var(--ink);font-family:"NotoNaskhAr",var(--body);font-size:1.15rem}
+.arout{text-align:center;background:var(--acc-soft);border:2px dashed var(--acc);border-radius:14px;padding:14px 10px}
+.arout .abbig{font-size:2.3rem}
+.arout .tr{font-size:1.02rem;color:var(--ink);font-weight:600}
+.tbl.sm table{min-width:0}
+.tbl.sm td,.tbl.sm th{padding:8px 10px}
+.tbl.sm .ab{font-size:1.2em}

@@ -1,0 +1,17 @@
+{"ders":"ar","ad":"Arapça","temalar":[
+{"id":"t1","no":"1. Tema","ad":"Günlük Hayat 1","ikon":"aile",
+ "hap":[
+  "**Aile** أُسْرَةٌ, **akrabalar** أَقَارِبُ. **Baba** أَبٌ, **anne** أُمٌّ, **dede** جَدٌّ, **nine** جَدَّةٌ.",
+  "**Baba tarafı:** عَمٌّ (amca), عَمَّةٌ (hala).",
+  "**Anne tarafı:** خَالٌ (dayı), خَالَةٌ (teyze).",
+  "**Benim** = sona ـِي: عَمٌّ → عَمِّي. Dişilde **ة → ت**: خَالَةٌ → خَالَتِي.",
+  "**Bu:** erkek هَذَا, kadın هَذِهِ. **Bu kim?** مَنْ هَذَا؟ **Bende var:** عِنْدِي.",
+  "**Meslek** مِهْنَةٌ. Sorusu: مَا مِهْنَةُ أَبِيكَ؟ Cevap: أَبِي طَبِيبٌ.",
+  "**Kadın meslek** = sona ـَةٌ: مُعَلِّمٌ → مُعَلِّمَةٌ.",
+  "**Nerede çalışır?** يَعْمَلُ الطَّبِيبُ فِي المُسْتَشْفَى."],
+ "tablo":{"b":"Geniş aile","h":["","Erkek","Kadın"],"s":[["Baba tarafı","عَمٌّ amca","عَمَّةٌ hala"],["Anne tarafı","خَالٌ dayı","خَالَةٌ teyze"]]},
+ "zincir":{"b":"Tanışma konuşması","m":["مَنْ هَذَا؟","هَذَا عَمِّي.","مَا مِهْنَتُهُ؟","هُوَ مُهَنْدِسٌ."]},
+ "tuzak":[["Amca ile dayıya aynı kelime denir.","Ayrı kelimeler: عَمٌّ amca, خَالٌ dayı."],["أَخٌ kelimesinin dişili أَخَةٌ'dir.","Dişili أُخْتٌ'tür (düzensiz)."],["Bazı mesleklerin kadın biçimi yoktur.","Her mesleğin vardır: kadın doktor طَبِيبَةٌ."],["هَذِهِ جَدِّي.","Doğrusu هَذَا جَدِّي. (dede erkek)"]],
+ "ipucu":"Kadın akraba **هَذِهِ**, erkek akraba **هَذَا**; meslek adı da kişiye uyar.",
+ "ezber":"**Baba** عَمٌّ · عَمَّةٌ, **anne** خَالٌ · خَالَةٌ. **Kadın** = ـَةٌ."}
+]}
