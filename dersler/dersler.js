@@ -7,14 +7,14 @@
      doldur; dersin etkileşimli parçaları varsa parcalar:true yap.
    - Her güncellemede SURUM'u değiştir (tarayıcı önbelleğini temizler).
    ===================================================================== */
-const SURUM = "2026-11-06e-ses1-ses2-gorsel1";
+const SURUM = "2026-11-06e-ses1-ses2-gorsel1-turkce1";
 
 const DERSLER = [
 {id:"fen",ad:"Fen Bilimleri",kisa:"Fen",renk:"var(--amber)",acik:"Güneş sistemi, tutulmalar, kuvvet ve hareket.",
  parcalar:true, temalar:["t1","t2"],
  hap:{pdf:"pdf/fen-hap.pdf",ad:"Fen6_Hap_Notlar_ve_Ipuclari.pdf"}},
 {id:"tr",ad:"Türkçe",kisa:"Tr",renk:"var(--d-tr)",acik:"Okuma, anlama, söz varlığı ve yazma.",
- temalar:[]},
+ temalar:["t1"]},
 {id:"mat",ad:"Matematik",kisa:"∑",renk:"var(--d-mat)",detAd:"Matematik Dedektifi",acik:"Çarpan ve katlar, bölünebilme, asal sayılar, EKOK-OBEB ve deneysel olasılık.",
  parcalar:true, temalar:["t1","t2"],
  hap:{pdf:"pdf/mat-hap.pdf",ad:"Mat6_Hap_Notlar_ve_Ipuclari.pdf"}},
