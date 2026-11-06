@@ -71,7 +71,7 @@ const STATIONS=[
 {id:"fill",name:"Boşluk Doldurma",desc:"Kelime havuzundan doğru kavramı seç, cümleyi tamamla.",ic:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 17h5M16 17h5"/><rect x="9" y="12" width="6" height="6" rx="1"/></svg>'},
 {id:"sira",name:"Sıralama",desc:"Adımları ve nesneleri doğru sıraya koy.",ic:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 6h10M4 12h13M4 18h16"/></svg>'},
 {id:"klasik",name:"Klasik Sorular",desc:"Kendi cümlelerinle yaz, örnek cevap ve kontrol listesiyle değerlendir.",ic:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 4l5 5L9 20H4v-5z"/></svg>'},
- {id:"visual",name:"Görsel Eşleştirme",desc:"Arapça kelimeyi oku, üç görsel arasından doğru mesleği seç.",ic:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="2"/><path d="m21 15-5-5L5 21"/></svg>'}
+ {id:"visual",name:"Görsel Eşleştirme",desc:"Kelimeyi oku, üç görsel arasından doğru olanı seç.",ic:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="2"/><path d="m21 15-5-5L5 21"/></svg>'}
 ];
 
 /* ====================== GÖRÜNÜM ====================== */
