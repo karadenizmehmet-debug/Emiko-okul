@@ -1,7 +1,36 @@
 /* Ders Rotası 6 · Hazırlayan: Mehmet Karadeniz, 2026-2027 */
 /* ====================== ARAPÇA · ETKİLEŞİMLİ PARÇALAR ====================== */
-const arA=s=>`<span class="ab" lang="ar" dir="rtl">${s}</span>`;
-const arBig=s=>`<span class="abbig" lang="ar" dir="rtl">${s}</span>`;
+
+/* Arapça kelimelerin yaklaşık Türkçe okunuşu */
+const arOku = s => {
+  const chars=[...String(s).replace(/ـ/g,"")], out=[];
+  const consonants={"ء":"","أ":"","إ":"","آ":"â","ا":"a","ؤ":"'","ئ":"'","ب":"b","ت":"t","ث":"s","ج":"c","ح":"h","خ":"h","د":"d","ذ":"z","ر":"r","ز":"z","س":"s","ش":"ş","ص":"s","ض":"d","ط":"t","ظ":"z","ع":"'","غ":"ğ","ف":"f","ق":"k","ك":"k","ل":"l","م":"m","ن":"n","ه":"h","و":"v","ي":"y","ى":"a","ة":"t"};
+  const marks={"َ":"a","ِ":"i","ُ":"u","ْ":"","ً":"an","ٍ":"in","ٌ":"un"};
+  for(let i=0;i<chars.length;i++){
+    const c=chars[i], prev=chars[i-1], next=chars[i+1];
+    if(c==="ّ"){if(out.length)out[out.length-1]+=out[out.length-1];continue}
+    if(marks[c]!==undefined){
+      let v=marks[c];
+      if(c==="َ"&&next==="ا")v="â";
+      if(c==="ُ"&&next==="و")v="û";
+      if(c==="ِ"&&next==="ي")v="î";
+      if(c==="ً"&&prev==="ة")v="ten";
+      if(c==="ٌ"&&prev==="ة")v="tun";
+      if(c==="ٍ"&&prev==="ة")v="tin";
+      out.push(v);continue;
+    }
+    if(c==="ا"&&prev==="َ"){out.push("");continue}
+    if(c==="و"&&prev==="ُ"){out.push("");continue}
+    if(c==="ي"&&prev==="ِ"){out.push("");continue}
+    if(consonants[c]!==undefined){out.push(consonants[c]);continue}
+    if(c==="؟")out.push("?");else if(c==="،")out.push(",");else if(c==="؛")out.push(";");else if(/[.!?،؛:]/.test(c))out.push(c);else if(/\s/.test(c))out.push(" ");
+  }
+  return out.join("").replace(/\s+/g," ").trim().replace(/^'/,"").replace(/\?\s/g,"? ");
+};
+const arPron = s => `<span class="ar-pron" style="direction:ltr;unicode-bidi:isolate;font-size:.82em;color:var(--muted);white-space:nowrap">(${arOku(s)})</span>`;
+
+const arA=s=>`<span class="ab" lang="ar" dir="rtl">${s}</span> ${arPron(s)}`;
+const arBig=s=>`<span class="abbig" lang="ar" dir="rtl">${s}</span><br>${arPron(s)}`;
 
 /* 1) Akraba kartları: dokun, Türkçesini ve cümleyi gör */
 W.akraba=el=>{
@@ -67,9 +96,9 @@ const AR_MESLEK=[
   ["بَائِعٌ","بَائِعَةٌ","satıcı","fe"]];
 W.meslek=el=>{
   const F={all:"Hepsi",mu:"مُـ ile başlayan",ni:"ـِيّ ile biten",fa:"فَعَّال kalıbı",fe:"فَاعِل kalıbı"};
-  const N={mu:"başında مُ var",ni:"sonunda ـِيّ var",fa:"فَعَّال kalıbı",fe:"فَاعِل kalıbı",di:"فَعِيل kalıbı"};
+  const N={mu:"başında مُ (mu) var",ni:"sonunda ـِيّ (iyy) var",fa:"فَعَّال (faâl) kalıbı",fe:"فَاعِل (fâil) kalıbı",di:"فَعِيل (faîl) kalıbı"};
   let g=0,f="all",open=new Set();
-  el.innerHTML=`<div class="ctrls"><div class="seg" id="mG"><button data-g="0" aria-pressed="true">Erkek</button><button data-g="1" aria-pressed="false">Kadın (+ ة)</button></div></div>
+  el.innerHTML=`<div class="ctrls"><div class="seg" id="mG"><button data-g="0" aria-pressed="true">Erkek</button><button data-g="1" aria-pressed="false">Kadın (+ ة / te)</button></div></div>
   <div class="seg" id="mF">${Object.keys(F).map(k=>`<button data-f="${k}" aria-pressed="${k===f}">${k==="all"?F[k]:F[k].replace(/[؀-ۿ]+(?:\s[؀-ۿ]+)*/,m=>`<span class="ab">${m}</span>`)}</button>`).join("")}</div>
   <div class="arcards" id="mC"></div><div class="say" id="mS"></div>`;
   function draw(){
@@ -89,7 +118,7 @@ W.meslek=el=>{
 /* 3) Cümle kurucu: akraba + meslek */
 W.cumle=el=>{
   const R=[["جَدِّي","dedem",0],["جَدَّتِي","ninem",1],["أَبِي","babam",0],["أُمِّي","annem",1],["عَمِّي","amcam",0],["عَمَّتِي","halam",1],["خَالِي","dayım",0],["خَالَتِي","teyzem",1],["أَخِي","erkek kardeşim",0],["أُخْتِي","kız kardeşim",1]];
-  const o=(a,i)=>`<option value="${i}">${a}</option>`;
+  const o=(a,i)=>{const p=a.split(" · "),label=/[؀-ۿ]/.test(p[0])?p[0]+" ("+arOku(p[0])+")"+(p.length>1?" · "+p.slice(1).join(" · "):""):a;return `<option value="${i}">${label}</option>`};
   el.innerHTML=`<div class="arsel"><label>Akraba<select id="cR">${R.map((r,i)=>o(r[0]+" · "+r[1],i)).join("")}</select></label>
   <label>Meslek<select id="cM">${AR_MESLEK.map((r,i)=>o(r[0]+" · "+r[2],i)).join("")}</select></label></div>
   <div class="ctrls"><button class="btn ghost" id="cX">Rastgele seç</button></div>
