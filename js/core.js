@@ -5,23 +5,53 @@ const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(M
 const lower=s=>s.toLocaleLowerCase("tr");
 const RM=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* Arapça kelimeye dokununca cihazın Arapça konuşma motoruyla seslendir. */
+/* Arapça kelimeye dokununca cihazın konuşma motoruyla seslendir. */
+let arSesMesajTimer=null;
+function arSesMesaj(metin){
+  let n=document.getElementById("ar-ses-mesaj");
+  if(!n){n=document.createElement("div");n.id="ar-ses-mesaj";n.setAttribute("role","status");n.style.cssText="position:fixed;z-index:99999;left:50%;bottom:92px;transform:translateX(-50%);max-width:90vw;padding:11px 16px;border-radius:12px;background:#17233f;color:#fff;font:600 14px system-ui;text-align:center;box-shadow:0 4px 18px #0005";document.body.appendChild(n)}
+  n.textContent=metin;n.style.display="block";clearTimeout(arSesMesajTimer);arSesMesajTimer=setTimeout(()=>n.style.display="none",3500);
+}
 function arapcaOku(el){
-  if(!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) return;
-  const metin=(el.getAttribute("data-arabic")||el.textContent||"").replace(/[ًٌٍَُِّْـٰ]/g,"").replace(/[.,،؛؟:]/g," ").trim();
-  if(!metin) return;
-  window.speechSynthesis.cancel();
-  const ses=new SpeechSynthesisUtterance(metin);
-  ses.lang="ar-SA";
-  ses.rate=.82;
-  ses.pitch=1;
-  const sesler=window.speechSynthesis.getVoices();
-  ses.voice=sesler.find(v=>/^ar(-|$)/i.test(v.lang))||null;
-  window.speechSynthesis.speak(ses);
+  const api=window.speechSynthesis;
+  if(!api||typeof window.SpeechSynthesisUtterance!=="function"){
+    arSesMesaj("Bu tarayıcı sesli okumayı desteklemiyor. Chrome ile açmayı deneyin.");return;
+  }
+  const metin=(el.getAttribute("data-arabic")||el.textContent||"").replace(/[.,،؛؟:]/g," ").replace(/\s+/g," ").trim();
+  if(!metin)return;
+  try{
+    api.cancel();
+    const ses=new SpeechSynthesisUtterance(metin);
+    ses.lang="ar-SA";ses.rate=.78;ses.pitch=1;
+    const sec=()=>{
+      const sesler=api.getVoices()||[];
+      const ar=sesler.filter(v=>/^ar([_-]|$)/i.test(v.lang));
+      ses.voice=ar.find(v=>/ar[-_]SA/i.test(v.lang))||ar.find(v=>/ar[-_]EG/i.test(v.lang))||ar[0]||null;
+      ses.onstart=()=>arSesMesaj("🔊 "+metin);
+      ses.onerror=ev=>{
+        if(ev.error==="not-allowed") arSesMesaj("Ses izni engellendi. Sayfayı Chrome'da açıp tekrar deneyin.");
+        else if(ev.error==="voice-unavailable"||ev.error==="language-unavailable") arSesMesaj("Cihazda Arapça ses bulunamadı. Google Konuşma Hizmetleri'nden Arapça sesi yükleyin.");
+        else arSesMesaj("Ses başlatılamadı. Telefonun metin okuma ayarlarını kontrol edin.");
+      };
+      api.speak(ses);
+      setTimeout(()=>{if(api.paused)api.resume()},120);
+    };
+    sec();
+    if(!api.getVoices().length){
+      api.onvoiceschanged=()=>{api.onvoiceschanged=null};
+    }
+  }catch(err){arSesMesaj("Ses başlatılamadı. Cihazın konuşma motorunu kontrol edin.");}
 }
 document.addEventListener("click",e=>{
-  const kelime=e.target.closest(".ab,.abbig");
-  if(kelime) arapcaOku(kelime);
+  const hedef=e.target&&e.target.nodeType===3?e.target.parentElement:e.target;
+  if(!hedef||!hedef.closest)return;
+  let kelime=hedef.closest(".ab,.abbig");
+  if(!kelime&&hedef.closest(".ar-pron")){
+    const p=hedef.closest(".ar-pron");
+    kelime=p.previousElementSibling;
+    if(!kelime||!kelime.matches(".ab,.abbig"))kelime=p.parentElement.querySelector(".ab,.abbig");
+  }
+  if(kelime)arapcaOku(kelime);
 });
 
 let store={};try{store=JSON.parse(localStorage.getItem("fenrota6")||"{}")}catch(e){store={}}
