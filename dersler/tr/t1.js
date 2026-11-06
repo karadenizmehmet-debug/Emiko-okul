@@ -65,6 +65,218 @@ klasik:[
 {q:"Bağlaç olan de ile bulunma hâl eki -de arasındaki farkı iki örnekle açıkla.",s:"Bağlaç olan de ayrı yazılır: Ben de geldim. Bulunma hâl eki -de bitişik yazılır: Evde kaldım.",p:[{t:"Bağlaç olan de ayrı yazılır dedim",k:["ayrı"]},{t:"Bulunma eki bitişik yazılır dedim",k:["bitişik"]},{t:"İki örnek verdim",k:["ben de","evde"]}]},
 {q:"Hikâyenin dört temel unsurunu yaz ve açıkla.",s:"Olay yaşanan durum; kişi olayı yaşayanlar; yer olayın geçtiği mekân; zaman olayın gerçekleştiği dönemdir.",p:[{t:"Olayı açıkladım",k:["olay"]},{t:"Kişiyi açıkladım",k:["kişi","kahraman"]},{t:"Yeri açıkladım",k:["yer","mekân"]},{t:"Zamanı açıkladım",k:["zaman"]}]},
 {q:"“Kitap okumayı seviyorum; ayrıca her gün yeni kelimeler öğreniyorum.” cümlelerini kullanarak söz varlığını geliştirmeye yönelik kısa bir paragraf yaz. Noktalama işaretlerine dikkat et.",s:"Kitap okumayı çok seviyorum. Her gün farklı türlerde kitaplar okuyorum; ayrıca öğrendiğim yeni kelimeleri not ediyorum. Böylece kelime hazinem gelişiyor.",p:[{t:"Konuyla ilgili uygun kelimeler kullandım",k:["kitap","kelime","okuma","söz varlığı"]},{t:"Yeni veya zengin kelimeler kullandım",k:["farklı","hazinem","geliş","öğrendiğim"]},{t:"Noktalama işaretlerine dikkat ettim",k:[".",";",","]}]} 
+],
+yazili:[
+  {
+    "konu": "Bağlamdan anlam",
+    "tur": "Açık uçlu",
+    "soru": "“Köy meydanındaki yaşlı çınar, heybetli gövdesiyle herkesi hayran bırakıyordu.” cümlesinde “heybetli” sözcüğünün anlamını tahmin ediniz. Tahmininizi destekleyen ipucunu yazınız.",
+    "cevap": "Örnek cevap: Görkemli, büyük ve etkileyici demektir. “Herkesi hayran bırakıyordu” ifadesi ipucudur.",
+    "aciklama": "Bilinmeyen kelimenin anlamı, cümledeki diğer ifadelerden ve oluşturduğu etkiden çıkarılır."
+  },
+  {
+    "konu": "Bağlamdan anlam",
+    "tur": "Açık uçlu",
+    "soru": "“Dedem, zor zamanlarda bize yol gösteren öğütler verirdi.” cümlesinde “öğüt” kelimesini kendi cümlelerinizle açıklayınız.",
+    "cevap": "Örnek cevap: Birine doğru yolu göstermek için verilen tavsiye veya nasihattir.",
+    "aciklama": "Kelimenin anlamı, dedenin yol göstermesiyle ilişkilidir."
+  },
+  {
+    "konu": "Bağlamdan anlam",
+    "tur": "Açık uçlu",
+    "soru": "“Bu gelenek, kuşaktan kuşağa aktarılarak günümüze ulaştı.” cümlesindeki “kuşak” sözcüğünün anlamını yazınız.",
+    "cevap": "Örnek cevap: Yaklaşık aynı dönemde doğmuş insan topluluğu, nesil.",
+    "aciklama": "Aktarılma ifadesi, geleneğin bir nesilden sonraki nesillere geçtiğini gösterir."
+  },
+  {
+    "konu": "Metnin yüzey anlamı",
+    "tur": "Metin yorumlama",
+    "soru": "Metni okuyunuz: “Okulun bahçesinde başlatılan kitap paylaşımı etkinliğinde öğrenciler okudukları kitapları arkadaşlarına verdi. Böylece herkes farklı yazarları tanıma fırsatı buldu.” Etkinliğin temel amacı nedir?",
+    "cevap": "Örnek cevap: Öğrenciler arasında kitap paylaşımını sağlamak ve onların farklı kitaplarla/yazarlarla tanışmasına yardımcı olmak.",
+    "aciklama": "Cevap metinde açıkça verilen kitap paylaşımı ve farklı yazarları tanıma bilgilerine dayanmalıdır."
+  },
+  {
+    "konu": "Metnin yüzey anlamı",
+    "tur": "Metin yorumlama",
+    "soru": "Aynı metne göre öğrenciler kitapları birbirleriyle paylaşınca hangi iki sonuç ortaya çıkmıştır?",
+    "cevap": "1. Öğrenciler okudukları kitapları arkadaşlarına ulaştırmıştır.\n2. Herkes farklı yazarları tanıma fırsatı bulmuştur.",
+    "aciklama": "Soruda iki bilgi isteniyor; ikisi de metnin son cümlesinde yer alır."
+  },
+  {
+    "konu": "Anahtar kelime",
+    "tur": "Metin inceleme",
+    "soru": "Metni okuyunuz: “Arılar çiçeklerden nektar toplar. Kovanlarında birlikte çalışarak bal üretirler. Arıların doğadaki bitkilerin çoğalmasına da katkısı vardır.” Metnin konusunu yansıtan üç anahtar kelime yazınız.",
+    "cevap": "Örnek cevap: Arılar, bal üretimi, bitkilerin çoğalması. (Nektar, kovan ve doğa da uygun bağlamlarda kabul edilebilir.)",
+    "aciklama": "Anahtar kelimeler metnin ana konusunu kısa ve belirgin biçimde yansıtır."
+  },
+  {
+    "konu": "Anahtar kelime",
+    "tur": "Metin inceleme",
+    "soru": "Metni okuyunuz: “Geleneksel el sanatları, ustaların bilgi ve becerileriyle yaşatılır. Dokumacılık, çinicilik ve ahşap işçiliği kültürel mirasımızın önemli parçalarıdır.” Metinden iki anahtar kelime grubu seçiniz ve neden seçtiğinizi açıklayınız.",
+    "cevap": "Örnek cevap: “Geleneksel el sanatları” ve “kültürel miras”. Çünkü metin, el sanatlarının kültürümüzü yaşatmadaki önemini anlatmaktadır.",
+    "aciklama": "Anahtar kelime yalnızca metinde geçen herhangi bir sözcük değil, konuyu taşıyan temel ifadedir."
+  },
+  {
+    "konu": "Anahtar kelime",
+    "tur": "Uygulama",
+    "soru": "Bir metin; Türkçenin geçmişten bugüne gelişmesini, kelimelerin zenginliğini ve dilimizi koruma sorumluluğunu anlatıyor. Bu metin için üç uygun anahtar kelime/kelime grubu yazınız.",
+    "cevap": "Örnek cevap: Türkçe, dilimizin zenginliği, dili koruma. (Söz varlığı ve kültürel miras da uygundur.)",
+    "aciklama": "Birden fazla doğru anahtar kelime grubu bulunabilir; seçim metnin içeriğini yansıtmalıdır."
+  },
+  {
+    "konu": "Anahtar kelime",
+    "tur": "Uygulama",
+    "soru": "“Birlikte çalışan insanlar zor işleri daha kolay tamamlar. Yardımlaşma, toplumda güven ve dayanışmayı güçlendirir.” Bu metnin konusuyla ilgili iki anahtar kelime yazınız. Seçiminizi bir cümleyle gerekçelendiriniz.",
+    "cevap": "Örnek cevap: Yardımlaşma ve dayanışma. Çünkü metin, insanların birlikte çalışmasının ve birbirine destek olmasının önemini anlatır.",
+    "aciklama": "Anahtar kelimeler metnin ana düşüncesiyle doğrudan ilişkili olmalıdır."
+  },
+  {
+    "konu": "Gerçek ve mecaz anlam",
+    "tur": "Anlam inceleme",
+    "soru": "“Sporcunun parlak başarısı bütün okula umut verdi.” cümlesindeki “parlak” sözcüğü gerçek anlamda mı, mecaz anlamda mı kullanılmıştır? Açıklayınız.",
+    "cevap": "Mecaz anlamda kullanılmıştır. Burada ışık saçan değil, çok başarılı ve etkileyici anlamındadır.",
+    "aciklama": "Sözcük gerçek anlamından uzaklaşıp başarıyı nitelediği için mecazdır."
+  },
+  {
+    "konu": "Gerçek ve mecaz anlam",
+    "tur": "Anlam inceleme",
+    "soru": "“Bahçedeki derin kuyuya yaklaşmayın.” ve “Onun derin düşünceleri herkesi etkiledi.” cümlelerinde “derin” sözcüğünün anlam özelliklerini karşılaştırınız.",
+    "cevap": "İlk cümlede gerçek anlamdadır; kuyunun dibi yüzeyden uzaktır. İkinci cümlede mecaz anlamdadır; düşüncelerin kapsamlı ve güçlü olduğu anlatılır.",
+    "aciklama": "Aynı sözcük, kullanıldığı cümleye göre gerçek veya mecaz anlam kazanabilir."
+  },
+  {
+    "konu": "Gerçek ve mecaz anlam",
+    "tur": "Yeni cümle kurma",
+    "soru": "“Köprü” sözcüğü “Dostluk, insanlar arasında güçlü bir köprüdür.” cümlesinde mecaz anlamda kullanılmıştır. Sözcüğü gerçek anlamıyla kullanarak yeni bir cümle yazınız.",
+    "cevap": "Örnek cevap: Köyün iki yakasını birleştiren eski köprü onarıldı.",
+    "aciklama": "Gerçek anlamda köprü, iki yeri birbirine bağlayan yapıdır."
+  },
+  {
+    "konu": "Gerçek ve mecaz anlam",
+    "tur": "Anlam inceleme",
+    "soru": "“Soğuk tavırları yüzünden arkadaşları onunla konuşmak istemedi.” cümlesindeki “soğuk” sözcüğünün anlamını açıklayınız. Sözcüğü gerçek anlamda kullanan başka bir cümle yazınız.",
+    "cevap": "Örnek cevap: İlgisiz, samimiyetsiz ve mesafeli tavır demektir. Gerçek anlam: Bugün hava çok soğuk.",
+    "aciklama": "İnsan tavrı için kullanılan “soğuk” mecaz; düşük sıcaklığı bildiren “soğuk” gerçek anlamlıdır."
+  },
+  {
+    "konu": "Paragraf türü ve yazma",
+    "tur": "Paragraf yazma",
+    "soru": "Arkadaşınız sınav haftasında hangi derse ne zaman çalışacağını planlayamıyor. Ona iki öneri sunan, önerilerinizin neden işe yarayacağını açıklayan en az beş cümlelik bilgilendirici bir paragraf yazınız.",
+    "cevap": "Örnek cevap: Öncelikle haftalık bir çalışma planı hazırlamalısın. Böylece hangi gün hangi derse çalışacağını önceden bilirsin. Zorlandığın derslere daha fazla zaman ayırabilirsin. Ayrıca her çalışma sonunda kısa tekrar yapmalısın. Kısa tekrarlar öğrendiklerini unutmamana yardımcı olur.",
+    "aciklama": "Açıklayıcı paragraf seçilmeli; en az iki öneri ve her önerinin gerekçesi bulunmalıdır. Farklı, tutarlı cevaplar da kabul edilir."
+  },
+  {
+    "konu": "Paragraf türü ve yazma",
+    "tur": "Paragraf türünü belirleme",
+    "soru": "Bir öğrenciye okul kütüphanesini tanıtmak için yazılan; kütüphanenin bölümlerini, kitap çeşitlerini ve kullanım kurallarını anlatan paragrafın temel anlatım amacı nedir?",
+    "cevap": "Açıklama/tanıtma amacı taşır. Kütüphanenin özellikleri ve nasıl kullanılacağı hakkında bilgi verir.",
+    "aciklama": "Olay anlatılmadığı, bir yer hakkında bilgi verildiği için öyküleme değildir."
+  },
+  {
+    "konu": "Paragraf türü ve yazma",
+    "tur": "Paragraf yazma",
+    "soru": "“Düzenli kitap okumak kelime hazinesini geliştirir.” düşüncesini destekleyen, en az dört cümlelik kısa bir paragraf yazınız. En az bir örnek veriniz.",
+    "cevap": "Örnek cevap: Düzenli kitap okumak kelime hazinemizi geliştirir. Farklı türlerde kitaplar okudukça yeni sözcüklerle karşılaşırız. Örneğin bir bilim kitabında daha önce bilmediğimiz kavramları öğrenebiliriz. Öğrendiğimiz kelimeleri konuşmalarımızda kullanarak anlatımımızı güçlendirebiliriz.",
+    "aciklama": "Paragraf ana düşünceyle uyumlu olmalı; örnek düşünceyi desteklemelidir."
+  },
+  {
+    "konu": "Yazım kuralları",
+    "tur": "Doğru yazımı bulma",
+    "soru": "Aşağıdaki cümlede yazım yanlışı vardır: “Bende yarınki geziye katılacağım.” Yanlış yazılan bölümü düzeltip cümleyi yeniden yazınız.",
+    "cevap": "Ben de yarınki geziye katılacağım.",
+    "aciklama": "Buradaki “de” bağlaçtır ve ayrı yazılır. Cümleden çıkarıldığında temel anlam bozulmaz."
+  },
+  {
+    "konu": "Yazım kuralları",
+    "tur": "Doğru yazımı bulma",
+    "soru": "Aşağıdaki cümleyi yazım kurallarına göre düzeltiniz: “Sınıf da ki kitapları kim topladı?”",
+    "cevap": "Sınıftaki kitapları kim topladı?",
+    "aciklama": "Bulunma hâl eki -ta ve isimden sıfat yapan -ki bitişik yazılır."
+  },
+  {
+    "konu": "Yazım kuralları",
+    "tur": "Doğru yazımı bulma",
+    "soru": "“Yarın bizimle gelirmisin?” cümlesindeki yazım yanlışını düzeltiniz.",
+    "cevap": "Yarın bizimle gelir misin?",
+    "aciklama": "Soru eki “mi” kendisinden önceki kelimeden ayrı yazılır; ardından gelen kişi eki soru ekine bitişir."
+  },
+  {
+    "konu": "Yazım kuralları",
+    "tur": "Kuralı açıklama",
+    "soru": "“Okuldaki tören çok güzeldi.” ve “Biliyorum ki başaracaksın.” cümlelerinde geçen “-ki/ki” kullanımlarının yazım bakımından farkını açıklayınız.",
+    "cevap": "“Okuldaki” sözcüğündeki -ki ektir ve bitişik yazılır. “Biliyorum ki” ifadesindeki ki bağlaçtır ve ayrı yazılır.",
+    "aciklama": "Ek olan -ki sözcüğe bitişir; bağlaç olan ki ayrı yazılır."
+  },
+  {
+    "konu": "Yazım kuralları",
+    "tur": "Kısaltmalar",
+    "soru": "“TBMM'ye gezi düzenlendi.” cümlesindeki kısaltmaya getirilen ekin yazımını açıklayınız.",
+    "cevap": "TBMM'ye yazımı doğrudur. Kısaltmalara getirilen ekler, kısaltmanın okunuşuna göre yazılır; TBMM “Türkiye Büyük Millet Meclisi” olarak okunur ve ek kesme işaretiyle ayrılır.",
+    "aciklama": "Kısaltmalara ek getirilirken okunuş esas alınır. Örneklerde kısaltmanın nasıl okunduğuna dikkat edilmelidir."
+  },
+  {
+    "konu": "Noktalama",
+    "tur": "Noktalama işaretini bulma",
+    "soru": "“Öğretmenimiz şöyle dedi ( ) Kitaplar en iyi arkadaşlarımızdır.” cümlesindeki boşluğa hangi noktalama işareti gelmelidir? Görevini açıklayınız.",
+    "cevap": "İki nokta (:) gelmelidir. Ardından açıklama veya doğrudan aktarılan söz verileceğini gösterir.",
+    "aciklama": "İki nokta, kendisinden sonra örnek veya açıklama yapılacağını bildirir."
+  },
+  {
+    "konu": "Noktalama",
+    "tur": "Noktalama işaretini bulma",
+    "soru": "“Çantamda defter, kalem ve silgi vardı ( ) kitaplarımı da yanıma aldım.” cümlesinde iki bölüm arasında hangi işaret kullanılabilir? Nedenini yazınız.",
+    "cevap": "Noktalı virgül (;) kullanılabilir. İlk bölümde virgülle ayrılmış ögeler bulunduğunda sıralı cümleleri ayırmak için kullanılabilir.",
+    "aciklama": "Noktalı virgül, ögeleri arasında virgül bulunan sıralı cümleleri birbirinden ayırabilir."
+  },
+  {
+    "konu": "Noktalama",
+    "tur": "Virgülün görevi",
+    "soru": "“Evet, yarışmaya katılacağım.” cümlesinde virgülün görevini yazınız.",
+    "cevap": "Kendisinden sonraki cümleye bağlı olarak kabul bildiren “Evet” sözünden sonra kullanılmıştır.",
+    "aciklama": "Virgül; evet, hayır, peki gibi kabul veya ret bildiren ifadelerden sonra kullanılabilir."
+  },
+  {
+    "konu": "Noktalama",
+    "tur": "Virgülün görevi",
+    "soru": "“Bahçede güller açtı, kuşlar dallara kondu.” cümlesinde virgül hangi görevde kullanılmıştır?",
+    "cevap": "Sıralı cümleleri birbirinden ayırmıştır.",
+    "aciklama": "İki ayrı yargı virgülle birbirinden ayrılmıştır."
+  },
+  {
+    "konu": "Kalıp sözler",
+    "tur": "Günlük yaşam",
+    "soru": "Yeni bir iş yeri açan komşunuza iyi dileklerinizi bildirmek için kullanabileceğiniz iki kalıp söz yazınız.",
+    "cevap": "Örnek cevap: Hayırlı olsun! Bol kazançlar! İşleriniz rast gitsin!",
+    "aciklama": "Kalıp sözler, belirli bir durumda iyi dilek veya duygu bildirmek için kullanılır. Uygun başka ifadeler de kabul edilir."
+  },
+  {
+    "konu": "Kalıp sözler",
+    "tur": "Günlük yaşam",
+    "soru": "Bir arkadaşınız size yardım ettiğinde ona teşekkürünüzü ve iyi dileğinizi bildiren uygun bir kalıp söz yazınız.",
+    "cevap": "Örnek cevap: Çok teşekkür ederim, sağ ol! Allah razı olsun! İyi ki yardım ettin!",
+    "aciklama": "İfade, yardım karşısında duyulan minnettarlığı göstermelidir."
+  },
+  {
+    "konu": "Atasözü ve deyim",
+    "tur": "Söz varlığı",
+    "soru": "“Damlaya damlaya göl olur.” atasözünün anlamını açıklayınız ve günlük yaşamdan bir örnek veriniz.",
+    "cevap": "Örnek cevap: Küçük birikimler zamanla büyür. Her gün az miktarda para biriktiren bir kişi zamanla istediği eşyayı alabilir.",
+    "aciklama": "Atasözü genel bir deneyim veya öğüt bildirir; örnek bu düşünceyi desteklemelidir."
+  },
+  {
+    "konu": "Atasözü ve deyim",
+    "tur": "Söz varlığı",
+    "soru": "“Kulak vermek” deyiminin anlamını yazınız ve deyimi anlamına uygun bir cümlede kullanınız.",
+    "cevap": "Örnek cevap: Dikkatle dinlemek, önem vermek. “Öğretmenimizin önerilerine kulak vermeliyiz.”",
+    "aciklama": "Deyim kalıplaşmış bir söz grubudur; burada gerçek anlamda kulağı çevirmek anlatılmaz."
+  },
+  {
+    "konu": "Atasözü ve deyim",
+    "tur": "Paragraf yazma",
+    "soru": "Aşağıdaki sözlerden en az ikisini kullanarak yardımlaşmanın önemini anlatan 4–5 cümlelik bilgilendirici bir paragraf yazınız: “Birlikten kuvvet doğar.”, “El ele vermek”, “Komşu komşunun külüne muhtaçtır.”",
+    "cevap": "Örnek cevap: Yardımlaşma, toplumda birlik ve güven oluşturur. “Birlikten kuvvet doğar.” sözü, birlikte hareket edildiğinde güçlüklerin daha kolay aşılacağını anlatır. Mahallemizde ihtiyaç sahibi birine destek olmak için el ele verebiliriz. Çünkü insanlar günlük yaşamda birbirlerinin yardımına ihtiyaç duyar. Böylece dostluk ve dayanışma güçlenir.",
+    "aciklama": "En az iki ifade anlamına uygun kullanılmalı; paragrafın cümleleri yardımlaşma düşüncesini desteklemelidir."
+  }
 ]
 }
 });
