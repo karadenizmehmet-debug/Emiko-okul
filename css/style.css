@@ -298,6 +298,7 @@ td.tally{font-family:var(--mono);letter-spacing:1px} td.tally s{text-decoration-
 @font-face{font-family:"NotoNaskhAr";font-weight:400;font-display:swap;src:url("../araclar/fontlar/noto-naskh-arabic-arabic-400-normal.woff2") format("woff2")}
 @font-face{font-family:"NotoNaskhAr";font-weight:700;font-display:swap;src:url("../araclar/fontlar/noto-naskh-arabic-arabic-700-normal.woff2") format("woff2")}
 .ab{font-family:"NotoNaskhAr","Noto Naskh Arabic","Geeza Pro","Traditional Arabic","Segoe UI",serif;direction:rtl;unicode-bidi:isolate;font-size:1.3em;line-height:1.8;font-weight:400;color:var(--ink)}
+.ab,.abbig{cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-decoration-color:var(--muted);text-underline-offset:4px;-webkit-tap-highlight-color:transparent}
 b .ab,.ab b{font-weight:700}
 .abbig{font-family:"NotoNaskhAr","Noto Naskh Arabic","Geeza Pro","Traditional Arabic",serif;direction:rtl;font-size:2.2rem;line-height:1.7;font-weight:700;text-align:center;display:block}
 .rule .ab,.hl .ab{color:inherit}
