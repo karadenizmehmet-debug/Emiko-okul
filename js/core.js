@@ -167,7 +167,7 @@ function stationCount(id){const d=curD().q[state.t];if(id==="visual")return d.vi
 function renderStations(){
   const stations=stationsFor(curD(),state.t);const total=stations.reduce((a,s)=>{const b=getBest(state.t,s.id);return a+(b?starsFor(b.s/b.n):0)},0);
   view.innerHTML=`<div class="ist-head"><h2>Pekiştirme İstasyonu</h2><p>${curD().temas.find(t=>t.id===state.t).ozet} üzerine ${stations.length} farklı istasyon. Her istasyonda en iyi sonucun yıldız olarak kaydedilir.</p></div>
-  <div class="score-strip"><span class="pill accp">Toplam yıldız: ${total} / ${STATIONS.length*3}</span></div>
+  <div class="score-strip"><span class="pill accp">Toplam yıldız: ${total} / ${stations.length*3}</span></div>
   <div class="stations">${stations.map((s,i)=>{const b=getBest(state.t,s.id);const n=stationCount(s.id);
     const meta=`<div class="meta"><span>${n} ${s.id==="match"?"eşleşme":s.id==="sira"?"görev":s.id==="det"?"vaka":s.id==="visual"?"görsel soru":"soru"}</span><span class="stars">${starStr(b?starsFor(b.s/b.n):0)}</span></div>`;
     return i===0?`<button class="scard feat" data-s="${s.id}"><span class="ic">${s.ic}</span><span class="tx"><h3>${sN(s)}</h3><p>${s.desc}</p>${meta}</span></button>`
