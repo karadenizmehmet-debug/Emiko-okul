@@ -1,0 +1,52 @@
+name: Arapça PDF'lerini güncelle
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "araclar/hap_pdf.py"
+      - "araclar/ar_tema_pdf.py"
+      - "hap/ar.json"
+      - ".github/workflows/arapca-pdf.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build-arabic-pdfs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Depoyu indir
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+
+      - name: Python kur
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Chrome kur
+        uses: browser-actions/setup-chrome@v1
+
+      - name: PDF bağımlılığını kur
+        run: pip install pypdf
+
+      - name: Arapça PDF'lerini yeniden oluştur
+        run: |
+          python araclar/hap_pdf.py ar
+          python araclar/ar_tema_pdf.py
+
+      - name: PDF dosyalarını depoya kaydet
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pdf/ar-hap.pdf pdf/ar-tema1.pdf
+          if git diff --cached --quiet; then
+            echo "PDF'lerde değişiklik yok."
+          else
+            git commit -m "Arapça PDF'lerine Türkçe okunuşları ekle"
+            git push
+          fi
