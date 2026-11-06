@@ -240,9 +240,10 @@ function matchSt(el,sets){
 }
 /* --- Görsel eşleştirme: kelimeyi üç görselden seç --- */
 function visualSt(el,items){
-  let i=0,score=0;
+  let i=0,score=0,answered=false;
   function show(){
     const it=items[i];
+    answered=false;
     const opts=shuffle(it.o.map((o,k)=>({...o,k})));
     el.innerHTML=`<div class="qno">Görsel soru ${i+1} / ${items.length}</div>
       <div class="prog"><i style="width:${i/items.length*100}%"></i></div>
@@ -251,19 +252,45 @@ function visualSt(el,items){
         <div style="font-size:18px;font-weight:700">${it.prompt||"Bu kelime hangi görseldir?"}</div>
       </div>
       <div class="visual-grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:18px">
-        ${opts.map(o=>`<button class="visual-opt" data-k="${o.k}" aria-label="${o.alt}" style="min-width:0;min-height:142px;padding:12px 6px;border:2px solid var(--line);border-radius:16px;background:var(--card);color:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:pointer">
-          <span aria-hidden="true" style="font-size:clamp(42px,10vw,64px);line-height:1.25">${o.pic}</span>
-          <span style="font-size:12px;color:var(--muted)">Seçenek ${["A","B","C"][opts.indexOf(o)]}</span>
+        ${opts.map((o,j)=>`<button type="button" class="visual-opt" data-k="${o.k}" aria-label="${o.alt||("Seçenek "+(j+1))}" style="min-width:0;min-height:142px;padding:12px 6px;border:2px solid var(--line);border-radius:16px;background:var(--card);color:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:pointer;touch-action:manipulation;position:relative;z-index:1">
+          <span aria-hidden="true" style="font-size:clamp(42px,10vw,64px);line-height:1.25;pointer-events:none">${o.pic}</span>
+          <span style="font-size:12px;color:var(--muted);pointer-events:none">Seçenek ${["A","B","C"][j]}</span>
         </button>`).join("")}
-      </div><div id="vfb"></div>`;
-    $(".visual-opt",el).forEach(b=>b.onclick=()=>{
-      const k=+b.dataset.k,ok=k===it.a;if(ok)score++;
-      $(".visual-opt",el).forEach(x=>{x.disabled=true;if(+x.dataset.k===it.a){x.style.borderColor="var(--good)";x.style.background="color-mix(in srgb,var(--good) 12%,var(--card))"}});
-      if(!ok){b.style.borderColor="var(--bad)";b.style.background="color-mix(in srgb,var(--bad) 10%,var(--card))"}
-      $("#vfb",el).innerHTML=`<div class="fb ${ok?"ok":"no"}"><b>${ok?"Doğru!":"Bir daha düşün."}</b> ${it.ex||""}</div><div class="row" style="margin-top:12px"><button class="btn" id="vnext">${i<items.length-1?"Sonraki":"Sonucu gör"}</button></div>`;
-      $("#vnext",el).onclick=()=>{i++;if(i<items.length)show();else summary(el,score,items.length,"visual",()=>visualSt(el,items))};
-    });
+      </div><div id="vfb" aria-live="polite"></div>`;
   }
+  // Olayları kapsayıcıdan yakala; böylece telefondaki dokunma ve içteki emojiye
+  // dokunma da aynı şekilde değerlendirilir.
+  el.onclick=(ev)=>{
+    const b=ev.target.closest(".visual-opt");
+    if(b&&el.contains(b)){
+      ev.preventDefault();
+      if(answered)return;
+      const k=Number(b.dataset.k);
+      if(!Number.isInteger(k)||k<0||k>=it.o.length)return;
+      answered=true;
+      const ok=k===it.a;
+      if(ok)score++;
+      $$(".visual-opt",el).forEach(x=>{
+        x.disabled=true;
+        if(Number(x.dataset.k)===it.a){
+          x.style.borderColor="var(--good)";
+          x.style.background="color-mix(in srgb,var(--good) 12%,var(--card))";
+        }
+      });
+      if(!ok){
+        b.style.borderColor="var(--bad)";
+        b.style.background="color-mix(in srgb,var(--bad) 10%,var(--card))";
+      }
+      $("#vfb",el).innerHTML=`<div class="fb ${ok?"ok":"no"}"><b>${ok?"Doğru!":"Bir daha düşün."}</b> ${it.ex||""}</div><div class="row" style="margin-top:12px"><button type="button" class="btn" id="vnext">${i<items.length-1?"Sonraki":"Sonucu gör"}</button></div>`;
+      return;
+    }
+    if(ev.target.closest("#vnext")&&answered){
+      ev.preventDefault();
+      i++;
+      if(i<items.length)show();
+      else summary(el,score,items.length,"visual",()=>visualSt(el,items));
+    }
+  };
   show();
 }
 /* --- Boşluk doldurma --- */
