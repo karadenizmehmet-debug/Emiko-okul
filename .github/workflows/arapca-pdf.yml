@@ -8,6 +8,7 @@ on:
       - "araclar/hap_pdf.py"
       - "araclar/ar_tema_pdf.py"
       - "hap/ar.json"
+      - "dersler/ar/t1.js"
       - ".github/workflows/arapca-pdf.yml"
 
 permissions:
