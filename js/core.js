@@ -282,23 +282,17 @@ function visualSt(el,items){
     const opts=shuffle(it.o.map((o,k)=>({...o,k})));
     el.innerHTML=`<div class="qno">Görsel soru ${i+1} / ${items.length}</div>
       <div class="prog"><i style="width:${i/items.length*100}%"></i></div>
-      <div class="case" style="text-align:center"><span class="tag">Kelimeyi bul</span>
-        <div style="font-size:clamp(30px,7vw,48px);font-weight:800;margin:12px 0" dir="rtl" lang="ar">${it.word}</div>
-        <div style="font-size:18px;font-weight:700">${it.prompt||"Bu kelime hangi görseldir?"}</div>
+      <div class="case" style="text-align:center"><span class="tag">اخْتَرِ الصُّورَةَ الصَّحِيحَةَ</span>
+        <div style="font-size:clamp(30px,7vw,48px);font-weight:800;margin:12px 0;line-height:1.8" dir="rtl" lang="ar">${it.word}</div>
+        <div style="font-size:18px;font-weight:700" dir="rtl" lang="ar">مَا هَذَا؟</div>
       </div>
       <div class="visual-grid" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:18px">
-        ${opts.map((o,j)=>`<button type="button" class="visual-opt" data-k="${o.k}" aria-label="${o.alt||("Seçenek "+(j+1))}" style="min-width:0;min-height:142px;padding:12px 6px;border:2px solid var(--line);border-radius:16px;background:var(--card);color:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:pointer;touch-action:manipulation;position:relative;z-index:1">
+        ${opts.map((o,j)=>`<button type="button" class="visual-opt" data-k="${o.k}" aria-label="Seçenek ${["A","B","C"][j]}" style="min-width:0;min-height:142px;padding:12px 6px;border:2px solid var(--line);border-radius:16px;background:var(--card);color:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:pointer;touch-action:manipulation;position:relative;z-index:1">
           <span aria-hidden="true" style="font-size:clamp(42px,10vw,64px);line-height:1.25;pointer-events:none">${o.pic}</span>
-          <span style="font-size:12px;color:var(--muted);pointer-events:none">Seçenek ${["A","B","C"][j]}</span>
+          <span style="font-size:12px;color:var(--muted);pointer-events:none">${["A","B","C"][j]}</span>
         </button>`).join("")}
       </div><div id="vfb" aria-live="polite"></div>`;
-  }
-  // Olayları kapsayıcıdan yakala; böylece telefondaki dokunma ve içteki emojiye
-  // dokunma da aynı şekilde değerlendirilir.
-  el.onclick=(ev)=>{
-    const b=ev.target.closest(".visual-opt");
-    if(b&&el.contains(b)){
-      ev.preventDefault();
+    $$(".visual-opt",el).forEach(b=>b.addEventListener("click",()=>{
       if(answered)return;
       const k=Number(b.dataset.k);
       if(!Number.isInteger(k)||k<0||k>=it.o.length)return;
@@ -307,6 +301,7 @@ function visualSt(el,items){
       if(ok)score++;
       $$(".visual-opt",el).forEach(x=>{
         x.disabled=true;
+        x.style.cursor="default";
         if(Number(x.dataset.k)===it.a){
           x.style.borderColor="var(--good)";
           x.style.background="color-mix(in srgb,var(--good) 12%,var(--card))";
@@ -316,16 +311,16 @@ function visualSt(el,items){
         b.style.borderColor="var(--bad)";
         b.style.background="color-mix(in srgb,var(--bad) 10%,var(--card))";
       }
-      $("#vfb",el).innerHTML=`<div class="fb ${ok?"ok":"no"}"><b>${ok?"Doğru!":"Bir daha düşün."}</b> ${it.ex||""}</div><div class="row" style="margin-top:12px"><button type="button" class="btn" id="vnext">${i<items.length-1?"Sonraki":"Sonucu gör"}</button></div>`;
-      return;
-    }
-    if(ev.target.closest("#vnext")&&answered){
-      ev.preventDefault();
-      i++;
-      if(i<items.length)show();
-      else summary(el,score,items.length,"visual",()=>visualSt(el,items));
-    }
-  };
+      // Türkçe karşılık ve açıklama yalnızca seçim yapıldıktan sonra gösterilir.
+      $("#vfb",el).innerHTML=`<div class="fb ${ok?"ok":"no"}"><b>${ok?"Doğru!":"Yanlış."}</b> ${it.ex||""}</div>
+        <div class="row" style="margin-top:12px"><button type="button" class="btn" id="vnext">${i<items.length-1?"Sonraki":"Sonucu gör"}</button></div>`;
+      $("#vnext",el).onclick=()=>{
+        i++;
+        if(i<items.length)show();
+        else summary(el,score,items.length,"visual",()=>visualSt(el,items));
+      };
+    },{passive:false}));
+  }
   show();
 }
 /* --- Boşluk doldurma --- */
