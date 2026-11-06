@@ -8,10 +8,10 @@ Gereksinim: google-chrome ve pypdf. Yazı tipleri araclar/fontlar altında (SIL 
 import html, subprocess, sys, tempfile
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from hap_pdf import CSS, FONT, YAZAR, CHROME, TEPSI, KOK, kart, sayfa_sayisi
+from hap_pdf import CSS, FONT, YAZAR, CHROME, TEPSI, KOK, kart, sayfa_sayisi, ar_okunus
 
 def ar(s):
-    return f'<span class="ab">{s}</span>'
+    return f'<span class="ab">{s}</span> <span class="ar-pron">({ar_okunus(s)})</span>'
 
 EK_CSS = """
 @font-face{font-family:"NA";font-weight:400;src:url("%(f)s/noto-naskh-arabic-arabic-400-normal.woff2")}
