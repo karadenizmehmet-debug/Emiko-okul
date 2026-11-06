@@ -1,6 +1,35 @@
 /* Ders Rotası 6 · Hazırlayan: Mehmet Karadeniz, 2026-2027 */
 (()=>{
-const A=s=>`<span class="ab" lang="ar" dir="rtl">${s}</span>`;
+
+/* Arapça kelimelerin yaklaşık Türkçe okunuşu */
+const arOku = s => {
+  const chars=[...String(s).replace(/ـ/g,"")], out=[];
+  const consonants={"ء":"","أ":"","إ":"","آ":"â","ا":"a","ؤ":"'","ئ":"'","ب":"b","ت":"t","ث":"s","ج":"c","ح":"h","خ":"h","د":"d","ذ":"z","ر":"r","ز":"z","س":"s","ش":"ş","ص":"s","ض":"d","ط":"t","ظ":"z","ع":"'","غ":"ğ","ف":"f","ق":"k","ك":"k","ل":"l","م":"m","ن":"n","ه":"h","و":"v","ي":"y","ى":"a","ة":"t"};
+  const marks={"َ":"a","ِ":"i","ُ":"u","ْ":"","ً":"an","ٍ":"in","ٌ":"un"};
+  for(let i=0;i<chars.length;i++){
+    const c=chars[i], prev=chars[i-1], next=chars[i+1];
+    if(c==="ّ"){if(out.length)out[out.length-1]+=out[out.length-1];continue}
+    if(marks[c]!==undefined){
+      let v=marks[c];
+      if(c==="َ"&&next==="ا")v="â";
+      if(c==="ُ"&&next==="و")v="û";
+      if(c==="ِ"&&next==="ي")v="î";
+      if(c==="ً"&&prev==="ة")v="ten";
+      if(c==="ٌ"&&prev==="ة")v="tun";
+      if(c==="ٍ"&&prev==="ة")v="tin";
+      out.push(v);continue;
+    }
+    if(c==="ا"&&prev==="َ"){out.push("");continue}
+    if(c==="و"&&prev==="ُ"){out.push("");continue}
+    if(c==="ي"&&prev==="ِ"){out.push("");continue}
+    if(consonants[c]!==undefined){out.push(consonants[c]);continue}
+    if(c==="؟")out.push("?");else if(c==="،")out.push(",");else if(c==="؛")out.push(";");else if(/[.!?،؛:]/.test(c))out.push(c);else if(/\s/.test(c))out.push(" ");
+  }
+  return out.join("").replace(/\s+/g," ").trim().replace(/^'/,"").replace(/\?\s/g,"? ");
+};
+const arPron = s => `<span class="ar-pron" style="direction:ltr;unicode-bidi:isolate;font-size:.82em;color:var(--muted);white-space:nowrap">(${arOku(s)})</span>`;
+
+const A=s=>`<span class="ab" lang="ar" dir="rtl">${s}</span> ${arPron(s)};
 tema("ar",{
 id:"t1",no:"1. Tema · Günlük Hayat 1",ad:"Günlük Hayat 1",ozet:"Akrabalarım (geniş aile bireyleri) ve meslekler",pdf:"pdf/ar-tema1.pdf",pdfAd:"Arapca6_Tema1_Gunluk_Hayat1.pdf",pdfSayfa:4,
    ic:'<svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><circle cx="14" cy="13" r="6" fill="var(--amber)"/><circle cx="34" cy="13" r="6" fill="var(--teal)"/><circle cx="24" cy="25" r="5" fill="var(--ink)"/><path d="M4 42 q10-18 20 0 z" fill="var(--amber)" opacity=".85"/><path d="M24 42 q10-18 20 0 z" fill="var(--teal)" opacity=".85"/><path d="M15 42 q9-14 18 0 z" fill="var(--ink)"/></svg>',
