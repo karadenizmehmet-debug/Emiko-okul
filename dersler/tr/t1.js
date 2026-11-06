@@ -35,7 +35,9 @@ test:[
 {q:"“Roman, öyküye göre daha uzun bir türdür.” Hangi anlatım yolu vardır?",o:["Tanımlama","Örneklendirme","Karşılaştırma","Sayısal veri"],a:2,ex:"Roman ve öykü uzunluk bakımından karşılaştırılmıştır."},
 {q:"Hangisi deyimdir?",o:["Damlaya damlaya göl olur.","Birlikten kuvvet doğar.","Etekleri zil çalmak","Sakla samanı, gelir zamanı."],a:2,ex:"Etekleri zil çalmak çok sevinmek demektir."},
 {q:"“Önce konuyu okudu, ardından soruları çözdü.” Ardından sözü ne bildirir?",o:["Zaman ve sıralama","Karşıtlık","Neden","Koşul"],a:0,ex:"Ardından, olayların zaman sırasını bildirir."},
-{q:"Aşağıdakilerden hangisi açıklayıcı metnin özelliğidir?",o:["Bir konu hakkında bilgi vermesi","Yalnızca konuşmalardan oluşması","Her zaman uyaklı olması","Olayların geçmişte geçmesi"],a:0,ex:"Açıklayıcı metin bilgi vermek amacı taşır."}
+{q:"Aşağıdakilerden hangisi açıklayıcı metnin özelliğidir?",o:["Bir konu hakkında bilgi vermesi","Yalnızca konuşmalardan oluşması","Her zaman uyaklı olması","Olayların geçmişte geçmesi"],a:0,ex:"Açıklayıcı metin bilgi vermek amacı taşır."},
+{q:"“Evlerimizden” kelimesinin doğru çözümlemesi hangisidir?",o:["ev + ler + imiz + den","ev + lerimiz + de","evler + imizden","ev + ler + imiz + de"],a:0,ex:"Ev köküne çoğul -ler, iyelik -imiz ve ayrılma hâli -den eki gelmiştir."},
+{q:"Hangi cümlede virgül doğru kullanılmıştır?",o:["Hayır bugün gelemem.","Hayır, bugün gelemem.","Hayır; bugün, gelemem.","Hayır bugün, gelemem."],a:1,ex:"Ret bildiren Hayır sözünden sonra virgül kullanılır."}
 ],
 match:[
 {title:"Sözcük ve anlam",p:[["heybetli","görkemli"],["etekleri zil çalmak","çok sevinmek"],["söz varlığı","bilinen kelimeler"],["karşılaştırma","benzerlik ve farklılık"],["ninni","uyutmak için ezgili söz"]]},
@@ -61,7 +63,8 @@ det:[
 ],
 klasik:[
 {q:"Bağlaç olan de ile bulunma hâl eki -de arasındaki farkı iki örnekle açıkla.",s:"Bağlaç olan de ayrı yazılır: Ben de geldim. Bulunma hâl eki -de bitişik yazılır: Evde kaldım.",p:[{t:"Bağlaç olan de ayrı yazılır dedim",k:["ayrı"]},{t:"Bulunma eki bitişik yazılır dedim",k:["bitişik"]},{t:"İki örnek verdim",k:["ben de","evde"]}]},
-{q:"Hikâyenin dört temel unsurunu yaz ve açıkla.",s:"Olay yaşanan durum; kişi olayı yaşayanlar; yer olayın geçtiği mekân; zaman olayın gerçekleştiği dönemdir.",p:[{t:"Olayı açıkladım",k:["olay"]},{t:"Kişiyi açıkladım",k:["kişi","kahraman"]},{t:"Yeri açıkladım",k:["yer","mekân"]},{t:"Zamanı açıkladım",k:["zaman"]}]}
+{q:"Hikâyenin dört temel unsurunu yaz ve açıkla.",s:"Olay yaşanan durum; kişi olayı yaşayanlar; yer olayın geçtiği mekân; zaman olayın gerçekleştiği dönemdir.",p:[{t:"Olayı açıkladım",k:["olay"]},{t:"Kişiyi açıkladım",k:["kişi","kahraman"]},{t:"Yeri açıkladım",k:["yer","mekân"]},{t:"Zamanı açıkladım",k:["zaman"]}]},
+{q:"“Kitap okumayı seviyorum; ayrıca her gün yeni kelimeler öğreniyorum.” cümlelerini kullanarak söz varlığını geliştirmeye yönelik kısa bir paragraf yaz. Noktalama işaretlerine dikkat et.",s:"Kitap okumayı çok seviyorum. Her gün farklı türlerde kitaplar okuyorum; ayrıca öğrendiğim yeni kelimeleri not ediyorum. Böylece kelime hazinem gelişiyor.",p:[{t:"Konuyla ilgili uygun kelimeler kullandım",k:["kitap","kelime","okuma","söz varlığı"]},{t:"Yeni veya zengin kelimeler kullandım",k:["farklı","hazinem","geliş","öğrendiğim"]},{t:"Noktalama işaretlerine dikkat ettim",k:[".",";",","]}]} 
 ]
 }
 });
