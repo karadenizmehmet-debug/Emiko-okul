@@ -39,7 +39,7 @@ def ar_okunus(s):
         "نَجَّارٌ":"neccârun", "خَبَّازٌ":"hebbâzun", "خَيَّاطٌ":"hayyâtun",
         "فَلَّاحٌ":"fellâhun", "سَائِقٌ":"sâikun", "بَائِعٌ":"bâiun"
     }
-    return " ".join(sozluk.get(w, w) for w in s.split())
+    return " ".join(sozluk.get(w.strip(".,،؛؟:!؟"), w.strip(".,،؛؟:!؟")) for w in s.split())
 
 def m(s, renkli=True):
     """HTML kaçışı + **kalın** -> renkli tebeşir vurgusu."""
@@ -72,7 +72,7 @@ CSS = """
 @font-face{font-family:"KL";font-weight:700;src:url("%(f)s/kalam-latin-ext-700-normal.woff2");unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF}
 @font-face{font-family:"NA";font-weight:700;src:url("%(f)s/noto-naskh-arabic-arabic-700-normal.woff2");unicode-range:U+0600-06FF,U+0750-077F}
 @font-face{font-family:"NA";font-weight:400;src:url("%(f)s/noto-naskh-arabic-arabic-400-normal.woff2");unicode-range:U+0600-06FF,U+0750-077F}
-.ab{font-family:NA,"DejaVu Sans",serif;direction:rtl;unicode-bidi:isolate;font-size:1.38em;line-height:1.2;font-weight:700;color:#f7d95e}
+.ab{font-family:NA,"DejaVu Sans",serif;direction:rtl;unicode-bidi:isolate;font-size:1.38em;line-height:1.2;font-weight:700;color:#f7d95e}\n.ar-pron{font-family:PH,KL,sans-serif;direction:ltr;unicode-bidi:isolate;font-size:.78em;color:#9be39b;white-space:nowrap}
 .tuzak .y .ab{color:#ff9b8e}.tuzak .d .ab{color:#9be39b}
 .zincir .ab{font-size:1.25em}
 @page{size:A4;margin:0}
