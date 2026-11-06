@@ -71,7 +71,8 @@ const STATIONS=[
 {id:"fill",name:"Boşluk Doldurma",desc:"Kelime havuzundan doğru kavramı seç, cümleyi tamamla.",ic:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 17h5M16 17h5"/><rect x="9" y="12" width="6" height="6" rx="1"/></svg>'},
 {id:"sira",name:"Sıralama",desc:"Adımları ve nesneleri doğru sıraya koy.",ic:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 6h10M4 12h13M4 18h16"/></svg>'},
 {id:"klasik",name:"Klasik Sorular",desc:"Kendi cümlelerinle yaz, örnek cevap ve kontrol listesiyle değerlendir.",ic:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 4l5 5L9 20H4v-5z"/></svg>'},
- {id:"visual",name:"Görsel Eşleştirme",desc:"Kelimeyi oku, üç görsel arasından doğru olanı seç.",ic:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="2"/><path d="m21 15-5-5L5 21"/></svg>'}
+ {id:"visual",name:"Görsel Eşleştirme",desc:"Kelimeyi oku, üç görsel arasından doğru olanı seç.",ic:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="2"/><path d="m21 15-5-5L5 21"/></svg>'},
+{id:"yazili",name:"Yazılıya Hazırlık",desc:"30 özgün soru. Her soruda cevabı istediğinde aç, açıklamasını oku ve sonraki soruya geç.",ic:'<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M8 6h13M8 12h13M8 18h13"/><path d="M3 6h.01M3 12h.01M3 18h.01"/></svg>'}
 ];
 
 /* ====================== GÖRÜNÜM ====================== */
@@ -163,13 +164,13 @@ document.addEventListener("keydown",e=>{
   if(e.key==="ArrowLeft"){const b=$("#pPrev");b&&!b.disabled&&b.click()}
 });
 
-function stationCount(id){const d=curD().q[state.t];if(id==="visual")return d.visual.length;if(id==="match")return d.match.reduce((a,s)=>a+s.p.length,0);if(id==="fill")return d.fill.items.length;if(id==="sira")return d.sira.length;return d[id].length}
+function stationCount(id){const d=curD().q[state.t];if(id==="yazili")return d.yazili.length;if(id==="visual")return d.visual.length;if(id==="match")return d.match.reduce((a,s)=>a+s.p.length,0);if(id==="fill")return d.fill.items.length;if(id==="sira")return d.sira.length;return d[id].length}
 function renderStations(){
   const stations=stationsFor(curD(),state.t);const total=stations.reduce((a,s)=>{const b=getBest(state.t,s.id);return a+(b?starsFor(b.s/b.n):0)},0);
   view.innerHTML=`<div class="ist-head"><h2>Pekiştirme İstasyonu</h2><p>${curD().temas.find(t=>t.id===state.t).ozet} üzerine ${stations.length} farklı istasyon. Her istasyonda en iyi sonucun yıldız olarak kaydedilir.</p></div>
   <div class="score-strip"><span class="pill accp">Toplam yıldız: ${total} / ${stations.length*3}</span></div>
   <div class="stations">${stations.map((s,i)=>{const b=getBest(state.t,s.id);const n=stationCount(s.id);
-    const meta=`<div class="meta"><span>${n} ${s.id==="match"?"eşleşme":s.id==="sira"?"görev":s.id==="det"?"vaka":s.id==="visual"?"görsel soru":"soru"}</span><span class="stars">${starStr(b?starsFor(b.s/b.n):0)}</span></div>`;
+    const meta=`<div class="meta"><span>${n} ${s.id==="match"?"eşleşme":s.id==="sira"?"görev":s.id==="det"?"vaka":s.id==="visual"?"görsel soru":s.id==="yazili"?"soru":"soru"}</span><span class="stars">${starStr(b?starsFor(b.s/b.n):0)}</span></div>`;
     return i===0?`<button class="scard feat" data-s="${s.id}"><span class="ic">${s.ic}</span><span class="tx"><h3>${sN(s)}</h3><p>${s.desc}</p>${meta}</span></button>`
     :`<button class="scard" data-s="${s.id}"><span class="ic">${s.ic}</span><h3>${sN(s)}</h3><p>${s.desc}</p>${meta}</button>`}).join("")}</div>`;
   $$(".scard").forEach(c=>c.onclick=()=>{state.st=c.dataset.s;render();window.scrollTo({top:0})});
@@ -187,6 +188,7 @@ function renderStation(id){
   else if(id==="sira")siraSt(el,d.sira);
   else if(id==="klasik")klasikSt(el,d.klasik);
    else if(id==="visual")visualSt(el,d.visual);
+  else if(id==="yazili")yaziliSt(el,d.yazili);
 }
 function summary(el,s,n,id,again,label){
   setBest(state.t,id,s,n);
@@ -196,6 +198,39 @@ function summary(el,s,n,id,again,label){
   $("#again",el).onclick=again;$("#toK",el).onclick=()=>{state.m="konu";state.st=null;render();window.scrollTo({top:0})};
 }
 
+/* --- Yazılıya hazırlık: 30 soruluk cevap açma istasyonu --- */
+function yaziliSt(el,items){
+  let i=0,shown=new Set();
+  function draw(){
+    const it=items[i],open=shown.has(i);
+    el.innerHTML=`<div class="qno">Yazılıya Hazırlık · Soru ${i+1} / ${items.length}</div>
+      <div class="prog"><i style="width:${(i+1)/items.length*100}%"></i></div>
+      <div class="case"><span class="tag">${it.konu} · ${it.tur}</span><h3>${i+1}. Soru</h3><p>${it.soru}</p></div>
+      <div class="row" style="justify-content:flex-start;margin-top:12px">
+        <button type="button" class="btn" id="showAnswer">${open?"Cevabı gizle":"Cevabı göster"}</button>
+      </div>
+      <div id="answerArea">${open?`<div class="fb ok" style="margin-top:12px"><b>Örnek cevap</b><p style="white-space:pre-line;margin-top:8px">${it.cevap}</p><p style="margin-top:10px"><b>Açıklama:</b> ${it.aciklama}</p></div>`:""}</div>
+      <div class="row" style="justify-content:space-between;margin-top:18px">
+        <button type="button" class="btn ghost" id="prev" ${i===0?"disabled":""}>Önceki soru</button>
+        <button type="button" class="btn" id="next">${i===items.length-1?"Çalışmayı bitir":"Sonraki soru"}</button>
+      </div>
+      <p style="font-size:.85rem;color:var(--muted);margin-top:8px">İpucu: Önce cevabını kendin düşün veya defterine yaz. Sonra örnek cevabı açıp karşılaştır.</p>`;
+    $("#showAnswer",el).onclick=()=>{
+      if(shown.has(i))shown.delete(i);else shown.add(i);
+      draw();
+    };
+    $("#prev",el).onclick=()=>{if(i>0){i--;draw()}};
+    $("#next",el).onclick=()=>{
+      if(i<items.length-1){i++;draw();el.scrollIntoView({behavior:"smooth",block:"start"})}
+      else{
+        el.innerHTML=`<div class="summary"><div class="stars">✓</div><div class="big">30 / 30</div><p>Yazılıya hazırlık sorularını tamamladın.</p><p>${shown.size} sorunun örnek cevabını açıp inceledin. Açmadığın sorulara geri dönerek tekrar çalışabilirsin.</p><div class="row" style="justify-content:center"><button class="btn" id="restart">Baştan başla</button><button class="btn ghost" id="backStations">İstasyonlara dön</button></div></div>`;
+        $("#restart",el).onclick=()=>{i=0;shown.clear();draw()};
+        $("#backStations",el).onclick=()=>{state.st=null;render()};
+      }
+    };
+  }
+  draw();
+}
 /* --- Soru akışı (D/Y, Test, Dedektif) --- */
 function quiz(el,items,id){
   let i=0,score=0;
