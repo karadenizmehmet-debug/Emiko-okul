@@ -205,14 +205,14 @@ konu:[
 /* ---------- PEKİŞTİRME İSTASYONU ---------- */
 q:{
 visual:[
-{word:"طَبِيبٌ",prompt:"Doktor — doğru görseli seç.",a:0,o:[{pic:"👨‍⚕️",alt:"doktor"},{pic:"👩‍🏫",alt:"öğretmen"},{pic:"👨‍🌾",alt:"çiftçi"}],ex:"طَبِيبٌ doktor demektir."},
-{word:"مُعَلِّمٌ",prompt:"Öğretmen — doğru görseli seç.",a:1,o:[{pic:"👨‍🌾",alt:"çiftçi"},{pic:"👨‍🏫",alt:"öğretmen"},{pic:"👨‍🍳",alt:"aşçı"}],ex:"مُعَلِّمٌ öğretmen demektir."},
-{word:"فَلَّاحٌ",prompt:"Çiftçi — doğru görseli seç.",a:2,o:[{pic:"👨‍🍳",alt:"aşçı"},{pic:"👨‍⚕️",alt:"doktor"},{pic:"👨‍🌾",alt:"çiftçi"}],ex:"فَلَّاحٌ çiftçi demektir."},
-{word:"خَبَّازٌ",prompt:"Fırıncı — doğru görseli seç.",a:0,o:[{pic:"🧑‍🍞",alt:"fırıncı"},{pic:"👨‍🔧",alt:"tamirci"},{pic:"👩‍⚕️",alt:"doktor"}],ex:"خَبَّازٌ fırıncı demektir."},
-{word:"طَبَّاخٌ",prompt:"Aşçı — doğru görseli seç.",a:1,o:[{pic:"👨‍🏫",alt:"öğretmen"},{pic:"👨‍🍳",alt:"aşçı"},{pic:"👨‍🌾",alt:"çiftçi"}],ex:"طَبَّاخٌ aşçı demektir."},
-{word:"نَجَّارٌ",prompt:"Marangoz — doğru görseli seç.",a:2,o:[{pic:"👨‍⚕️",alt:"doktor"},{pic:"👨‍🍳",alt:"aşçı"},{pic:"🪚",alt:"marangoz"}],ex:"نَجَّارٌ marangoz demektir."},
-{word:"سَائِقٌ",prompt:"Şoför — doğru görseli seç.",a:1,o:[{pic:"👨‍🌾",alt:"çiftçi"},{pic:"🚕",alt:"şoför"},{pic:"👨‍🏫",alt:"öğretmen"}],ex:"سَائِقٌ şoför demektir."},
-{word:"مُمَرِّضٌ",prompt:"Erkek hemşire — doğru görseli seç.",a:0,o:[{pic:"👨‍⚕️",alt:"erkek hemşire"},{pic:"👨‍🍳",alt:"aşçı"},{pic:"👨‍🔧",alt:"tamirci"}],ex:"مُمَرِّضٌ erkek hemşire demektir."}
+{word:"طَبِيبٌ",prompt:"اخْتَرِ الصُّورَةَ الصَّحِيحَةَ.",a:0,o:[{pic:"👨‍⚕️",alt:"doktor"},{pic:"👩‍🏫",alt:"öğretmen"},{pic:"👨‍🌾",alt:"çiftçi"}],ex:"طَبِيبٌ doktor demektir."},
+{word:"مُعَلِّمٌ",prompt:"اخْتَرِ الصُّورَةَ الصَّحِيحَةَ.",a:1,o:[{pic:"👨‍🌾",alt:"çiftçi"},{pic:"👨‍🏫",alt:"öğretmen"},{pic:"👨‍🍳",alt:"aşçı"}],ex:"مُعَلِّمٌ öğretmen demektir."},
+{word:"فَلَّاحٌ",prompt:"اخْتَرِ الصُّورَةَ الصَّحِيحَةَ.",a:2,o:[{pic:"👨‍🍳",alt:"aşçı"},{pic:"👨‍⚕️",alt:"doktor"},{pic:"👨‍🌾",alt:"çiftçi"}],ex:"فَلَّاحٌ çiftçi demektir."},
+{word:"خَبَّازٌ",prompt:"اخْتَرِ الصُّورَةَ الصَّحِيحَةَ.",a:0,o:[{pic:"🧑‍🍞",alt:"fırıncı"},{pic:"👨‍🔧",alt:"tamirci"},{pic:"👩‍⚕️",alt:"doktor"}],ex:"خَبَّازٌ fırıncı demektir."},
+{word:"طَبَّاخٌ",prompt:"اخْتَرِ الصُّورَةَ الصَّحِيحَةَ.",a:1,o:[{pic:"👨‍🏫",alt:"öğretmen"},{pic:"👨‍🍳",alt:"aşçı"},{pic:"👨‍🌾",alt:"çiftçi"}],ex:"طَبَّاخٌ aşçı demektir."},
+{word:"نَجَّارٌ",prompt:"اخْتَرِ الصُّورَةَ الصَّحِيحَةَ.",a:2,o:[{pic:"👨‍⚕️",alt:"doktor"},{pic:"👨‍🍳",alt:"aşçı"},{pic:"🪚",alt:"marangoz"}],ex:"نَجَّارٌ marangoz demektir."},
+{word:"سَائِقٌ",prompt:"اخْتَرِ الصُّورَةَ الصَّحِيحَةَ.",a:1,o:[{pic:"👨‍🌾",alt:"çiftçi"},{pic:"🚕",alt:"şoför"},{pic:"👨‍🏫",alt:"öğretmen"}],ex:"سَائِقٌ şoför demektir."},
+{word:"مُمَرِّضٌ",prompt:"اخْتَرِ الصُّورَةَ الصَّحِيحَةَ.",a:0,o:[{pic:"👨‍⚕️",alt:"erkek hemşire"},{pic:"👨‍🍳",alt:"aşçı"},{pic:"👨‍🔧",alt:"tamirci"}],ex:"مُمَرِّضٌ erkek hemşire demektir."}
 ],
 dy:[
 {q:`${A("عَمٌّ")} kelimesi baba tarafından erkek akrabayı, yani amcayı anlatır.`,a:0,ex:`Baba tarafı: ${A("عَمٌّ")} amca, ${A("عَمَّةٌ")} hala.`},
