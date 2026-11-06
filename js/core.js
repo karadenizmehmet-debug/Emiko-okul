@@ -4,6 +4,26 @@ const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelect
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
 const lower=s=>s.toLocaleLowerCase("tr");
 const RM=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* Arapça kelimeye dokununca cihazın Arapça konuşma motoruyla seslendir. */
+function arapcaOku(el){
+  if(!("speechSynthesis" in window) || !("SpeechSynthesisUtterance" in window)) return;
+  const metin=(el.getAttribute("data-arabic")||el.textContent||"").replace(/[ًٌٍَُِّْـٰ]/g,"").replace(/[.,،؛؟:]/g," ").trim();
+  if(!metin) return;
+  window.speechSynthesis.cancel();
+  const ses=new SpeechSynthesisUtterance(metin);
+  ses.lang="ar-SA";
+  ses.rate=.82;
+  ses.pitch=1;
+  const sesler=window.speechSynthesis.getVoices();
+  ses.voice=sesler.find(v=>/^ar(-|$)/i.test(v.lang))||null;
+  window.speechSynthesis.speak(ses);
+}
+document.addEventListener("click",e=>{
+  const kelime=e.target.closest(".ab,.abbig");
+  if(kelime) arapcaOku(kelime);
+});
+
 let store={};try{store=JSON.parse(localStorage.getItem("fenrota6")||"{}")}catch(e){store={}}
 const save=()=>{try{localStorage.setItem("fenrota6",JSON.stringify(store))}catch(e){}};
 const state={d:store.d||null,t:store.t||"t1",m:store.m||"konu",st:null};
