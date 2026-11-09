@@ -59,6 +59,7 @@ IKON = {
  "dunya": '<g fill="none" stroke-width="2.6"><circle cx="30" cy="30" r="22" stroke="#8ed1f2"/><ellipse cx="30" cy="30" rx="10" ry="22" stroke="#f5f2e7"/><path d="M8 30h44M11 18h38M11 42h38" stroke="#f5f2e7"/></g><circle cx="38" cy="22" r="3" fill="#f7d95e"/>',
  "aile": '<g fill="none" stroke-width="3" stroke-linecap="round"><circle cx="18" cy="16" r="6" stroke="#f7d95e"/><circle cx="42" cy="16" r="6" stroke="#8ed1f2"/><circle cx="30" cy="30" r="5" stroke="#f4a6c0"/><path d="M8 50c0-9 5-14 10-14s10 5 10 14" stroke="#f7d95e"/><path d="M32 50c0-9 5-14 10-14s10 5 10 14" stroke="#8ed1f2"/><path d="M21 52c0-6 4-9 9-9s9 3 9 9" stroke="#f4a6c0"/></g>',
  "hira": '<path d="M4 50L24 14l12 20 8-10 14 26z" fill="none" stroke="#f5f2e7" stroke-width="3" stroke-linejoin="round"/><path d="M22 50c0-8 4-12 8-12s8 4 8 12" fill="#1d3a2c" stroke="#ffb066" stroke-width="2.6"/><path d="M50 10a8 8 0 1 0 6 12 6.5 6.5 0 1 1-6-12z" fill="#f7d95e"/>',
+ "kalem": '<path d="M10 50l4-14 28-28 10 10-28 28z" fill="none" stroke="#f7d95e" stroke-width="3" stroke-linejoin="round"/><path d="M36 14l10 10" stroke="#f4a6c0" stroke-width="3"/><path d="M10 50l4-14 10 10z" fill="#f5f2e7"/><path d="M30 52h22" stroke="#8ed1f2" stroke-width="3" stroke-linecap="round"/>',
 }
 
 CSS = """

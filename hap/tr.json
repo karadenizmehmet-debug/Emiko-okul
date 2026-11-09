@@ -1,0 +1,16 @@
+{"ders":"tr","ad":"Türkçe","temalar":[
+{"id":"t1","no":"1. Tema","ad":"Dilimizin Zenginliği","ikon":"kalem",
+ "hap":[
+  "**Bağlamdan anlam:** Bilmediğin kelimeyi cümledeki ipucuyla tahmin et, sonra **yerine koyup dene**.",
+  "İpucu türleri: **eş anlam** (yani…), **zıt anlam** (ise…), **örnek**, **sonuç**.",
+  "**Yüzey anlam** = metinde açıkça yazan. “Metne göre” sorusunda **sadece metne** güven; 5N1K sor.",
+  "**Gerçek** = ilk anlam · **Mecaz** = gerçekten uzak (derin düşünce) · **Terim** = bilim/sanat (açı).",
+  "**Kök** + **yapım eki** (yeni kelime: göz-lük) + **çekim eki** (cümleye bağlar: ev-ler-de).",
+  "Yazını zenginleştir: **eş anlamlı**, **deyim / atasözü**, **benzetme (gibi)**, duyular, geçiş ifadeleri.",
+  "**Atasözü** öğüt verir, cümledir · **Deyim** durumu anlatır, -mak/-mek · **Kalıp söz:** Geçmiş olsun!"],
+ "tablo":{"b":"Ayrı mı, bitişik mi?","h":["","Ayrı","Bitişik"],"s":[["de / da","Ben **de** geldim (bağlaç)","Ev**de**, park**ta** (ek)"],["ki","Duydum **ki** (bağlaç)","evde**ki**, yarın**ki** (ek)"],["mi","Geldin **mi**?","gelecek **misin** → ayrı!"]]},
+ "zincir":{"b":"Noktalama hızlı bakış","m":["**,** sıralama, hitap, evet/hayır","**;** virgüllü cümleleri ayır","**:** açıklama, aktarma öncesi","**“ ”** aynen aktarılan söz"]},
+ "tuzak":[["Bende geldim. · Gelirmisin? · herşey","Ben de geldim. · Gelir misin? · her şey"],["Etekleri zil çalmak atasözüdür.","Deyimdir: öğüt vermez, durumu anlatır."]],
+ "ipucu":"Bağlamdan anlam sorusunda tahminini **ipucuyla birlikte** yaz; tam puan böyle gelir.",
+ "ezber":"**de**'yi çıkar: anlam bozulmuyorsa **ayrı** yaz!"}
+]}

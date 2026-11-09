@@ -111,14 +111,14 @@ function renderHome(){
 /* Kara tahta PDF indirme (downloads yeteneği) */
 const dlP=(window.claude&&window.claude.use)?window.claude.use("downloads").catch(()=>null):Promise.resolve(null);
 function pdfBar(T){return `<div class="pdfbar"><svg width="44" height="54" viewBox="0 0 44 54" aria-hidden="true"><rect x="2" y="2" width="40" height="50" rx="3" fill="#1d3a2c" stroke="#8b5a2f" stroke-width="4"/><path d="M10 16h24M10 24h18M10 32h22M10 40h14" stroke="#f5f2e7" stroke-width="2.4" stroke-linecap="round" opacity=".85"/><circle cx="33" cy="40" r="3" fill="#f7d95e"/></svg>
-  <div class="pt"><b>Kara tahta notları</b><span>Bu temanın özeti, ${T.pdfSayfa} sayfa A4 PDF. Yazdırıp sınıfa asabilir ya da deftere yapıştırabilirsin.</span><span class="pmsg" id="pdfMsg"></span></div>
-  <button class="btn" id="pdfBtn">PDF'i indir</button></div>`}
+  <div class="pt"><b>Ders notu · kara tahta</b><span>Bu temanın özeti, ${T.pdfSayfa} sayfa A4 PDF. Yazdırıp sınıfa asabilir ya da deftere yapıştırabilirsin.</span><span class="pmsg" id="pdfMsg"></span></div>
+  <button class="btn" id="pdfBtn">Ders notunu indir</button></div>`}
 function ornekBar(O){return `<div class="pdfbar ornek"><svg width="44" height="54" viewBox="0 0 44 54" aria-hidden="true"><rect x="2" y="2" width="40" height="50" rx="4" fill="#fff" stroke="var(--know)" stroke-width="3"/><circle cx="11" cy="15" r="3.5" fill="var(--know)"/><path d="M18 15h16M18 27h16M18 39h12" stroke="#5a6a86" stroke-width="2.4" stroke-linecap="round"/><circle cx="11" cy="27" r="3.5" fill="var(--know)"/><circle cx="11" cy="39" r="3.5" fill="var(--know)"/></svg>
   <div class="pt"><b>Örnek yazılı soruları</b><span>Farklı okulların 1. yazılılarından derlenen ${O.soru} soru, tekrarlar çıkarıldı. Sonunda cevap anahtarı var. ${O.sayfa} sayfa A4 PDF.</span><span class="pmsg" id="obMsg"></span></div>
   <button class="btn" id="obBtn">PDF'i indir</button></div>`}
 function hapBar(H){return `<div class="pdfbar hap"><svg width="44" height="54" viewBox="0 0 44 54" aria-hidden="true"><rect x="2" y="2" width="40" height="50" rx="4" fill="#fff6d6" stroke="#b8860b" stroke-width="3"/><path d="M10 14h24M10 22h16" stroke="#8a6200" stroke-width="3" stroke-linecap="round"/><path d="M10 31l4 4 7-8M10 43l4 4 7-8" fill="none" stroke="#1f8a5a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(0 -4)"/><path d="M26 31h9M26 43h9" stroke="#5a6a86" stroke-width="2.4" stroke-linecap="round" transform="translate(0 -4)"/></svg>
   <div class="pt"><b>Hap notlar ve ipuçları</b><span>Bu dersin bütün temalarının hap notları, ipuçları ve dikkat edilecek tuzakları. Yeni tema eklendikçe güncellenir. A4 PDF.</span><span class="pmsg" id="hapMsg"></span></div>
-  <button class="btn" id="hapBtn">PDF'i indir</button></div>`}
+  <button class="btn" id="hapBtn">Hap notu indir</button></div>`}
 function wirePdf(T){wireDl(T.pdf,T.pdfAd,"pdfBtn","pdfMsg");if(T.ornek)wireDl(T.ornek.pdf,T.ornek.ad,"obBtn","obMsg");const H=curD().hap;if(H)wireDl(H.pdf+"?v="+SURUM,H.ad,"hapBtn","hapMsg")}
 function wireDl(url,name,bid,mid){const b=$("#"+bid),m=$("#"+mid);if(!b)return;
   b.onclick=async()=>{const dl=await dlP;
