@@ -17,7 +17,7 @@
 2. `dersler/<ders>/<tN>.js` dosyasını yaz.
 3. `dersler/dersler.js` içinde o dersin `temalar` listesine `"tN"` ekle, `SURUM`'u değiştir.
 4. Yeni etkileşimli parça gerekiyorsa `dersler/<ders>/parcalar.js` sonuna `W.yeniParca=el=>{...}` ekle ve konuda `<div class="widget"><div class="wh">Etkileşimli · Başlık</div><div class="wb" data-w="yeniParca"></div></div>` ile çağır. `W` adları tüm derslerde benzersiz olmalı.
-5. Kara tahta PDF'ini (ders notu) `pdf/<ders>-temaN.pdf` olarak koy. Örnek üretici: `araclar/tr_tema_pdf.py`, `araclar/ar_tema_pdf.py`.
+5. Kara tahta PDF'ini (ders notu) `pdf/<ders>-temaN.pdf` olarak koy. Örnek üretici: `araclar/tr_tema_pdf.py`, `araclar/ar_tema_pdf.py`, `araclar/ing_tema_pdf.py`.
 6. **Hap notları güncelle:** `hap/<ders>.json` içindeki `temalar` listesine yeni temayı ekle (şablon aşağıda), sonra `python3 araclar/hap_pdf.py <ders>` çalıştır. PDF yeniden üretilir; ders ilk kez hap alıyorsa `dersler/dersler.js` içinde o derse `hap:{pdf:"pdf/<ders>-hap.pdf",ad:"...pdf"}` ekle. `SURUM`'u değiştir.
 
 ## Tema dosyası şablonu

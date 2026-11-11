@@ -7,7 +7,7 @@
      doldur; dersin etkileşimli parçaları varsa parcalar:true yap.
    - Her güncellemede SURUM'u değiştir (tarayıcı önbelleğini temizler).
    ===================================================================== */
-const SURUM = "2026-11-09-tr-genis";
+const SURUM = "2026-11-11-ing-t1";
 
 const DERSLER = [
 {id:"fen",ad:"Fen Bilimleri",kisa:"Fen",renk:"var(--amber)",acik:"Güneş sistemi, tutulmalar, kuvvet ve hareket.",
@@ -22,8 +22,9 @@ const DERSLER = [
 {id:"sos",ad:"Sosyal Bilgiler",kisa:"SB",renk:"var(--d-sos)",detAd:"Sosyal Dedektif",acik:"Gruplar ve roller, millî değerler, konum, doğal-beşerî çevre ve Türk dünyası.",
  parcalar:true, temalar:["t1","t2"],
  hap:{pdf:"pdf/sos-hap.pdf",ad:"SosyalBilgiler6_Hap_Notlar_ve_Ipuclari.pdf"}},
-{id:"ing",ad:"İngilizce",kisa:"En",renk:"var(--d-ing)",acik:"Kelime, dinleme ve konuşma kalıpları.",
- temalar:[]},
+{id:"ing",ad:"İngilizce",kisa:"En",renk:"var(--d-ing)",detAd:"English Dedektifi",acik:"School Life: okuldaki görevler, rutinler, millî günler; present simple ve sıklık zarfları.",
+ parcalar:true, temalar:["t1"],
+ hap:{pdf:"pdf/ing-hap.pdf",ad:"Ingilizce6_Hap_Notlar_ve_Ipuclari.pdf"}},
 {id:"din",ad:"Din Kültürü ve Ahlak Bilgisi",kisa:"DK",renk:"var(--d-din)",acik:"İnanç, ibadet, ahlak ve değerler.",
  temalar:[]},
 {id:"ar",ad:"Arapça",kisa:"ع",renk:"var(--d-ar)",detAd:"Kelime Dedektifi",acik:"Aile ve akrabalar, meslekler, kendini ve ailesini tanıtma.",
