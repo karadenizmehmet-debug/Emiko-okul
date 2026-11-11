@@ -8,6 +8,7 @@
 <title>Ders Rotası 6</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Lexend:wght@300;400;500;600&family=JetBrains+Mono:wght@500;700&display=swap">
+<script>try{var _t=localStorage.getItem("emiko-tema");if(_t==="dark"||_t==="light")document.documentElement.setAttribute("data-theme",_t)}catch(e){}</script>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -17,7 +18,7 @@
       <svg width="46" height="46" viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="20" fill="none" stroke="var(--acc)" stroke-width="2" stroke-dasharray="4 4"/><circle cx="23" cy="23" r="7" fill="var(--acc)"/><circle cx="41" cy="18" r="4" fill="var(--ink)"/><path d="M6 36 L18 36" stroke="var(--force)" stroke-width="3"/><path d="M15 32 L20 36 L15 40" fill="none" stroke="var(--force)" stroke-width="3"/></svg>
       <h1>Ders Rotası 6<span id="surumEtiket" style="font-size:.5em;font-weight:600;opacity:.6;vertical-align:middle;margin-left:.35em;letter-spacing:0"></span><small id="crumb">6. Sınıf · Konu Anlatımı ve Pekiştirme İstasyonu</small></h1>
     </div>
-    <button class="btn ghost" id="homeBtn" hidden>← Dersler</button>
+    <div style="display:flex;gap:8px;align-items:center"><button class="btn ghost" id="temaBtn" type="button"></button><button class="btn ghost" id="homeBtn" hidden>← Dersler</button></div>
   </header>
 
   <div id="dersUI" hidden>
@@ -35,6 +36,12 @@
 <!-- Sıra önemli: ders listesi → çekirdek → başlat -->
 <script src="dersler/dersler.js"></script>
 <script src="js/core.js?v=1.1"></script>
-<script>baslat();</script>
+<script>baslat();
+/* Koyu / normal mod: varsayılan sistemi izler; düğme elle seçer (emiko-tema) */
+(function(){var b=document.getElementById("temaBtn"),r=document.documentElement;
+function koyu(){var t=r.getAttribute("data-theme");return t?t==="dark":window.matchMedia&&matchMedia("(prefers-color-scheme:dark)").matches}
+function ciz(){var k=koyu(),m=k?"Normal moda geç":"Koyu moda geç";b.textContent=k?"☀️":"🌙";b.title=m;b.setAttribute("aria-label",m)}
+b.addEventListener("click",function(){var n=koyu()?"light":"dark";r.setAttribute("data-theme",n);try{localStorage.setItem("emiko-tema",n)}catch(e){}ciz()});ciz()})();
+</script>
 </body>
 </html>
