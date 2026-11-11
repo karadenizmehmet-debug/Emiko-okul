@@ -1,5 +1,5 @@
 /* Ders Rotası 6 · Hazırlayan: Mehmet Karadeniz, 2026-2027 */
-try{const e=document.getElementById("surumEtiket");if(e&&typeof VERSIYON!=="undefined")e.textContent=VERSIYON+" · "}catch(e){}
+try{const e=document.getElementById("surumEtiket");if(e&&typeof VERSIYON!=="undefined")e.textContent=VERSIYON}catch(e){}
 /* ====================== YARDIMCILAR ====================== */
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
