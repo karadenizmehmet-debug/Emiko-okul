@@ -60,3 +60,9 @@ Hap not = **en can alıcı, olmazsa olmaz** bilgi. Kısa tut. Bir A4 sayfaya **2
 
 ## Test
 `python3 -m http.server` ile kökten aç; ders → tema → tüm konu sayfaları → 7 istasyon konsol hatası vermemeli.
+
+## Sürüm numarası
+Biçim `vX.Y` / `vX.Y.Z`, uygulamada görünür. Her değişiklikte artır ve aynı commit'e koy:
+- **Küçük düzeltme** (hata, yazım, stil): `+0.0.1` → v1.2 → v1.2.1 → v1.2.2
+- **Yeni içerik / özellik**: `+0.1`, düzeltme hanesi sıfırlanır → v1.2.2 → v1.3
+- Sürüm tek yerde tutulur: `dersler/dersler.js` → `VERSIYON` (ayrıca `SURUM` önbellek anahtarını da değiştir).

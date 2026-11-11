@@ -7,7 +7,8 @@
      doldur; dersin etkileşimli parçaları varsa parcalar:true yap.
    - Her güncellemede SURUM'u değiştir (tarayıcı önbelleğini temizler).
    ===================================================================== */
-const SURUM = "2026-11-11-ing-t1";
+const SURUM = "2026-11-11-v1.0";
+const VERSIYON = "v1.0";   // görünen sürüm: düzeltme +0.0.1, yeni tema/ders +0.1
 
 const DERSLER = [
 {id:"fen",ad:"Fen Bilimleri",kisa:"Fen",renk:"var(--amber)",acik:"Güneş sistemi, tutulmalar, kuvvet ve hareket.",
