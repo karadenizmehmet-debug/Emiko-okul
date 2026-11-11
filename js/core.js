@@ -117,10 +117,13 @@ function pdfBar(T){return `<div class="pdfbar"><svg width="44" height="54" viewB
 function ornekBar(O){return `<div class="pdfbar ornek"><svg width="44" height="54" viewBox="0 0 44 54" aria-hidden="true"><rect x="2" y="2" width="40" height="50" rx="4" fill="#fff" stroke="var(--know)" stroke-width="3"/><circle cx="11" cy="15" r="3.5" fill="var(--know)"/><path d="M18 15h16M18 27h16M18 39h12" stroke="#5a6a86" stroke-width="2.4" stroke-linecap="round"/><circle cx="11" cy="27" r="3.5" fill="var(--know)"/><circle cx="11" cy="39" r="3.5" fill="var(--know)"/></svg>
   <div class="pt"><b>Örnek yazılı soruları</b><span>Farklı okulların 1. yazılılarından derlenen ${O.soru} soru, tekrarlar çıkarıldı. Sonunda cevap anahtarı var. ${O.sayfa} sayfa A4 PDF.</span><span class="pmsg" id="obMsg"></span></div>
   <button class="btn" id="obBtn">PDF'i indir</button></div>`}
+function yaziliBar(Y){return `<div class="pdfbar ornek"><svg width="44" height="54" viewBox="0 0 44 54" aria-hidden="true"><rect x="2" y="2" width="40" height="50" rx="4" fill="#fff" stroke="var(--d-ing,#2f6fd6)" stroke-width="3"/><path d="M10 14h24M10 22h18M10 30h24M10 38h14" stroke="#5a6a86" stroke-width="2.4" stroke-linecap="round"/><path d="M27 41l4 4 7-8" fill="none" stroke="#1f8a5a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="pt"><b>Yazılıya hazırlık soruları</b><span>Yazılıya Hazırlık istasyonundaki ${Y.soru} soru, görselli ve cevap yerli. Sonunda cevap anahtarı var. ${Y.sayfa} sayfa A4 PDF.</span><span class="pmsg" id="ypMsg"></span></div>
+  <button class="btn" id="ypBtn">PDF'i indir</button></div>`}
 function hapBar(H){return `<div class="pdfbar hap"><svg width="44" height="54" viewBox="0 0 44 54" aria-hidden="true"><rect x="2" y="2" width="40" height="50" rx="4" fill="#fff6d6" stroke="#b8860b" stroke-width="3"/><path d="M10 14h24M10 22h16" stroke="#8a6200" stroke-width="3" stroke-linecap="round"/><path d="M10 31l4 4 7-8M10 43l4 4 7-8" fill="none" stroke="#1f8a5a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(0 -4)"/><path d="M26 31h9M26 43h9" stroke="#5a6a86" stroke-width="2.4" stroke-linecap="round" transform="translate(0 -4)"/></svg>
   <div class="pt"><b>Hap notlar ve ipuçları</b><span>Bu dersin bütün temalarının hap notları, ipuçları ve dikkat edilecek tuzakları. Yeni tema eklendikçe güncellenir. A4 PDF.</span><span class="pmsg" id="hapMsg"></span></div>
   <button class="btn" id="hapBtn">Hap notu indir</button></div>`}
-function wirePdf(T){wireDl(T.pdf,T.pdfAd,"pdfBtn","pdfMsg");if(T.ornek)wireDl(T.ornek.pdf,T.ornek.ad,"obBtn","obMsg");const H=curD().hap;if(H)wireDl(H.pdf+"?v="+SURUM,H.ad,"hapBtn","hapMsg")}
+function wirePdf(T){wireDl(T.pdf,T.pdfAd,"pdfBtn","pdfMsg");if(T.ornek)wireDl(T.ornek.pdf,T.ornek.ad,"obBtn","obMsg");if(T.yaziliPdf)wireDl(T.yaziliPdf.pdf+"?v="+SURUM,T.yaziliPdf.ad,"ypBtn","ypMsg");const H=curD().hap;if(H)wireDl(H.pdf+"?v="+SURUM,H.ad,"hapBtn","hapMsg")}
 function wireDl(url,name,bid,mid){const b=$("#"+bid),m=$("#"+mid);if(!b)return;
   b.onclick=async()=>{const dl=await dlP;
     if(!dl){const a=document.createElement("a");a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();m.textContent="İndirme başladı.";return}b.disabled=true;const old=b.textContent;b.textContent="Hazırlanıyor…";m.textContent="";
@@ -143,7 +146,7 @@ function renderKonu(){
   const p=P[i],last=i===P.length-1;
   const firstOf=si=>P.findIndex(x=>x.sec===si);
   const T=curD().temas.find(t=>t.id===state.t);
-  view.innerHTML=`${T.pdf?pdfBar(T):""}${curD().hap?hapBar(curD().hap):""}${T.ornek?ornekBar(T.ornek):""}<div class="konu"><nav class="toc" aria-label="İçindekiler"><span class="lbl">İçindekiler</span>${secs.map((s,si)=>`<button class="tocb ${si===p.sec?"on":""} ${si<p.sec?"seen":""}" data-s="${si}"><span class="tn">${si<p.sec?"✓":si+1}</span><span>${s.nav}</span></button>`).join("")}</nav>
+  view.innerHTML=`${T.pdf?pdfBar(T):""}${curD().hap?hapBar(curD().hap):""}${T.ornek?ornekBar(T.ornek):""}${T.yaziliPdf?yaziliBar(T.yaziliPdf):""}<div class="konu"><nav class="toc" aria-label="İçindekiler"><span class="lbl">İçindekiler</span>${secs.map((s,si)=>`<button class="tocb ${si===p.sec?"on":""} ${si<p.sec?"seen":""}" data-s="${si}"><span class="tn">${si<p.sec?"✓":si+1}</span><span>${s.nav}</span></button>`).join("")}</nav>
   <div class="pagecol">
    <section class="sec">${p.html}${p.parts>1?`<p class="partnote">${p.nav}: sayfa ${p.part+1} / ${p.parts}</p>`:""}</section>
    ${last?`<div class="sec" style="align-items:flex-start"><div class="eyebrow">Sıra sende</div><h2>Öğrendiklerini pekiştir</h2><p>${sN(STATIONS[0])}, Test, Eşleştirme ve diğer istasyonlarda kendini dene.</p><button class="btn" id="goIst">Pekiştirme istasyonuna git</button></div>`:""}
@@ -189,7 +192,7 @@ function renderStation(id){
   else if(id==="sira")siraSt(el,d.sira);
   else if(id==="klasik")klasikSt(el,d.klasik);
    else if(id==="visual")visualSt(el,d.visual);
-  else if(id==="yazili")yaziliSt(el,d.yazili);
+  else if(id==="yazili"){const T=curD().temas.find(t=>t.id===state.t);if(T&&T.yaziliPdf){el.insertAdjacentHTML("beforebegin",yaziliBar(T.yaziliPdf));wireDl(T.yaziliPdf.pdf+"?v="+SURUM,T.yaziliPdf.ad,"ypBtn","ypMsg")}yaziliSt(el,d.yazili)}
 }
 function summary(el,s,n,id,again,label){
   setBest(state.t,id,s,n);

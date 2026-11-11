@@ -2,6 +2,7 @@
 tema("ing",{
 id:"t1",no:"1. Tema · 1. yazılıya hazırlık",ad:"School Life",ozet:"Okuldaki görev ve sorumluluklar, okul rutinleri, millî gün ve bayramlar; present simple, sıklık zarfları, okuma ve yazma",
 pdf:"pdf/ing-tema1.pdf",pdfAd:"Ingilizce6_Tema1_School_Life_Ders_Notu.pdf",pdfSayfa:4,
+yaziliPdf:{pdf:"pdf/ing-t1-yazili.pdf",ad:"Ingilizce6_Tema1_Yazili_Hazirlik_Sorulari.pdf",sayfa:9,soru:30},
 ic:'<svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 20 24 9l18 11" fill="none" stroke="var(--d-ing)" stroke-width="3" stroke-linejoin="round"/><path d="M10 20v19h28V20" fill="none" stroke="var(--d-ing)" stroke-width="3"/><path d="M20 39v-9h8v9" fill="none" stroke="var(--d-ing)" stroke-width="2.5"/><path d="M24 9V3h7v4h-7" fill="var(--d-ing)" stroke="var(--d-ing)" stroke-width="1.5"/></svg>',
 konu:[
 {id:"ing0",nav:"Yazılı haritası",html:`
