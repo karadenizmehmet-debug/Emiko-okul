@@ -7,8 +7,8 @@
      doldur; dersin etkileşimli parçaları varsa parcalar:true yap.
    - Her güncellemede SURUM'u değiştir (tarayıcı önbelleğini temizler).
    ===================================================================== */
-const SURUM = "2026-11-12-v1.3";
-const VERSIYON = "v1.3";   // görünen sürüm: düzeltme +0.0.1, yeni tema/ders +0.1
+const SURUM = "2026-11-12-v1.4";
+const VERSIYON = "v1.4";   // görünen sürüm: düzeltme +0.0.1, yeni tema/ders +0.1
 
 const DERSLER = [
 {id:"fen",ad:"Fen Bilimleri",kisa:"Fen",renk:"var(--amber)",acik:"Güneş sistemi, tutulmalar, kuvvet ve hareket.",
@@ -26,8 +26,9 @@ const DERSLER = [
 {id:"ing",ad:"İngilizce",kisa:"En",renk:"var(--d-ing)",detAd:"English Dedektifi",acik:"School Life: okuldaki görevler, rutinler, millî günler; present simple ve sıklık zarfları.",
  parcalar:true, temalar:["t1"],
  hap:{pdf:"pdf/ing-hap.pdf",ad:"Ingilizce6_Hap_Notlar_ve_Ipuclari.pdf"}},
-{id:"din",ad:"Din Kültürü ve Ahlak Bilgisi",kisa:"DK",renk:"var(--d-din)",acik:"İnanç, ibadet, ahlak ve değerler.",
- temalar:[]},
+{id:"din",ad:"Din Kültürü ve Ahlak Bilgisi",kisa:"DK",renk:"var(--d-din)",detAd:"İnanç Dedektifi",acik:"Vahiy ve gönderiliş amacı, ilahi kitaplar, Felak suresi.",
+ parcalar:true, temalar:["t1"],
+ hap:{pdf:"pdf/din-hap.pdf",ad:"DinKulturu6_Hap_Notlar_ve_Ipuclari.pdf"}},
 {id:"ar",ad:"Arapça",kisa:"ع",renk:"var(--d-ar)",detAd:"Kelime Dedektifi",acik:"Aile ve akrabalar, meslekler, kendini ve ailesini tanıtma.",
  parcalar:true, temalar:["t1"],
  hap:{pdf:"pdf/ar-hap.pdf",ad:"Arapca6_Hap_Notlar_ve_Ipuclari.pdf"}},

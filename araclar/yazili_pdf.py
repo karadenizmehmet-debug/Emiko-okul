@@ -123,7 +123,8 @@ GORSEL = {
                     12: takvim(), 15: tören(), 16: nobetci(), 20: siklik_tablosu(), 25: okul_gunu(), 26: rozet(),
                     27: bayram_gunu(), 28: zarf("Hi Tom!")},
 }
-BASLIK = {("ing", "t1"): ("İngilizce 6", "1. Tema · School Life", "1. Dönem 1. Yazılıya Hazırlık")}
+BASLIK = {("ing", "t1"): ("İngilizce 6", "1. Tema · School Life", "1. Dönem 1. Yazılıya Hazırlık"),
+          ("din", "t1"): ("Din Kültürü 6", "1. Ünite · Peygamber ve İlahi Kitap İnancı · Senaryo 2", "1. Dönem 1. Yazılıya Hazırlık")}
 
 # ------------------------------------------------------------------ CEVAP YERİ
 def satir_sayisi(it):
