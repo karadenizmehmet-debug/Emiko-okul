@@ -34,8 +34,8 @@
 </div>
 
 <!-- Sıra önemli: ders listesi → çekirdek → başlat -->
-<script src="dersler/dersler.js"></script>
-<script src="js/core.js?v=1.1"></script>
+<!-- Önbellek kırıcı: her açılışta güncel ders listesi ve motor yüklenir -->
+<script>(function(){var t=Date.now();document.write('<script src="dersler/dersler.js?t='+t+'"><\/script><script src="js/core.js?t='+t+'"><\/script>')})();</script>
 <script>baslat();
 /* Koyu / normal mod: varsayılan sistemi izler; düğme elle seçer (emiko-tema) */
 (function(){var b=document.getElementById("temaBtn"),r=document.documentElement;
