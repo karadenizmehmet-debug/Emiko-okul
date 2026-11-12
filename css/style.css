@@ -129,6 +129,7 @@ td.c{text-align:center;font-family:var(--mono);font-weight:700}
 .pcard .f small{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .btn{border:0;background:var(--acc);color:var(--paper);border-radius:10px;padding:10px 16px;font-weight:600}
 .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.paylasBtn svg{width:18px;height:18px;display:block}
 .btn:disabled{opacity:.45;cursor:not-allowed}
 
 /* İstasyon */

@@ -18,7 +18,7 @@
       <svg width="46" height="46" viewBox="0 0 46 46" aria-hidden="true"><circle cx="23" cy="23" r="20" fill="none" stroke="var(--acc)" stroke-width="2" stroke-dasharray="4 4"/><circle cx="23" cy="23" r="7" fill="var(--acc)"/><circle cx="41" cy="18" r="4" fill="var(--ink)"/><path d="M6 36 L18 36" stroke="var(--force)" stroke-width="3"/><path d="M15 32 L20 36 L15 40" fill="none" stroke="var(--force)" stroke-width="3"/></svg>
       <h1>Ders Rotası 6<span id="surumEtiket" style="font-size:.5em;font-weight:600;opacity:.6;vertical-align:middle;margin-left:.35em;letter-spacing:0"></span><small id="crumb">6. Sınıf · Konu Anlatımı ve Pekiştirme İstasyonu</small></h1>
     </div>
-    <div style="display:flex;gap:8px;align-items:center"><button class="btn ghost" id="temaBtn" type="button"></button><button class="btn ghost" id="homeBtn" hidden>← Dersler</button></div>
+    <div style="display:flex;gap:8px;align-items:center"><button class="btn ghost paylasBtn" type="button"></button><button class="btn ghost" id="temaBtn" type="button"></button><button class="btn ghost" id="homeBtn" hidden>← Dersler</button></div>
   </header>
 
   <div id="dersUI" hidden>
@@ -42,6 +42,29 @@
 function koyu(){var t=r.getAttribute("data-theme");return t?t==="dark":window.matchMedia&&matchMedia("(prefers-color-scheme:dark)").matches}
 function ciz(){var k=koyu(),m=k?"Normal moda geç":"Koyu moda geç";b.textContent=k?"☀️":"🌙";b.title=m;b.setAttribute("aria-label",m)}
 b.addEventListener("click",function(){var n=koyu()?"light":"dark";r.setAttribute("data-theme",n);try{localStorage.setItem("emiko-tema",n)}catch(e){}ciz()});ciz()})();
+</script>
+<script>
+// Adres paylaş düğmesi: önce sistem paylaşımı, olmazsa adresi panoya kopyalar. Mehmet Karadeniz, 2026-2027
+(function () {
+  var SH = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.5l6.8-4M8.6 13.5l6.8 4"/></svg>';
+  var OK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>';
+  function adres() { return location.href.split(/[?#]/)[0]; }
+  function kopyala(u) {
+    try { var t = document.createElement("textarea"); t.value = u; t.style.cssText = "position:fixed;opacity:0;top:0;left:0"; document.body.appendChild(t); t.select(); var ok = document.execCommand("copy"); document.body.removeChild(t); return ok; } catch (e) { return false; }
+  }
+  function tamam(b) { b.innerHTML = OK; b.title = "Adres kopyalandı"; setTimeout(function () { b.innerHTML = SH; b.title = "Adresi paylaş"; }, 1800); }
+  function paylas(b) {
+    var u = adres();
+    if (navigator.share) { navigator.share({ title: document.title, url: u }).catch(function () {}); return; }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(u).then(function () { tamam(b); }, function () { if (kopyala(u)) tamam(b); });
+    else if (kopyala(u)) tamam(b);
+  }
+  var bs = document.querySelectorAll(".paylasBtn");
+  for (var i = 0; i < bs.length; i++) {
+    bs[i].innerHTML = SH; bs[i].title = "Adresi paylaş"; bs[i].setAttribute("aria-label", "Adresi paylaş");
+    bs[i].addEventListener("click", function () { paylas(this); });
+  }
+})();
 </script>
 </body>
 </html>
