@@ -1,28 +1,178 @@
-{"ders":"fen","ad":"Fen Bilimleri","temalar":[
-{"id":"t1","no":"1. Tema","ad":"Güneş Sistemi ve Tutulmalar","ikon":"gunes",
- "hap":[
-  "**8 gezegen** Güneş'in etrafında **yörüngesinde** döner.",
-  "**Karasal (iç):** Merkür, Venüs, Dünya, Mars → kayalık, **halkasız**.",
-  "**Gazsal (dış):** Jüpiter, Satürn, Uranüs, Neptün → dev, **halkalı**, uydulu.",
-  "**En sıcak: Venüs.** En büyük: Jüpiter. Uydusuz: Merkür ve Venüs.",
-  "Asteroit kuşağı → gök taşı → **meteor** (atmosferde yanar) → **meteorit** (yere düşer) → çukur.",
-  "Tutulmada **ortadaki gölgeyi düşürür.**"],
- "tablo":{"b":"Hangi tutulma?","h":["","Güneş tut.","Ay tut."],"s":[
-  ["Sıra","Güneş–Ay–Dünya","Güneş–Dünya–Ay"],["Ay evresi","Yeni ay","Dolunay"],["Zaman","Gündüz","Gece"],["İzleme","Özel gözlük!","Çıplak göz güvenli"]]},
- "tuzak":[["Kayan yıldız bir yıldızdır.","Meteordur."],["Güneş gözlüğüyle tutulmaya bakılır.","Yalnızca özel tutulma gözlüğü!"],["Her ay tutulma olur.","Ay'ın yörüngesi eğiktir."]],
- "ipucu":"“Halka var” = gazsal. “Uydu yok” = Merkür ya da Venüs.",
- "ezber":"**Minik Veli Dün Mavi Jiple Su Ulaştırdı Nineye** = Merkür, Venüs, Dünya, Mars, Jüpiter, Satürn, Uranüs, Neptün"},
-{"id":"t2","no":"2. Tema","ad":"Kuvvetin Etkisinde Hareket","ikon":"kuvvet",
- "hap":[
-  "**Kuvvet** = itme ya da çekme. **Dinamometre** ölçer, birimi **N**.",
-  "4 özellik: **uygulama noktası, doğrultu, yön, büyüklük**.",
-  "**Doğrultu = çizgi** (yatay, düşey). **Yön = okun ucu** (sağa, yukarı).",
-  "**Bileşke:** aynı yön **topla**, zıt yön **çıkar**, eşit ve zıt **0**.",
-  "**Yol** yönsüz toplam uzunluk. **Yer değiştirme** başlangıçtan bitişe, yönlü. 1 tur: yer değiştirme **0**.",
-  "**Sürat** = yol ÷ zaman (yönsüz). **Hız** = yer değiştirme ÷ zaman (**yönlü**)."],
- "tablo":{"b":"Bileşke 0 ise (dengelenmiş)","h":["","Dengelenmiş","Dengelenmemiş"],"s":[
-  ["Duruyorsa","Durur","Harekete başlar"],["Hareket ediyorsa","Aynı süratle sürer","Hızlanır, yavaşlar, yön değiştirir"]]},
- "tuzak":[["Duran cisme kuvvet etki etmez.","Kuvvetler dengelenmiştir."],["Araç göstergesi hızı gösterir.","Yönsüz, sürati gösterir."]],
- "ipucu":"Cevap bir çizgi adıysa doğrultu, gidiş tarafıysa yön.",
- "ezber":"**Doğrultu çizgidir, yön okun ucudur.**"}
-]}
+{
+ "ders": "fen",
+ "ad": "Fen Bilimleri",
+ "temalar": [
+  {
+   "id": "t1",
+   "no": "1. Tema",
+   "ad": "Güneş Sistemi ve Tutulmalar",
+   "ikon": "gunes",
+   "hap": [
+    "**8 gezegen** Güneş'in etrafında **yörüngesinde** döner.",
+    "**Karasal (iç):** Merkür, Venüs, Dünya, Mars → kayalık, **halkasız**.",
+    "**Gazsal (dış):** Jüpiter, Satürn, Uranüs, Neptün → dev, **halkalı**, uydulu.",
+    "**En sıcak: Venüs.** En büyük: Jüpiter. Uydusuz: Merkür ve Venüs.",
+    "Asteroit kuşağı → gök taşı → **meteor** (atmosferde yanar) → **meteorit** (yere düşer) → çukur.",
+    "Tutulmada **ortadaki gölgeyi düşürür.**"
+   ],
+   "tablo": {
+    "b": "Hangi tutulma?",
+    "h": [
+     "",
+     "Güneş tut.",
+     "Ay tut."
+    ],
+    "s": [
+     [
+      "Sıra",
+      "Güneş–Ay–Dünya",
+      "Güneş–Dünya–Ay"
+     ],
+     [
+      "Ay evresi",
+      "Yeni ay",
+      "Dolunay"
+     ],
+     [
+      "Zaman",
+      "Gündüz",
+      "Gece"
+     ],
+     [
+      "İzleme",
+      "Özel gözlük!",
+      "Çıplak göz güvenli"
+     ]
+    ]
+   },
+   "tuzak": [
+    [
+     "Kayan yıldız bir yıldızdır.",
+     "Meteordur."
+    ],
+    [
+     "Güneş gözlüğüyle tutulmaya bakılır.",
+     "Yalnızca özel tutulma gözlüğü!"
+    ],
+    [
+     "Her ay tutulma olur.",
+     "Ay'ın yörüngesi eğiktir."
+    ]
+   ],
+   "ipucu": "“Halka var” = gazsal. “Uydu yok” = Merkür ya da Venüs.",
+   "ezber": "**Minik Veli Dün Mavi Jiple Su Ulaştırdı Nineye** = Merkür, Venüs, Dünya, Mars, Jüpiter, Satürn, Uranüs, Neptün"
+  },
+  {
+   "id": "t2",
+   "no": "2. Tema",
+   "ad": "Kuvvetin Etkisinde Hareket",
+   "ikon": "kuvvet",
+   "hap": [
+    "**Kuvvet** = itme ya da çekme. **Dinamometre** ölçer, birimi **N**.",
+    "4 özellik: **uygulama noktası, doğrultu, yön, büyüklük**.",
+    "**Doğrultu = çizgi** (yatay, düşey). **Yön = okun ucu** (sağa, yukarı).",
+    "**Bileşke:** aynı yön **topla**, zıt yön **çıkar**, eşit ve zıt **0**.",
+    "**Yol** yönsüz toplam uzunluk. **Yer değiştirme** başlangıçtan bitişe, yönlü. 1 tur: yer değiştirme **0**.",
+    "**Sürat** = yol ÷ zaman (yönsüz). **Hız** = yer değiştirme ÷ zaman (**yönlü**)."
+   ],
+   "tablo": {
+    "b": "Bileşke 0 ise (dengelenmiş)",
+    "h": [
+     "",
+     "Dengelenmiş",
+     "Dengelenmemiş"
+    ],
+    "s": [
+     [
+      "Duruyorsa",
+      "Durur",
+      "Harekete başlar"
+     ],
+     [
+      "Hareket ediyorsa",
+      "Aynı süratle sürer",
+      "Hızlanır, yavaşlar, yön değiştirir"
+     ]
+    ]
+   },
+   "tuzak": [
+    [
+     "Duran cisme kuvvet etki etmez.",
+     "Kuvvetler dengelenmiştir."
+    ],
+    [
+     "Araç göstergesi hızı gösterir.",
+     "Yönsüz, sürati gösterir."
+    ]
+   ],
+   "ipucu": "Cevap bir çizgi adıysa doğrultu, gidiş tarafıysa yön.",
+   "ezber": "**Doğrultu çizgidir, yön okun ucudur.**"
+  },
+  {
+   "id": "t3",
+   "no": "3. Tema",
+   "ad": "Canlılarda Sistemler",
+   "ikon": "fide",
+   "hap": [
+    "**Eşeyli:** üreme hücreleri birleşir (döllenme), yavru benzer. **Eşeysiz:** tek ata, yavru **aynısı**.",
+    "Eşeysiz yollar: **bölünme** (amip), **tomurcuklanma** (maya, hidra), **vejetatif** (patates, çilek), **rejenerasyon** (deniz yıldızı).",
+    "**Tozlaşma:** başçık → tepecik. Döllenmeden sonra **yumurtalık → meyve**, döllenmiş yumurta → **tohum**.",
+    "**Çimlenme:** su + uygun sıcaklık (+ oksijen). **Işık gerekmez**; fidenin büyümesi için gerekir.",
+    "**Tam başkalaşım:** yumurta→larva→**pupa**→ergin (kelebek, kurbağa). **Eksik:** yumurta→**nimf**→ergin (çekirge).",
+    "İnsan: sperm + yumurta → **zigot → embriyo → fetüs**. Testis → sperm, yumurtalık → yumurta.",
+    "**Beyin** düşünme · **beyincik** denge · **omurilik soğanı** kalp-solunum · **omurilik** refleks."
+   ],
+   "tablo": {
+    "b": "Bez · hormon",
+    "h": [
+     "",
+     "Hormon",
+     "Görev"
+    ],
+    "s": [
+     [
+      "Hipofiz",
+      "Büyüme h.",
+      "Büyüme, bezleri yönetir"
+     ],
+     [
+      "Tiroit",
+      "Tiroksin",
+      "Metabolizma"
+     ],
+     [
+      "Böbrek üstü",
+      "Adrenalin",
+      "Heyecan, tehlike"
+     ],
+     [
+      "Pankreas",
+      "İnsülin/glukagon",
+      "Kan şekeri ↓ / ↑"
+     ],
+     [
+      "Eşeysel bezler",
+      "Eşeysel h.",
+      "Ergenlik"
+     ]
+    ]
+   },
+   "tuzak": [
+    [
+     "Kertenkele kuyruk yenilemesi üremedir.",
+     "Yeni birey yok, onarımdır."
+    ],
+    [
+     "Dengeyi omurilik soğanı sağlar.",
+     "Beyinciktir."
+    ],
+    [
+     "Ergenlik herkeste aynı yaşta başlar.",
+     "Kişiden kişiye değişir."
+    ]
+   ],
+   "ipucu": "Deneyde değiştirdiğin bağımsız, gözlediğin bağımlı, sabit tuttuğun kontrol edilen değişkendir.",
+   "ezber": "**Zigot → Embriyo → Fetüs = ZEF**; pupa varsa tam başkalaşım."
+  }
+ ]
+}

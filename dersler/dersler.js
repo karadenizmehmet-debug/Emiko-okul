@@ -7,12 +7,12 @@
      doldur; dersin etkileşimli parçaları varsa parcalar:true yap.
    - Her güncellemede SURUM'u değiştir (tarayıcı önbelleğini temizler).
    ===================================================================== */
-const SURUM = "2026-11-12-v1.4.1";
-const VERSIYON = "v1.4.1";   // görünen sürüm: düzeltme +0.0.1, yeni tema/ders +0.1
+const SURUM = "2026-11-23-v1.5";
+const VERSIYON = "v1.5";   // görünen sürüm: düzeltme +0.0.1, yeni tema/ders +0.1
 
 const DERSLER = [
-{id:"fen",ad:"Fen Bilimleri",kisa:"Fen",renk:"var(--amber)",acik:"Güneş sistemi, tutulmalar, kuvvet ve hareket.",
- parcalar:true, temalar:["t1","t2"],
+{id:"fen",ad:"Fen Bilimleri",kisa:"Fen",renk:"var(--amber)",acik:"Güneş sistemi, tutulmalar, kuvvet ve hareket, canlılarda üreme, sinir ve iç salgı sistemi.",
+ parcalar:true, temalar:["t1","t2","t3"],
  hap:{pdf:"pdf/fen-hap.pdf",ad:"Fen6_Hap_Notlar_ve_Ipuclari.pdf"}},
 {id:"tr",ad:"Türkçe",kisa:"Tr",renk:"var(--d-tr)",detAd:"Dil Dedektifi",acik:"Bağlamdan anlam, yüzey anlam, söz varlığı, yazıyı zenginleştirme, yazım ve noktalama.",
  parcalar:true, temalar:["t1"],

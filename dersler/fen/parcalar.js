@@ -204,3 +204,174 @@ W.speed=el=>{
   anims.push({stop:()=>cancelAnimationFrame(raf)});
   draw();if(playing)play();
 };
+
+/* ===================== 3. TEMA · CANLILARDA SİSTEMLER ===================== */
+/* Eşeyli mi eşeysiz mi? (FB.6.3.1) */
+const UR=[
+{n:"Amip ortadan ikiye ayrılarak iki yeni amip oluşturuyor.",e:0,t:"Bölünme",x:"Tek hücreli canlı kendini ikiye böler. Yeni canlılar atasının aynısıdır."},
+{n:"Bira mayasının üzerinde bir çıkıntı büyüyüp ayrılıyor.",e:0,t:"Tomurcuklanma",x:"Canlının üzerinde oluşan tomurcuk büyüyüp yeni bir birey olur."},
+{n:"Hidranın vücudunda küçük bir hidra oluşup kopuyor.",e:0,t:"Tomurcuklanma",x:"Hidra da tomurcuklanmayla çoğalır; yavru atasına yapışık büyür, sonra ayrılır."},
+{n:"Toprağa gömülen filizli patatesten yeni patates bitkisi çıkıyor.",e:0,t:"Vejetatif üreme",x:"Bitkinin gövde, kök ya da yaprak gibi bir parçasından yeni bitki oluşur. Tohum gerekmez."},
+{n:"Çilek bitkisinin toprağa değen gövdesinden yeni çilek bitkisi oluşuyor.",e:0,t:"Vejetatif üreme",x:"Toprak üstünde sürünen gövdeler kök salar ve yeni bitki oluşturur."},
+{n:"Annemin kestiği sardunya dalı suda kök salıp yeni bitki oluyor.",e:0,t:"Vejetatif üreme (çelikle)",x:"Dal parçası (çelik) yeni bir bitki oluşturur. Bahçıvanlar bu yolu sık kullanır."},
+{n:"Deniz yıldızının kopan kolundan yeni bir deniz yıldızı oluşuyor.",e:0,t:"Rejenerasyonla üreme",x:"Kopan parça eksik kısımlarını tamamlayarak yeni bir birey oluşturur."},
+{n:"Planarya (yassı solucan) parçalara ayrılınca her parçadan yeni planarya oluşuyor.",e:0,t:"Rejenerasyonla üreme",x:"Her parça eksiklerini tamamlar; parça sayısı kadar yeni birey oluşur."},
+{n:"Elma ağacının çiçekleri tozlaşıyor, meyvenin içinde tohumlar oluşuyor.",e:1,t:"Eşeyli üreme",x:"Çiçekte erkek ve dişi üreme hücreleri birleşir; tohum eşeyli üremenin ürünüdür."},
+{n:"Fasulye tohumu ekilip yeni fasulye bitkisi yetişiyor.",e:1,t:"Eşeyli üreme",x:"Tohum, çiçekte döllenme sonucu oluşur. Yani tohumdan çıkan bitki eşeyli üremenin sonucudur."},
+{n:"Bir inek buzağı doğuruyor.",e:1,t:"Eşeyli üreme",x:"Anne ve babadan gelen üreme hücreleri birleşmiştir. Buzağı ikisine de benzer ama aynısı değildir."},
+{n:"Döllenmiş tavuk yumurtasından civciv çıkıyor.",e:1,t:"Eşeyli üreme",x:"Yumurta hücresi ile sperm birleşmiştir. Civciv yumurtanın içinde gelişir."}
+];
+W.ureme=el=>{
+  let i=0,dogru=0,cev=false;const sira=[...UR.keys()].sort(()=>Math.random()-.5);
+  el.innerHTML=`<p class="say" id="uQ"></p><div class="ctrls"><span class="seg"><button data-e="1">Eşeyli üreme</button><button data-e="0">Eşeysiz üreme</button></span><button class="btn ghost" id="uN">Sonraki</button></div><div class="readout" id="uR"></div><div class="say" id="uX"></div>`;
+  const show=()=>{const u=UR[sira[i]];cev=false;$("#uQ",el).innerHTML=`<b>${i+1}/${UR.length}.</b> ${u.n}`;$("#uR",el).innerHTML=`<span class="pill accp">Puan: ${dogru}</span>`;$("#uX",el).innerHTML="Sence bu hangi üreme çeşidi?";$$(".seg button",el).forEach(b=>b.setAttribute("aria-pressed","false"))};
+  $$(".seg button",el).forEach(b=>b.onclick=()=>{if(cev)return;cev=true;const u=UR[sira[i]],ok=+b.dataset.e===u.e;if(ok)dogru++;b.setAttribute("aria-pressed","true");
+    $("#uR",el).innerHTML=`<span class="pill ${ok?"okp":"badp"}">${ok?"Doğru":"Yanlış"}</span><span class="pill accp">${u.e?"Eşeyli":"Eşeysiz"} · ${u.t}</span><span class="pill accp">Puan: ${dogru}</span>`;$("#uX",el).innerHTML=u.x});
+  $("#uN",el).onclick=()=>{if(i<UR.length-1){i++;show()}else{$("#uQ",el).innerHTML=`<b>Bitti!</b> ${UR.length} örnekten <b>${dogru}</b> tanesini doğru buldun.`;$("#uX",el).innerHTML="Yeniden başlamak için “Sonraki”ye bas.";i=-1;dogru=0;sira.sort(()=>Math.random()-.5)}};
+  show();
+};
+
+/* Çiçeğin kısımları (FB.6.3.2) */
+const CK={
+ tac:{n:"Taç yaprak",c:"var(--force)",x:"Renkli ve kokulu yapraklardır. Arı, kelebek gibi böcekleri çiçeğe çeker; tozlaşmaya yardım eder."},
+ canak:{n:"Çanak yaprak",c:"var(--ok)",x:"Genellikle yeşildir. Çiçek henüz tomurcukken içini korur."},
+ erkek:{n:"Erkek organ (başçık + sapçık)",c:"var(--amber)",x:"Başçıkta çiçek tozları üretilir. Çiçek tozunun içinde erkek üreme hücresi bulunur."},
+ disi:{n:"Dişi organ (tepecik, dişicik borusu, yumurtalık)",c:"var(--disp)",x:"Tepecik yapışkandır, çiçek tozunu tutar. Yumurtalıkta dişi üreme hücresi (yumurta) bulunur. Döllenmeden sonra yumurtalık meyveye, içindeki yapı tohuma dönüşür."},
+ sap:{n:"Çiçek sapı ve çiçek tablası",c:"var(--teal)",x:"Çiçeği gövdeye bağlar, çiçeğin bütün kısımlarını taşır."}
+};
+W.cicek=el=>{
+  let cur="disi";
+  el.innerHTML=`<div class="ctrls"><span class="seg">${Object.keys(CK).map(k=>`<button data-k="${k}">${CK[k].n.split(" (")[0]}</button>`).join("")}</span></div>
+  <div class="svgbox"><svg viewBox="-60 0 420 250" id="ckS" role="img" aria-label="Çiçeğin kısımları"></svg></div><div class="say" id="ckX"></div>`;
+  function draw(){
+    const on=k=>cur===k?1:.28,sw=k=>cur===k?3:1.5;
+    let s=`<g transform="translate(-60,0)">${gridBg(480,250)}</g>`;
+    s+=`<g opacity="${on("sap")}"><path d="M180 248V170" stroke="var(--teal)" stroke-width="${6+sw("sap")}"/><path d="M180 222q-30-6-44-24q26 2 44 18" fill="var(--teal)"/><ellipse cx="180" cy="168" rx="26" ry="9" fill="var(--teal)"/></g>`;
+    s+=`<g opacity="${on("canak")}" fill="var(--ok)"><path d="M160 166q-34 4-48-12q30-12 52 4z"/><path d="M200 166q34 4 48-12q-30-12-52 4z"/></g>`;
+    s+=`<g opacity="${on("tac")}" fill="var(--force)" stroke="var(--paper)" stroke-width="1.5"><path d="M168 160q-70-20-82-80q50 4 90 66z"/><path d="M192 160q70-20 82-80q-50 4-90 66z"/><path d="M174 156q-30-60-6-112q20 50 14 112z" opacity=".85"/><path d="M186 156q30-60 6-112q-20 50-14 112z" opacity=".85"/></g>`;
+    s+=`<g opacity="${on("erkek")}"><path d="M170 160q-14-40-28-70M190 160q14-40 28-70" stroke="var(--amber)" stroke-width="${sw("erkek")+1}" fill="none"/><ellipse cx="142" cy="86" rx="9" ry="6" fill="var(--amber)"/><ellipse cx="218" cy="86" rx="9" ry="6" fill="var(--amber)"/><g fill="var(--amber)"><circle cx="128" cy="72" r="2"/><circle cx="232" cy="70" r="2"/><circle cx="150" cy="66" r="1.6"/></g></g>`;
+    s+=`<g opacity="${on("disi")}"><ellipse cx="180" cy="148" rx="14" ry="13" fill="var(--disp)"/><circle cx="175" cy="148" r="3" fill="var(--paper)"/><circle cx="185" cy="148" r="3" fill="var(--paper)"/><path d="M180 136V66" stroke="var(--disp)" stroke-width="${sw("disi")+2}"/><ellipse cx="180" cy="62" rx="10" ry="6" fill="var(--disp)"/></g>`;
+    const L=(x,y,tx,ty,t,k)=>`<g opacity="${on(k)}"><line x1="${x}" y1="${y}" x2="${tx}" y2="${ty}" stroke="var(--ink)" stroke-width="1"/><text x="${tx+(tx>180?4:-4)}" y="${ty+4}" text-anchor="${tx>180?"start":"end"}" font-size="11" fill="var(--ink)" font-family="Lexend">${t}</text></g>`;
+    s+=L(180,62,240,28,"Tepecik","disi")+L(180,100,268,124,"Dişicik borusu","disi")+L(186,150,268,160,"Yumurtalık","disi")+L(142,86,64,40,"Başçık","erkek")+L(160,120,60,120,"Sapçık","erkek")+L(120,156,60,190,"Çanak yaprak","canak")+L(100,90,40,80,"Taç yaprak","tac")+L(180,200,250,214,"Çiçek sapı","sap");
+    $("#ckS",el).innerHTML=s;$("#ckX",el).innerHTML=`<b>${CK[cur].n}:</b> ${CK[cur].x}`;
+    $$(".seg button",el).forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===cur));
+  }
+  $$(".seg button",el).forEach(b=>b.onclick=()=>{cur=b.dataset.k;draw()});draw();
+};
+
+/* Çimlenme deneyi (FB.6.3.3) */
+W.cimlen=el=>{
+  let su=1,isi=1,isik=1,gun=5;
+  el.innerHTML=`<div class="ctrls"><span class="seg" id="cSu"><button data-v="1">Nemli pamuk</button><button data-v="0">Kuru pamuk</button></span>
+  <span class="seg" id="cIs"><button data-v="0">Buzdolabı (4 °C)</button><button data-v="1">Oda (22 °C)</button></span>
+  <span class="seg" id="cIk"><button data-v="1">Aydınlık</button><button data-v="0">Karanlık dolap</button></span>
+  <label for="cG">Gün <input type="range" id="cG" min="0" max="7" value="5"></label></div>
+  <div class="svgbox"><svg viewBox="0 0 360 200" id="cS" role="img" aria-label="Fasulye çimlendirme düzeneği"></svg></div><div class="readout" id="cR"></div><div class="say" id="cX"></div>`;
+  function draw(){
+    const olur=su&&isi,boy=olur?Math.max(0,gun-1)*14:0;
+    let s=gridBg(360,200);
+    s+=`<path d="M110 120h140l-14 70h-112z" fill="${isik?"var(--surface)":"var(--ink)"}" opacity="${isik?1:.25}" stroke="var(--ink)" stroke-width="2"/>`;
+    s+=`<rect x="116" y="112" width="128" height="16" rx="6" fill="${su?"#cfe6f7":"#f1ece2"}" stroke="var(--muted)"/>`;
+    for(let k=0;k<3;k++){const x=146+k*34;s+=`<ellipse cx="${x}" cy="108" rx="10" ry="7" fill="#b98a5a"/>`;
+      if(olur&&gun>=2)s+=`<path d="M${x} 112q2 10-4 18" stroke="#f1ece2" stroke-width="3" fill="none"/>`;
+      if(boy>0)s+=`<path d="M${x} 102V${102-boy}" stroke="var(--ok)" stroke-width="3"/>${gun>=4?`<path d="M${x} ${102-boy}q-12-8-14 2q10 4 14-2zM${x} ${102-boy}q12-8 14 2q-10 4-14-2z" fill="${isik?"var(--ok)":"#d8d27a"}"/>`:""}`;}
+    if(!isik)s+=`<text x="180" y="30" text-anchor="middle" font-size="12" fill="var(--muted)" font-family="Lexend">Karanlık dolap</text>`;
+    s+=`<text x="20" y="190" font-size="12" fill="var(--ink)" font-family="JetBrains Mono">${gun}. gün · ${isi?"22 °C":"4 °C"}</text>`;
+    $("#cS",el).innerHTML=s;
+    $("#cR",el).innerHTML=`<span class="pill ${olur&&gun>=2?"okp":"badp"}">${olur?(gun>=2?"Tohumlar çimleniyor":"Henüz değişiklik yok"):"Çimlenme yok"}</span><span class="pill accp">Su: ${su?"var":"yok"}</span><span class="pill accp">Sıcaklık: ${isi?"uygun":"çok düşük"}</span><span class="pill accp">Işık: ${isik?"var":"yok"}</span>`;
+    $("#cX",el).innerHTML=!su?"Kuru pamuktaki tohumlar <b>su alamadığı</b> için çimlenmez. Çimlenme için <b>su (nem)</b> gerekir.":!isi?"Buzdolabındaki tohumlar <b>sıcaklık çok düşük</b> olduğu için çimlenmez ya da çok geç çimlenir. Çimlenme için <b>uygun sıcaklık</b> gerekir.":isik?"Su ve uygun sıcaklık var, tohumlar çimlendi. Fide ışıkta yeşil yapraklar açar.":"Karanlıkta da çimlendi! Demek ki <b>çimlenme için ışık gerekmez</b>. Ama fide ışık alamazsa sararır, uzun ve cılız olur; büyümek için ışığa ihtiyaç duyar.";
+    [["#cSu",su],["#cIs",isi],["#cIk",isik]].forEach(([id,v])=>$$(id+" button",el).forEach(b=>b.setAttribute("aria-pressed",+b.dataset.v===v)));
+  }
+  $$("#cSu button",el).forEach(b=>b.onclick=()=>{su=+b.dataset.v;draw()});
+  $$("#cIs button",el).forEach(b=>b.onclick=()=>{isi=+b.dataset.v;draw()});
+  $$("#cIk button",el).forEach(b=>b.onclick=()=>{isik=+b.dataset.v;draw()});
+  $("#cG",el).oninput=e=>{gun=+e.target.value;draw()};draw();
+};
+
+/* Başkalaşım (FB.6.3.4) */
+const BK={
+ kelebek:{t:"Tam başkalaşım",e:["Yumurta","Tırtıl (larva)","Pupa (koza)","Ergin kelebek"],x:["Kelebek yumurtalarını yaprağın altına bırakır.","Tırtıl durmadan yaprak yer ve büyür. Ergine hiç benzemez.","Tırtıl kendini kozaya sarar; içeride vücudu tamamen değişir.","Kozadan kanatlı kelebek çıkar. Yavru ile ergin çok farklıdır."]},
+ kurbagak:{t:"Tam başkalaşım",e:["Yumurta","İribaş","Bacaklı iribaş","Ergin kurbağa"],x:["Kurbağa yumurtalarını suya bırakır.","İribaş suda yaşar, kuyruğuyla yüzer, solungaçla solunum yapar.","Önce arka, sonra ön bacaklar çıkar; kuyruk kısalmaya başlar.","Kuyruk kaybolur. Ergin kurbağa karada da yaşar, akciğerle solunum yapar."]},
+ cekirge:{t:"Eksik başkalaşım",e:["Yumurta","Nimf (kanatsız yavru)","Ergin çekirge"],x:["Çekirge yumurtalarını toprağa bırakır.","Nimf, ergine benzer ama kanatsız ve küçüktür. Birkaç kez deri değiştirerek büyür.","Kanatları gelişir, ergin olur. Pupa evresi yoktur."]}
+};
+W.donusum=el=>{
+  let h="kelebek",i=0;
+  el.innerHTML=`<div class="ctrls"><span class="seg" id="bH"><button data-k="kelebek">Kelebek</button><button data-k="kurbagak">Kurbağa</button><button data-k="cekirge">Çekirge</button></span><button class="btn ghost" id="bN">Sonraki evre</button></div>
+  <div class="svgbox"><svg viewBox="0 0 360 120" id="bS" role="img" aria-label="Yaşam döngüsü"></svg></div><div class="readout" id="bR"></div><div class="say" id="bX"></div>`;
+  function draw(){
+    const d=BK[h],n=d.e.length,gap=320/n;let s="";
+    d.e.forEach((e,k)=>{const x=20+gap*k+gap/2-10,act=k===i;
+      s+=`<circle cx="${x}" cy="46" r="${act?28:22}" fill="${k<=i?"var(--teal-soft)":"var(--surface)"}" stroke="${act?"var(--force)":"var(--line)"}" stroke-width="${act?4:2}"/><text x="${x}" y="51" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)" font-family="Lexend">${k+1}</text><text x="${x}" y="98" text-anchor="middle" font-size="11" fill="var(--ink)" font-family="Lexend">${e.split(" (")[0]}</text>`;
+      if(k<n-1)s+=arrowPath(x+30,46,x+gap-32,46,"var(--muted)",2)});
+    if(i===n-1)s+=`<path d="M${20+gap*(n-1)+gap/2-10} 16q-${gap*(n-1)/2} -22 -${gap*(n-1)} 2" fill="none" stroke="var(--force)" stroke-dasharray="4 4"/>`;
+    $("#bS",el).innerHTML=s;
+    $("#bR",el).innerHTML=`<span class="pill accp">${d.t}</span><span class="pill okp">${i+1}. evre: ${d.e[i]}</span>`;
+    $("#bX",el).innerHTML=d.x[i]+(i===n-1?" <b>Döngü yeniden başlar:</b> ergin canlı yumurta bırakır.":"");
+    $$("#bH button",el).forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===h));
+  }
+  $$("#bH button",el).forEach(b=>b.onclick=()=>{h=b.dataset.k;i=0;draw()});
+  $("#bN",el).onclick=()=>{i=(i+1)%BK[h].e.length;draw()};draw();
+};
+
+/* Sinir sistemi (FB.6.3.6) */
+const SN={
+ beyin:{n:"Beyin",c:"var(--force)",x:"Düşünme, öğrenme, hatırlama, konuşma ve istemli hareketleri yönetir. Duyu organlarından gelen bilgileri yorumlar: gördüğünü, duyduğunu anlamlandırır."},
+ beyincik:{n:"Beyincik",c:"var(--amber)",x:"Vücudun dengesini sağlar, hareketlerin uyumlu ve düzenli olmasını sağlar. Bisiklet sürerken düşmemen ve topu ayağınla kontrol etmen onun işidir."},
+ sogan:{n:"Omurilik soğanı",c:"var(--disp)",x:"Kalp atışı, solunum, yutkunma, öksürme, hapşırma ve göz kırpma gibi elimizde olmadan (istemsiz) yapılan hayati olayları yönetir."},
+ omurilik:{n:"Omurilik",c:"var(--ok)",x:"Omurganın içinde korunur. Beyin ile vücut arasında bilgi taşır ve ani tehlikelerde refleksleri yönetir."},
+ cevre:{n:"Çevresel sinir sistemi",c:"var(--teal)",x:"Beyin ve omurilikten çıkıp bütün vücuda dağılan sinirlerdir. Duyu organlarından gelen bilgiyi merkeze, merkezin emirlerini kaslara taşır."}
+};
+const SNQ=[["Matematik problemini çözüyorsun.","beyin"],["İp üzerinde dengede yürüyorsun.","beyincik"],["Uyurken bile kalbin atmaya devam ediyor.","sogan"],["Elin sıcak ocağa değince hemen çekiyorsun.","omurilik"],["Ayağına batan diken bilgisi beyne ulaşıyor.","cevre"],["Burnuna toz kaçınca hapşırıyorsun.","sogan"],["Arkadaşının adını hatırlıyorsun.","beyin"],["Kaykayla dönerken düşmemek için vücudunu dengeliyorsun.","beyincik"]];
+W.sinir=el=>{
+  let cur="beyin",qi=-1;
+  el.innerHTML=`<div class="ctrls"><span class="seg" id="snB">${Object.keys(SN).map(k=>`<button data-k="${k}">${SN[k].n}</button>`).join("")}</span></div>
+  <div class="svgbox"><svg viewBox="0 0 360 260" id="snS" role="img" aria-label="Sinir sistemi"></svg></div><div class="say" id="snX"></div>
+  <div class="ctrls"><button class="btn" id="snQ">Görev avı: Bu işi kim yapar?</button></div><div class="readout" id="snR"></div>`;
+  function draw(){
+    const on=k=>cur===k?1:.3;let s=gridBg(360,260);
+    s+=`<path d="M70 120q-10-90 80-96q80-2 90 70q4 40-20 60l-4 30h-60l-10-20q-60 4-76-44z" fill="var(--surface)" stroke="var(--line)" stroke-width="2"/>`;
+    s+=`<g opacity="${on("beyin")}"><path d="M86 104q-4-64 66-68q66 0 72 54q-10 26-50 26q-50 4-88-12z" fill="var(--force)"/><path d="M110 70q20 8 40-2M150 90q20-10 46 0M118 96q10-10 24-2" stroke="var(--paper)" stroke-width="2" fill="none" opacity=".7"/></g>`;
+    s+=`<g opacity="${on("beyincik")}"><ellipse cx="200" cy="128" rx="24" ry="14" fill="var(--amber)"/><path d="M182 126h36M184 133h32" stroke="var(--paper)" stroke-width="1.5"/></g>`;
+    s+=`<g opacity="${on("sogan")}"><rect x="166" y="120" width="16" height="30" rx="7" fill="var(--disp)"/></g>`;
+    s+=`<g opacity="${on("omurilik")}"><rect x="168" y="150" width="12" height="104" rx="5" fill="var(--ok)"/></g>`;
+    s+=`<g opacity="${on("cevre")}" stroke="var(--teal)" stroke-width="2.4" fill="none"><path d="M174 170q-40 6-80 40M174 196q-50 10-90 50M174 220q40 0 80 30M174 182q50-6 100 20M130 70q-40-20-70-10"/></g>`;
+    const L=(x,y,tx,ty,t,k)=>`<g opacity="${on(k)}"><line x1="${x}" y1="${y}" x2="${tx}" y2="${ty}" stroke="var(--ink)"/><text x="${tx+(tx>180?4:-4)}" y="${ty+4}" text-anchor="${tx>180?"start":"end"}" font-size="11" fill="var(--ink)" font-family="Lexend">${t}</text></g>`;
+    s+=L(150,56,60,24,"Beyin","beyin")+L(218,128,290,120,"Beyincik","beyincik")+L(174,140,100,150,"Omurilik soğanı","sogan")+L(180,220,290,230,"Omurilik","omurilik")+L(94,210,60,200,"Sinirler","cevre");
+    s+=`<text x="300" y="30" text-anchor="middle" font-size="10.5" fill="var(--muted)" font-family="Lexend">Merkezî: beyin, beyincik,</text><text x="300" y="44" text-anchor="middle" font-size="10.5" fill="var(--muted)" font-family="Lexend">omurilik soğanı, omurilik</text>`;
+    $("#snS",el).innerHTML=s;$("#snX",el).innerHTML=`<b>${SN[cur].n}:</b> ${SN[cur].x}`;
+    $$("#snB button",el).forEach(b=>b.setAttribute("aria-pressed",b.dataset.k===cur));
+  }
+  $$("#snB button",el).forEach(b=>b.onclick=()=>{cur=b.dataset.k;draw();
+    if(qi>=0){const ok=SNQ[qi][1]===cur;$("#snR",el).innerHTML=`<span class="pill ${ok?"okp":"badp"}">${ok?"Doğru!":"Tekrar dene"}</span> ${SNQ[qi][0]}`;if(ok)qi=-1}});
+  $("#snQ",el).onclick=()=>{qi=Math.floor(Math.random()*SNQ.length);$("#snR",el).innerHTML=`<span class="pill accp">Görev</span> ${SNQ[qi][0]} <b>Yukarıdan doğru bölümü seç.</b>`};
+  draw();
+};
+
+/* İç salgı bezleri (FB.6.3.7) */
+const BZ={
+ hipofiz:{n:"Hipofiz bezi",y:"Beynin alt kısmı",h:"Büyüme hormonu",x:"Kemik ve kasların büyümesini sağlar. Diğer bezleri de yönettiği için <b>“ailenin büyüğü / orkestra şefi”</b> gibidir.",cx:180,cy:52},
+ tiroit:{n:"Tiroit bezi",y:"Boyunda, gırtlağın önünde",h:"Tiroksin",x:"Vücudun enerji kullanımını (metabolizma hızını) ve büyümeyi düzenler. Vücudun <b>“kaloriferi”</b> gibidir.",cx:180,cy:96},
+ bobrek:{n:"Böbrek üstü bezi",y:"Böbreklerin üzerinde",h:"Adrenalin",x:"Korku, heyecan ve tehlike anında salgılanır. Kalp hızlanır, nefes sıklaşır; vücut kaçmaya ya da savunmaya hazırlanır.",cx:206,cy:178},
+ pankreas:{n:"Pankreas",y:"Midenin arka-alt kısmı",h:"İnsülin ve glukagon",x:"<b>İnsülin</b> kandaki şekeri düşürür, <b>glukagon</b> yükseltir. İkisi birlikte kan şekerini dengede tutar; terazinin iki kefesi gibi.",cx:166,cy:194},
+ esey:{n:"Eşeysel bezler",y:"Kadında yumurtalıklar, erkekte testisler",h:"Eşeysel hormonlar",x:"Ergenlik döneminde salgıları artar; ergenlikteki bedensel değişimleri başlatır ve üreme hücrelerinin oluşumunu sağlar.",cx:180,cy:248}
+};
+W.bez=el=>{
+  let cur="hipofiz";
+  el.innerHTML=`<div class="ctrls"><span class="seg" id="bzB">${Object.keys(BZ).map(k=>`<button data-k="${k}">${BZ[k].n}</button>`).join("")}</span></div>
+  <div class="svgbox"><svg viewBox="0 0 360 290" id="bzS" role="img" aria-label="İç salgı bezlerinin vücuttaki yerleri"></svg></div><div class="readout" id="bzR"></div><div class="say" id="bzX"></div>`;
+  function draw(){
+    let s=gridBg(360,290);
+    s+=`<g fill="var(--surface)" stroke="var(--line)" stroke-width="2"><circle cx="180" cy="46" r="30"/><rect x="170" y="74" width="20" height="20"/><path d="M128 100q52-12 104 0l8 120q-60 30-120 0z"/><path d="M128 104l-34 100M232 104l34 100" stroke-width="16" stroke-linecap="round"/><path d="M150 220l-6 64M210 220l6 64" stroke-width="20" stroke-linecap="round"/></g>`;
+    s+=`<g opacity=".35" fill="var(--muted)"><ellipse cx="156" cy="176" rx="7" ry="11"/><ellipse cx="204" cy="176" rx="7" ry="11"/></g>`;
+    Object.keys(BZ).forEach(k=>{const b=BZ[k],a=k===cur;
+      if(k==="bobrek")s+=`<g fill="${a?"var(--force)":"var(--amber)"}"><path d="M150 166q6-8 12 0z"/><path d="M198 166q6-8 12 0z"/></g>`;
+      s+=`<circle cx="${b.cx}" cy="${b.cy}" r="${a?9:6}" fill="${a?"var(--force)":"var(--amber)"}" stroke="var(--paper)" stroke-width="2" data-k="${k}" style="cursor:pointer"/>`});
+    const b=BZ[cur];s+=`<line x1="${b.cx+10}" y1="${b.cy}" x2="270" y2="${b.cy}" stroke="var(--force)"/><text x="274" y="${b.cy+4}" font-size="11.5" font-weight="700" fill="var(--force)" font-family="Lexend">${b.n}</text>`;
+    $("#bzS",el).innerHTML=s;
+    $("#bzR",el).innerHTML=`<span class="pill accp">Yeri: ${b.y}</span><span class="pill okp">Hormon: ${b.h}</span>`;
+    $("#bzX",el).innerHTML=b.x;
+    $$("#bzB button",el).forEach(x=>x.setAttribute("aria-pressed",x.dataset.k===cur));
+    $$("#bzS circle[data-k]",el).forEach(c=>c.onclick=()=>{cur=c.dataset.k;draw()});
+  }
+  $$("#bzB button",el).forEach(b=>b.onclick=()=>{cur=b.dataset.k;draw()});draw();
+};
