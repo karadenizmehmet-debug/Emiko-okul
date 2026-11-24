@@ -123,7 +123,11 @@ function yaziliBar(Y){return `<div class="pdfbar ornek"><svg width="44" height="
 function hapBar(H){return `<div class="pdfbar hap"><svg width="44" height="54" viewBox="0 0 44 54" aria-hidden="true"><rect x="2" y="2" width="40" height="50" rx="4" fill="#fff6d6" stroke="#b8860b" stroke-width="3"/><path d="M10 14h24M10 22h16" stroke="#8a6200" stroke-width="3" stroke-linecap="round"/><path d="M10 31l4 4 7-8M10 43l4 4 7-8" fill="none" stroke="#1f8a5a" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(0 -4)"/><path d="M26 31h9M26 43h9" stroke="#5a6a86" stroke-width="2.4" stroke-linecap="round" transform="translate(0 -4)"/></svg>
   <div class="pt"><b>Hap notlar ve ipuçları</b><span>Bu dersin bütün temalarının hap notları, ipuçları ve dikkat edilecek tuzakları. Yeni tema eklendikçe güncellenir. A4 PDF.</span><span class="pmsg" id="hapMsg"></span></div>
   <button class="btn" id="hapBtn">Hap notu indir</button></div>`}
-function wirePdf(T){wireDl(T.pdf,T.pdfAd,"pdfBtn","pdfMsg");if(T.ornek)wireDl(T.ornek.pdf,T.ornek.ad,"obBtn","obMsg");if(T.yaziliPdf)wireDl(T.yaziliPdf.pdf+"?v="+SURUM,T.yaziliPdf.ad,"ypBtn","ypMsg");const H=curD().hap;if(H)wireDl(H.pdf+"?v="+SURUM,H.ad,"hapBtn","hapMsg")}
+function expressBar(E){return `<div class="pdfbar express"><svg width="44" height="54" viewBox="0 0 44 54" aria-hidden="true"><rect x="2" y="2" width="40" height="50" rx="6" fill="#e4572e"/><path d="M25 8 11 30h9l-3 16 15-22h-9z" fill="#fff" stroke="#1f2a3a" stroke-width="1.6" stroke-linejoin="round"/></svg>
+  <div class="pt"><b>⚡ ${E.baslik||"Express"}</b><span>${E.acik}</span>${E.kaz?`<span class="kaz">${E.kaz.map(k=>`<i>${k}</i>`).join("")}</span>`:""}<span class="pmsg" id="exMsg"></span></div>
+  <button class="btn" id="exBtn">Express notu indir</button></div>`}
+function wireExpress(){const E=curD().express;if(E)wireDl(E.pdf+"?v="+SURUM,E.ad,"exBtn","exMsg")}
+function wirePdf(T){wireDl(T.pdf,T.pdfAd,"pdfBtn","pdfMsg");if(T.ornek)wireDl(T.ornek.pdf,T.ornek.ad,"obBtn","obMsg");if(T.yaziliPdf)wireDl(T.yaziliPdf.pdf+"?v="+SURUM,T.yaziliPdf.ad,"ypBtn","ypMsg");const H=curD().hap;if(H)wireDl(H.pdf+"?v="+SURUM,H.ad,"hapBtn","hapMsg");wireExpress()}
 function wireDl(url,name,bid,mid){const b=$("#"+bid),m=$("#"+mid);if(!b)return;
   b.onclick=async()=>{const dl=await dlP;
     if(!dl){const a=document.createElement("a");a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();m.textContent="İndirme başladı.";return}b.disabled=true;const old=b.textContent;b.textContent="Hazırlanıyor…";m.textContent="";
@@ -146,7 +150,7 @@ function renderKonu(){
   const p=P[i],last=i===P.length-1;
   const firstOf=si=>P.findIndex(x=>x.sec===si);
   const T=curD().temas.find(t=>t.id===state.t);
-  view.innerHTML=`${T.pdf?pdfBar(T):""}${curD().hap?hapBar(curD().hap):""}${T.ornek?ornekBar(T.ornek):""}${T.yaziliPdf?yaziliBar(T.yaziliPdf):""}<div class="konu"><nav class="toc" aria-label="İçindekiler"><span class="lbl">İçindekiler</span>${secs.map((s,si)=>`<button class="tocb ${si===p.sec?"on":""} ${si<p.sec?"seen":""}" data-s="${si}"><span class="tn">${si<p.sec?"✓":si+1}</span><span>${s.nav}</span></button>`).join("")}</nav>
+  view.innerHTML=`${curD().express?expressBar(curD().express):""}${T.pdf?pdfBar(T):""}${curD().hap?hapBar(curD().hap):""}${T.ornek?ornekBar(T.ornek):""}${T.yaziliPdf?yaziliBar(T.yaziliPdf):""}<div class="konu"><nav class="toc" aria-label="İçindekiler"><span class="lbl">İçindekiler</span>${secs.map((s,si)=>`<button class="tocb ${si===p.sec?"on":""} ${si<p.sec?"seen":""}" data-s="${si}"><span class="tn">${si<p.sec?"✓":si+1}</span><span>${s.nav}</span></button>`).join("")}</nav>
   <div class="pagecol">
    <section class="sec">${p.html}${p.parts>1?`<p class="partnote">${p.nav}: sayfa ${p.part+1} / ${p.parts}</p>`:""}</section>
    ${last?`<div class="sec" style="align-items:flex-start"><div class="eyebrow">Sıra sende</div><h2>Öğrendiklerini pekiştir</h2><p>${sN(STATIONS[0])}, Test, Eşleştirme ve diğer istasyonlarda kendini dene.</p><button class="btn" id="goIst">Pekiştirme istasyonuna git</button></div>`:""}
@@ -171,13 +175,13 @@ document.addEventListener("keydown",e=>{
 function stationCount(id){const d=curD().q[state.t];if(id==="yazili")return d.yazili.length;if(id==="visual")return d.visual.length;if(id==="match")return d.match.reduce((a,s)=>a+s.p.length,0);if(id==="fill")return d.fill.items.length;if(id==="sira")return d.sira.length;return d[id].length}
 function renderStations(){
   const stations=stationsFor(curD(),state.t);const total=stations.reduce((a,s)=>{const b=getBest(state.t,s.id);return a+(b?starsFor(b.s/b.n):0)},0);
-  view.innerHTML=`<div class="ist-head"><h2>Pekiştirme İstasyonu</h2><p>${curD().temas.find(t=>t.id===state.t).ozet} üzerine ${stations.length} farklı istasyon. Her istasyonda en iyi sonucun yıldız olarak kaydedilir.</p></div>
+  view.innerHTML=`${curD().express?expressBar(curD().express):""}<div class="ist-head"><h2>Pekiştirme İstasyonu</h2><p>${curD().temas.find(t=>t.id===state.t).ozet} üzerine ${stations.length} farklı istasyon. Her istasyonda en iyi sonucun yıldız olarak kaydedilir.</p></div>
   <div class="score-strip"><span class="pill accp">Toplam yıldız: ${total} / ${stations.length*3}</span></div>
   <div class="stations">${stations.map((s,i)=>{const b=getBest(state.t,s.id);const n=stationCount(s.id);
     const meta=`<div class="meta"><span>${n} ${s.id==="match"?"eşleşme":s.id==="sira"?"görev":s.id==="det"?"vaka":s.id==="visual"?"görsel soru":s.id==="yazili"?"soru":"soru"}</span><span class="stars">${starStr(b?starsFor(b.s/b.n):0)}</span></div>`;
     return i===0?`<button class="scard feat" data-s="${s.id}"><span class="ic">${s.ic}</span><span class="tx"><h3>${sN(s)}</h3><p>${s.desc}</p>${meta}</span></button>`
     :`<button class="scard" data-s="${s.id}"><span class="ic">${s.ic}</span><h3>${sN(s)}</h3><p>${s.desc}</p>${meta}</button>`}).join("")}</div>`;
-  $$(".scard").forEach(c=>c.onclick=()=>{state.st=c.dataset.s;render();window.scrollTo({top:0})});
+  $$(".scard").forEach(c=>c.onclick=()=>{state.st=c.dataset.s;render();window.scrollTo({top:0})});wireExpress();
 }
 function renderStation(id){
   const s=STATIONS.find(x=>x.id===id);

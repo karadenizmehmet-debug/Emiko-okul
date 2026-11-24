@@ -324,3 +324,9 @@ b .ab,.ab b{font-weight:700}
 .tbl.sm table{min-width:0}
 .tbl.sm td,.tbl.sm th{padding:8px 10px}
 .tbl.sm .ab{font-size:1.2em}
+/* Express (deneme hazırlık) bölümü */
+.pdfbar.express{border-left-color:#e4572e;background:linear-gradient(100deg,rgba(228,87,46,.12),rgba(246,196,69,.10) 60%,var(--surface))}
+.pdfbar.express .pt b{color:#e4572e}
+.pdfbar.express .kaz{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.pdfbar.express .kaz i{font-style:normal;font-size:.74rem;font-weight:600;color:#e4572e;border:1px solid rgba(228,87,46,.45);border-radius:20px;padding:1px 8px}
+.pdfbar.express .btn{background:#e4572e;border-color:#e4572e;color:#fff}

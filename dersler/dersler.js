@@ -7,13 +7,16 @@
      doldur; dersin etkileşimli parçaları varsa parcalar:true yap.
    - Her güncellemede SURUM'u değiştir (tarayıcı önbelleğini temizler).
    ===================================================================== */
-const SURUM = "2026-11-23-v1.5";
-const VERSIYON = "v1.5";   // görünen sürüm: düzeltme +0.0.1, yeni tema/ders +0.1
+const SURUM = "2026-11-24-v1.6";
+const VERSIYON = "v1.6";   // görünen sürüm: düzeltme +0.0.1, yeni tema/ders +0.1
 
 const DERSLER = [
 {id:"fen",ad:"Fen Bilimleri",kisa:"Fen",renk:"var(--amber)",acik:"Güneş sistemi, tutulmalar, kuvvet ve hareket, canlılarda üreme, sinir ve iç salgı sistemi.",
  parcalar:true, temalar:["t1","t2","t3"],
- hap:{pdf:"pdf/fen-hap.pdf",ad:"Fen6_Hap_Notlar_ve_Ipuclari.pdf"}},
+ hap:{pdf:"pdf/fen-hap.pdf",ad:"Fen6_Hap_Notlar_ve_Ipuclari.pdf"},
+ express:{pdf:"pdf/fen-express.pdf",ad:"Fen6_Express_Deneme_Hazirlik.pdf",baslik:"Fen Express · deneme sınavına hazırlık",
+  acik:"Denemedeki kazanımlara göre 11 sayfa A4 ders notu: bol örnek, vurucu ipuçları, tuzaklar; üreme konusu ekstra örnekli. Sonda 15 soruluk mini deneme ve cevap anahtarı.",
+  kaz:["FB.6.1.1","FB.6.1.3","FB.6.2.1.1","FB.6.2.1","FB.6.2.2","FB.6.2.3","FB.6.3.1","FB.6.3.2"]}},
 {id:"tr",ad:"Türkçe",kisa:"Tr",renk:"var(--d-tr)",detAd:"Dil Dedektifi",acik:"Bağlamdan anlam, yüzey anlam, söz varlığı, yazıyı zenginleştirme, yazım ve noktalama.",
  parcalar:true, temalar:["t1"],
  hap:{pdf:"pdf/tr-hap.pdf",ad:"Turkce6_Hap_Notlar_ve_Ipuclari.pdf"}},
