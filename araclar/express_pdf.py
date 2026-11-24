@@ -21,7 +21,7 @@ CSS = """
 @page{size:A4;margin:11mm 11mm 13mm;@bottom-left{content:"Mehmet Karadeniz, 2026-2027 · Ders Rotası 6";font-family:'Fira Sans';font-size:7.4pt;color:#7b8798}@bottom-right{content:"⚡ FEN EXPRESS · Sayfa " counter(page) " / " counter(pages);font-family:'Fira Sans';font-size:7.4pt;color:#e4572e}}
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-body{font-family:"Fira Sans","DejaVu Sans",sans-serif;font-size:9.9pt;line-height:1.36;color:#1f2a3a}
+body{font-family:"Fira Sans","DejaVu Sans",sans-serif;font-size:calc(9.9pt * var(--o,1));line-height:1.36;color:#1f2a3a}
 b{font-weight:600;color:#0f1b2d}
 .ayak{position:fixed;bottom:-8mm;left:0;right:0;display:flex;justify-content:space-between;font-size:7.4pt;color:#7b8798;border-top:1px solid #dfe4ec;padding-top:1.2mm}
 .ayak i{font-style:normal;color:#e4572e;font-weight:600}
@@ -49,6 +49,7 @@ ul.m li::before{content:"";position:absolute;left:.6mm;top:.5em;width:1.8mm;heig
 .uc{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2.6mm;margin:1.6mm 0}
 .dort{display:grid;grid-template-columns:repeat(4,1fr);gap:2.4mm;margin:1.6mm 0}
 .k{border:1.3px solid #d5dce7;border-radius:10px;padding:2.4mm 3mm;break-inside:avoid;background:#fff}
+ul.m li{break-inside:avoid}
 .k h4{font-size:9.6pt;margin-bottom:.8mm;color:var(--bc,#2f6fd6);font-weight:700}
 /* kutular */
 .vurucu,.tuzak,.ornek,.dene,.formul{border-radius:10px;padding:2.4mm 3.2mm 2.4mm 11mm;margin:1.8mm 0;position:relative;break-inside:avoid}
@@ -66,7 +67,8 @@ ul.m li::before{content:"";position:absolute;left:.6mm;top:.5em;width:1.8mm;heig
 .hand{font-family:KL,"Fira Sans",sans-serif;font-weight:700}
 .ezber{font-family:KL,"Fira Sans",sans-serif;font-weight:700;font-size:11pt;text-align:center;color:#c2417a;background:#fff;border:1.6px dashed #c2417a;border-radius:10px;padding:1.8mm 3mm;margin:2mm 0;break-inside:avoid}
 /* tablo */
-table{width:100%%;border-collapse:separate;border-spacing:0;font-size:9.2pt;margin:1.6mm 0;border:1.3px solid #d5dce7;border-radius:10px;overflow:hidden;break-inside:avoid}
+table{width:100%%;border-collapse:separate;border-spacing:0;font-size:calc(9.2pt * var(--o,1));margin:1.6mm 0;border:1.3px solid #d5dce7;border-radius:10px;overflow:hidden;break-inside:auto}
+tr{break-inside:avoid}thead{display:table-header-group}
 th{background:var(--bz,#e6efff);color:#0f1b2d;font-weight:700;text-align:left;padding:1.3mm 2mm;font-size:8.8pt}
 td{padding:1.2mm 2mm;border-top:1px solid #e6eaf1;vertical-align:top}
 tr:nth-child(even) td{background:#fafbfd}
@@ -97,7 +99,7 @@ def ul(*m):
     return '<ul class="m">' + "".join(f"<li>{x}</li>" for x in m) + "</ul>"
 
 def tablo(bas, satirlar, cls=""):
-    return (f'<table class="{cls}"><tr>' + "".join(f"<th>{b}</th>" for b in bas) + "</tr>"
+    return (f'<table class="{cls}"><thead><tr>' + "".join(f"<th>{b}</th>" for b in bas) + "</tr></thead>"
             + "".join("<tr>" + "".join(f"<td>{c}</td>" for c in s) + "</tr>" for s in satirlar) + "</table>")
 
 # ------------------------------------------------------------------ ÇİZİMLER
@@ -534,13 +536,32 @@ SORULAR = [
     ("Çiçekte döllenmeden sonra yumurtalık neye dönüşür?", ["Tohum", "Meyve", "Taç yaprak", "Çiçek tozu"], 1),
 ]
 
+DY = [
+    ("Eşeysiz üremede yavrular atasının kalıtsal olarak aynısıdır.", "D"),
+    ("Tavuk yumurtladığı için eşeysiz ürer.", "Y"),
+    ("Bira mayası tomurcuklanarak ürer.", "D"),
+    ("Kertenkelenin kopan kuyruğunu yenilemesi rejenerasyonla üremedir.", "Y"),
+    ("Patatesin gözlerinden yeni bitki oluşması vejetatif üremedir.", "D"),
+    ("Bölünmeyle üreyen amipte ata canlı, yavrusundan ayrı yaşamaya devam eder.", "Y"),
+    ("Eşeyli üremede kalıtsal çeşitlilik vardır.", "D"),
+    ("Tozlaşma, çiçek tozunun başçıktan tepeciğe taşınmasıdır.", "D"),
+    ("Döllenmeden sonra yumurtalık tohuma dönüşür.", "Y"),
+    ("Tohumların çimlenmesi için ışık şarttır.", "Y"),
+    ("Eğrelti otu sporla çoğalır.", "D"),
+    ("Çilek hem tohumla hem de sürünücü gövdesiyle çoğalabilir.", "D"),
+]
+
+def dy_tur():
+    return ('<h3>Üreme hızlı tur: Doğru mu, yanlış mı? (D / Y)</h3>'
+            + tablo(["#", "İfade", "D / Y"], [[str(i + 1), q, "☐ D &nbsp; ☐ Y"] for i, (q, _) in enumerate(DY)]))
+
 def deneme():
     s = (bolum("turuncu", "MİNİ DENEME", "15 soruda kendini ölç", "Süre: 20 dakika")
          + '<div class="turuncu"><p>Soru sırası denemedeki kazanım sırasına benzer. Önce çöz, sonra cevap anahtarına bak. Yanlış yaptığın sorunun bölümüne geri dön.</p><div class="sorular">')
     for q, o, _ in SORULAR:
         tek = " tek" if max(len(x) for x in o) > 34 else ""
         s += f'<div class="soru"><b>{q}</b><div class="sec{tek}">' + "".join(f"<span>{'ABCD'[i]}) {x}</span>" for i, x in enumerate(o)) + "</div></div>"
-    s += "</div></div>"
+    s += "</div>" + dy_tur() + "</div>"
     ac = ["Merkür en yakın, halkasız ve uydusuz.", "Halka + uydu = gazsal dörtlü.", "Kalın atmosfer sera etkisi yapar.", "“M-V uydusuz.”",
           "Ay tutulması: G–D–A, dolunay, Dünya'nın gölgesi Ay'a.", "Eğik yörünge yüzünden üçü her ay aynı hizaya gelmez.",
           "Düşey doğrultu sabit, yön yukarı → aşağı.", "Sağa 35+5=40, sola 20 → 40−20 = 20 N sağa.", "Sabit sürat + düz iniş = dengelenmiş.",
@@ -548,6 +569,7 @@ def deneme():
           "Döllenme eşeyli üremede olur.", "Kertenkele yalnızca onarır, yeni birey oluşmaz.", "Yumurtalık → meyve, yumurta hücresi → tohum."]
     s += '<h3>Cevap anahtarı</h3><div class="cevap">' + "".join(
         f"<p><b>{i + 1}-{'ABCD'[c]}</b> · {ac[i]}</p>" for i, (_, _, c) in enumerate(SORULAR)) + "</div>"
+    s += '<p><b>Hızlı tur (D/Y):</b> ' + " · ".join(f"{i + 1}-{c}" for i, (_, c) in enumerate(DY)) + "</p>"
     s += ('<h3>Kendini dene cevapları</h3><div class="cevap">'
           "<p><b>Gezegenler A)</b> Gazsal yapı, halka, çok uydu, büyük olma (ikisi yeter). <b>B)</b> Dünya ve Mars.</p>"
           "<p><b>Tutulma A)</b> Güneş tutulması: Güneş – Ay – Dünya. <b>B)</b> Ay'ın yörüngesi eğik; Ay çoğu dolunayda Dünya'nın gölgesinin üstünden ya da altından geçer.</p>"
@@ -567,8 +589,8 @@ def govde():
     return (kapak() + gezegenler() + tutulmalar() + kuvvet() + denge_surat() + ureme() + bitki() + deneme()
 )
 
-def yaz(cikti, baslik):
-    doc = (f'<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="author" content="{YAZAR}"><title>{baslik}</title>'
+def yaz(cikti, baslik, o=1.0):
+    doc = (f'<!doctype html><html lang="tr" style="--o:{o}"><head><meta charset="utf-8"><meta name="author" content="{YAZAR}"><title>{baslik}</title>'
            f'<style>{CSS % {"f": FONT.as_uri()}}</style></head><body>{govde()}</body></html>')
     with tempfile.TemporaryDirectory() as tmp:
         h = Path(tmp) / "express.html"; h.write_text(doc, encoding="utf-8")
@@ -576,11 +598,35 @@ def yaz(cikti, baslik):
                         f"--print-to-pdf={cikti}", h.as_uri()], check=True, capture_output=True)
         return h.read_text(encoding="utf-8")
 
+def bosluklar(pdf):
+    """Her sayfanın altındaki boş alanın oranı (0-1)."""
+    from PIL import Image
+    with tempfile.TemporaryDirectory() as t:
+        subprocess.run(["pdftoppm", "-r", "24", "-png", str(pdf), f"{t}/b"], check=True)
+        out = []
+        for f in sorted(Path(t).glob("b-*.png")):
+            im = Image.open(f).convert("L"); w, h = im.size; px = im.load(); son = 0; alt = int(h * .94)
+            for y in range(alt):
+                if any(px[x, y] < 235 for x in range(0, w, 2)): son = y
+            out.append((alt - son) / h)
+        return out
+
+def en_iyi_olcek(ham):
+    """Yazı ölçeğini dener; ara sayfalarda en büyük boşluğu en aza indiren ölçeği seçer."""
+    en = None
+    for o in [0.96, 0.98, 1.0, 1.02, 1.04, 1.06, 1.08]:
+        yaz(ham, "deneme", o); b = bosluklar(ham)
+        puan = max(b[:-1]) * 3 + b[-1]
+        print(f"  ölçek {o}: {len(b)} sayfa, en büyük ara boşluk %{round(100 * max(b[:-1]))}, son sayfa %{round(100 * b[-1])}")
+        if en is None or puan < en[0]: en = (puan, o)
+    return en[1]
+
 if __name__ == "__main__":
     if not CHROME: sys.exit("google-chrome bulunamadı")
     cikti = KOK / "pdf" / "fen-express.pdf"; ham = cikti.with_suffix(".tmp.pdf")
     baslik = "Fen Bilimleri 6 · EXPRESS · Deneme Sınavına Hazırlık Ders Notu"
-    yaz(ham, baslik)
+    o = en_iyi_olcek(ham); print(f"seçilen ölçek: {o}")
+    yaz(ham, baslik, o)
     from pypdf import PdfReader, PdfWriter
     r = PdfReader(str(ham)); w = PdfWriter()
     for sf in r.pages: w.add_page(sf)
