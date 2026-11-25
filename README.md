@@ -7,6 +7,8 @@ Din Kültürü yakında.
 
 Her tema; sayfa sayfa konu anlatımı, etkileşimli canlandırmalar, kara tahta PDF'i ve yedi istasyon (Dedektif, Doğru-Yanlış, Test, Eşleştirme, Boşluk Doldurma, Sıralama, Klasik) içerir.
 
+Fen, Türkçe, Matematik, Sosyal Bilgiler, İngilizce ve Din Kültürü için deneme sınavı kazanımlarına göre **Express** ders notu / hap not (PDF) vardır.
+
 Her ders için **hap notlar, ipuçları ve tuzaklar** PDF'i de vardır (`pdf/<ders>-hap.pdf`); yeni tema eklenince güncellenir.
 
 Yeni tema/ders ekleme rehberi: [CLAUDE.md](CLAUDE.md)

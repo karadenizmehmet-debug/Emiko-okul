@@ -60,6 +60,11 @@ Hap not = **en can alıcı, olmazsa olmaz** bilgi. Kısa tut. Bir A4 sayfaya **2
 ```
 `tablo` ve `zincir` isteğe bağlıdır (biri ya da ikisi). `ikon`: gunes, kuvvet, carpan, zar, grup, dunya, aile, hira, kalem (yenisi için `araclar/hap_pdf.py` içindeki `IKON` sözlüğüne SVG ekle). İçerik tema dosyasındaki konu anlatımıyla birebir uyumlu olmalı. Çalıştır: `python3 araclar/hap_pdf.py <ders>`. Gereksinim: google-chrome ve pypdf. Yazı tipleri `araclar/fontlar` altında (SIL OFL).
 
+## Express (deneme sınavına hazırlık notu)
+- Fen: `python3 araclar/express_pdf.py` → `pdf/fen-express.pdf`.
+- Diğer dersler (tr, mat, sos, ing, din): içerik `araclar/express_icerik/<ders>.py`, üretim `python3 araclar/express_ders.py <ders>` (ya da `hepsi`) → `pdf/<ders>-express.pdf`. Tasarım Fen Express ile aynıdır (CSS `express_pdf.py` içinden gelir).
+- Uygulamada görünmesi için `dersler/dersler.js` içinde derse `express:{pdf,ad,baslik,acik,kaz}` ekle; `SURUM`/`VERSIYON` değiştir.
+
 ## Test
 `python3 -m http.server` ile kökten aç; ders → tema → tüm konu sayfaları → 7 istasyon konsol hatası vermemeli.
 
